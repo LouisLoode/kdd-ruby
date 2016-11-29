@@ -24,9 +24,8 @@ production:
    encoding: utf8
    reconnect: true
    adapter: mysql2
-   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
    database: <%= ENV['DB_NAME'] %>
    username: <%= ENV['DB_USER'] %>
    password: <%= ENV['DB_PASS'] %>
    host: <%= ENV['DB_HOST'] %>
-   socket: /tmp/mysql.sock
+   port: <%= ENV['DB_PORT'] %>
