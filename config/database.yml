@@ -20,7 +20,7 @@ production:
    encoding: utf8
    reconnect: false
    adapter: mysql2
-   database: library_production
-   username: root
-   password: [password]
-   host: localhost
+   database: <%= ENV['DB_NAME'] %>
+   username: <%= ENV['DB_USER'] %>
+   password: <%= ENV['DB_PASS'] %>
+   host: <%= ENV['DB_HOST'] %>
