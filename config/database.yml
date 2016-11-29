@@ -29,4 +29,3 @@ production:
    password: <%= ENV['DB_PASS'] %>
    host: <%= ENV['DB_HOST'] %>
    port: <%= ENV['DB_PORT'] %>
-   socket: /tmp/mysql.sock
