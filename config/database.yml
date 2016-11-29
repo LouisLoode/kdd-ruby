@@ -2,25 +2,31 @@ development:
    encoding: utf8
    reconnect: false
    adapter: mysql2
+   pool: 5
    database: ruby_devlopment
    username: root
    password:
    host: localhost
+   socket: /tmp/mysql.sock
 
 test:
    encoding: utf8
    reconnect: false
    adapter: mysql2
+   pool: 5
    database: ruby_test
    username: root
    password:
    host: localhost
+   socket:  /tmp/mysql.sock
 
 production:
    encoding: utf8
-   reconnect: false
+   reconnect: true
    adapter: mysql2
+   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
    database: <%= ENV['DB_NAME'] %>
    username: <%= ENV['DB_USER'] %>
    password: <%= ENV['DB_PASS'] %>
    host: <%= ENV['DB_HOST'] %>
+   socket: /tmp/mysql.sock
