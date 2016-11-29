@@ -12,10 +12,14 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+rake db:create
 
 * Database initialization
 
 * How to run the test suite
+
+* How to launch webapp in development mode
+rails server -e development -b 0.0.0.0 -p 3000
 
 * Services (job queues, cache servers, search engines, etc.)
 
