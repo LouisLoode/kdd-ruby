@@ -7,6 +7,7 @@ development:
    username: root
    password:
    host: localhost
+   socket: /tmp/mysql.sock
 
 test:
    encoding: utf8
@@ -17,6 +18,7 @@ test:
    username: root
    password:
    host: localhost
+   socket:  /tmp/mysql.sock
 
 production:
    encoding: utf8
@@ -27,3 +29,4 @@ production:
    username: <%= ENV['DB_USER'] %>
    password: <%= ENV['DB_PASS'] %>
    host: <%= ENV['DB_HOST'] %>
+   socket: /tmp/mysql.sock
