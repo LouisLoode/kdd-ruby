@@ -2,6 +2,7 @@ development:
    encoding: utf8
    reconnect: false
    adapter: mysql2
+   pool: 5
    database: ruby_devlopment
    username: root
    password:
@@ -11,6 +12,7 @@ test:
    encoding: utf8
    reconnect: false
    adapter: mysql2
+   pool: 5
    database: ruby_test
    username: root
    password:
@@ -18,8 +20,9 @@ test:
 
 production:
    encoding: utf8
-   reconnect: false
+   reconnect: true
    adapter: mysql2
+   pool: 5
    database: <%= ENV['DB_NAME'] %>
    username: <%= ENV['DB_USER'] %>
    password: <%= ENV['DB_PASS'] %>
