@@ -1,0 +1,9 @@
+{
+  "name": "kdd-ruby",
+  "description": "",
+  "scripts": {},
+  "env": {},
+  "formation": {},
+  "addons": [],
+  "buildpacks": []
+}
