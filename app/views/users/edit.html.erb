@@ -1,0 +1,7 @@
+<h1>Create a new user!</h1>
+<%= flash[:error] ? "#{flash[:error]} : #{@user.errors.full_messages.join(', ')}" : flash[:success] %>
+<%= form_for @user do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_field :email %>
+    <%= f.submit %>
+<% end %>
