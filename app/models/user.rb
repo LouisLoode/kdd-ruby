@@ -2,10 +2,10 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :timeoutable
   default_scope { where(rank: 0) }
 
-  # validates :name, :email, presence: true
+  validates :name, presence: true
   validates :email, format: { with: /\w*@\w*\.\w*/ }, uniqueness: true, presence: true
 
   has_many :posts

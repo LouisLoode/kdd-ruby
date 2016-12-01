@@ -37,13 +37,14 @@
           margin-left: -80px;
       }
   }
-  .navbar-nav>li>a {
+  .navbar-nav>.user_menu>a {
       padding: 0 15px;
   }
 
 
   footer {
-    background-color: #000000;
+    background-color: #f8f8f8;
+    text-align: center;
     width: 100%;
     position: fixed;
     bottom: 0;
