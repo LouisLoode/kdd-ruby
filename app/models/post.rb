@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+    # @TODO make validations
   validates :title, presence: true, length: {maximum: 100}
   validates :user_id, presence: true
   validates :message, length: {maximum: 250}

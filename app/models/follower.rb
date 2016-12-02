@@ -1,4 +1,5 @@
 class Follower < ApplicationRecord
+    # @TODO make validations
   validates :user_id, presence: true
   belongs_to :user
 
