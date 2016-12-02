@@ -6,7 +6,7 @@ class User < ApplicationRecord
   default_scope { where(rank: 0) }
 
   validates :name, presence: true
-  validates :email, format: { with: /\w*@\w*\.\w*/ }, uniqueness: true, presence: true
+  # validates :email, format: { with: /\w*@\w*\.\w*/ }, uniqueness: true, presence: true
 
   has_many :posts
   has_many :followers
