@@ -10,6 +10,7 @@ class HomeController < ApplicationController
 
   def main
     if !user_signed_in?
+      @user = user
       redirect_to root_path
     end
   end
