@@ -1,34 +1,36 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signup"}) do |f| %>
   <%= devise_error_messages! %>
 
+  <h2 class="form-signup-heading">Please sign in</h2>
+
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.label :name, :class => "sr-only" %><br />
+    <%= f.text_field :name, :class => "form-control", placeholder: "Name", autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
+    <%= f.label :email, :class => "sr-only" %><br />
+    <%= f.email_field :email, :class => "form-control", placeholder: "Email adress" %>
   </div>
 
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password, :class => "sr-only" %>
+    <%= f.password_field :password, :class => "form-control", placeholder: "Password", autocomplete: "off" %>
+    <!--
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <% end %>
+    -->
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.label :password_confirmation, :class => "sr-only" %><br />
+    <%= f.password_field :password_confirmation, :class => "form-control", placeholder: "Password confirmation", autocomplete: "off" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", :class => "btn btn-lg btn-primary btn-block" %>
   </div>
 <% end %>
 

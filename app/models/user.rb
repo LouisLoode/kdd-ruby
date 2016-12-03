@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable
   default_scope { where(rank: 0) }
 
-  validates :name, presence: true
-  validates :email, format: { with: /\w*@\w*\.\w*/ }, uniqueness: true, presence: true
+  # validates :name, presence: true
+  # validates :email, uniqueness: true, presence: true # @TODO REGEX
 
   has_many :posts
   has_many :followers
