@@ -67,7 +67,7 @@ end
 
   # If you have extra params to permit, append them to the sanitizer.
 def configure_account_update_params
-  devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :password_confirmation, :current_passwords])
+  devise_parameter_sanitizer.permit(:account_update, keys: [:name, :avatar, :github, :website, :biography, :email, :password, :password_confirmation, :current_passwords])
 end
 
   # The path used after sign up.

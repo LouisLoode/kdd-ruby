@@ -29,7 +29,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <div class="navbar-brand navbar-brand-centered">Brand</div>
+      <div class="navbar-brand navbar-brand-centered">KamasutraDuDev</div>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,7 +50,11 @@
         <li class="dropdown user_menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.name %> <img src="" height="50px" width="50px" style="background-color: #000000;" /><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
+            <li><%= link_to 'View profile', profil_path %></li>
             <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+            <li class="divider"></li>
+            <li><%= link_to 'Posts', posts_path %></li>
+            <li><%= link_to 'Categories', cats_path %></li>
             <li class="divider"></li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :get %></li>
           </ul>
@@ -81,8 +85,6 @@
         </p>
       </div>
     </footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>

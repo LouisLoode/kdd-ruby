@@ -1,12 +1,12 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.form-signin {
+.form-signin, .form-signup {
     max-width: 330px;
     padding: 15px;
     margin: 0 auto;
 
-    .form-signin-heading, .checkbox {
+    .form-signin-heading, .form-signup-heading, .checkbox {
       margin-bottom: 10px;
     }
     .checkbox {
@@ -22,15 +22,8 @@
       padding: 10px;
       font-size: 16px;
     }
-    input[type="email"] {
-      margin-bottom: -1px;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-    input[type="password"] {
-      margin-bottom: 10px;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+    input[type="submit"] {
+      margin-top: 10px;
     }
 }
 
@@ -112,7 +105,7 @@
   float:right;
   border-radius: 10px;
   margin-top: 1.5%;
-  position: static; 
+  position: static;
   background-color: #f6f6f6;
 
   .poster-une-ressource {
@@ -163,7 +156,7 @@
 
   .tu-ne-trouves-pas-de {
     width: 80%;
-    height: 38px; 
+    height: 38px;
     font-family: Avenir;
     font-size: 14px;
     font-weight: 500;
@@ -255,7 +248,7 @@
     border: solid 1px #d9d9d9;
     border-radius:10px;
   }
-  
+
 }
 
 

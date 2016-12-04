@@ -1,44 +1,48 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-signup"}) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
+    <h2 class="form-signup-heading">Edit your Profil</h2>
 
+
+    <%= f.label :name, :class => "sr-only" %><br />
+    <%= f.text_field :name, :class => "form-control", autofocus: true %>
+
+    <%= f.label :email, :class => "sr-only" %><br />
+    <%= f.email_field :email, :class => "form-control", placeholder: "Email adress" %>
+
+    <%= f.label :avatar, :class => "sr-only" %><br />
+    <%= f.text_field :avatar, :class => "form-control", placeholder: "Avatar" %>
+
+    <%= f.label :github, :class => "sr-only" %><br />
+    <%= f.url_field :github, :class => "form-control", placeholder: "Github adress" %>
+
+    <%= f.label :website, :class => "sr-only" %><br />
+    <%= f.url_field :website, :class => "form-control", placeholder: "Website adress" %>
+
+    <%= f.label :biography, :class => "sr-only" %><br />
+    <%= f.text_area :biography, :class => "form-control", placeholder: "Your biography" %>
+
+  <!-- Ca sert à quoi ça ???? -->
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
-  </div>
 
-  <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
 
-  <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+    <%= f.password_field :current_password, autocomplete: "off", :class => "form-control" %>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+    <%= f.submit "Update", :class => "btn btn-lg btn-primary btn-block" %>
+
 <% end %>
 
 <h3>Cancel my account</h3>
