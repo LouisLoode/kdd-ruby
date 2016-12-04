@@ -41,6 +41,10 @@ ActiveRecord::Schema.define(version: 20161204004335) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
+    t.string   "biography"
+    t.string   "github"
+    t.string   "website"
+    t.string   "avatar"
     t.float    "rank",                   limit: 24
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
