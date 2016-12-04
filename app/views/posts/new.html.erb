@@ -27,6 +27,12 @@
   </p>
 
   <p>
+    <%= f.label :cat_id %><br>
+    <%= f.collection_select :cat_id, Cat.where(public: true), :id, :name,
+                                        :include_blank => "Nothing selected" %>
+  </p>
+
+  <p>
     <%= f.submit %>
   </p>
 

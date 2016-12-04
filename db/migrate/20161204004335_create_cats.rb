@@ -4,7 +4,7 @@ class CreateCats < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :slug
       t.text :description
-      t.boolean :public
+      t.boolean :public, :default => false
       t.integer :parent_id
 
       t.timestamps

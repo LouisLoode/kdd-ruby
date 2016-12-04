@@ -38,7 +38,8 @@
 
   <p>
     <%= f.label :parent_id %><br>
-    <%= f.text_area :parent_id %>
+    <%= f.collection_select :parent_id, Cat.where(public: true), :id, :name,
+                    :include_blank => "Nothing selected" %>
   </p>
 
   <p>

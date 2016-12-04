@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!
+  # before_filer :authenticate_user!, except: [ :index, :show ]
   skip_before_filter :verify_authenticity_token, :only => :create
   prepend_before_filter :verify_authenticity_token, only: [:destroy]
 
@@ -21,7 +23,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
+    @post.user_id = current_user.id #or whatever is you session name
+    # @post.cat_id
     if @post.save
       redirect_to @post
     else
