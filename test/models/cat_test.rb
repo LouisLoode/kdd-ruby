@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PagesControllerTest < ActionDispatch::IntegrationTest
+class CatTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+        registrations: 'users/registrations'
+      }
+
   root 'home#index'
   get 'main', to: 'home#main'
   get 'users', to: 'profil#list'
-  # get 'profil', to: 'pages#profil'
-
-  devise_for :users, :controllers => { registrations: 'users/registrations' }
+  get 'profil', to: 'pages#profil'
   resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :posts do
+    resources :ranks
+    # post 'ranks', to: 'rank#votes'
+  end
+
+  resources :cats
+
 end
