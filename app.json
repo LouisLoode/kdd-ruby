@@ -1,7 +1,9 @@
 {
   "name": "kdd-ruby",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
   "env": {},
   "formation": {},
   "addons": [],

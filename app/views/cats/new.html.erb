@@ -1,0 +1,50 @@
+<h1>New Cat</h1>
+
+<%= form_for :cat, url: cats_path do |f| %>
+
+  <% if @cat.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@cat.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @cat.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :slug %><br>
+    <%= f.text_field :slug %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :public %><br>
+    <%= f.text_area :public %>
+  </p>
+
+  <p>
+    <%= f.label :parent_id %><br>
+    <%= f.collection_select :parent_id, Cat.where(public: true), :id, :name,
+                    :include_blank => "Nothing selected" %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+  <%= link_to 'Back', cats_path %>
+<% end %>
