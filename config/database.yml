@@ -1,3 +1,25 @@
+# development:
+#    encoding: utf8
+#    reconnect: false
+#    adapter: mysql2
+#    pool: 5
+#    database: ruby_devlopment
+#    username: root
+#    password: root
+#    host: localhost
+#    socket: /vtemp/mysqld.sock
+#
+# test:
+#    encoding: utf8
+#    reconnect: false
+#    adapter: mysql2
+#    pool: 5
+#    database: ruby_test
+#    username: root
+#    password: root
+#    host: localhost
+#    socket:  /var/run/mysqld/mysqld.sock
+
 development:
    encoding: utf8
    reconnect: false
@@ -5,9 +27,9 @@ development:
    pool: 5
    database: ruby_devlopment
    username: root
-   password: root
+   password:
    host: localhost
-   socket: /var/run/mysqld/mysqld.sock
+   socket: /tmp/mysql.sock
 
 test:
    encoding: utf8
@@ -16,9 +38,9 @@ test:
    pool: 5
    database: ruby_test
    username: root
-   password: root
+   password:
    host: localhost
-   socket:  /var/run/mysqld/mysqld.sock
+   socket:  /tmp/mysql.sock
 
 production:
    encoding: utf8
