@@ -1,0 +1,31 @@
+development:
+   encoding: utf8
+   reconnect: false
+   adapter: mysql2
+   pool: 5
+   database: ruby_devlopment
+   username: root
+   password: root
+   host: localhost
+   socket: /var/run/mysqld/mysqld.sock
+
+test:
+   encoding: utf8
+   reconnect: false
+   adapter: mysql2
+   pool: 5
+   database: ruby_test
+   username: root
+   password: root
+   host: localhost
+   socket:  /var/run/mysqld/mysqld.sock
+
+production:
+   encoding: utf8
+   reconnect: true
+   adapter: mysql2
+   database: <%= ENV['DB_NAME'] %>
+   username: <%= ENV['DB_USER'] %>
+   password: <%= ENV['DB_PASS'] %>
+   host: <%= ENV['DB_HOST'] %>
+   port: <%= ENV['DB_PORT'] %>
