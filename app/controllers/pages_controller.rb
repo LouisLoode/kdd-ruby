@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
-  def profil
+
+  def main
+    redirect_to pages_main_path
   end
 end

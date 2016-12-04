@@ -5,9 +5,9 @@ development:
    pool: 5
    database: ruby_devlopment
    username: root
-   password:
+   password: root
    host: localhost
-   socket: /tmp/mysql.sock
+   socket: /var/run/mysqld/mysqld.sock
 
 test:
    encoding: utf8
@@ -16,9 +16,9 @@ test:
    pool: 5
    database: ruby_test
    username: root
-   password:
+   password: root
    host: localhost
-   socket:  /tmp/mysql.sock
+   socket:  /var/run/mysqld/mysqld.sock
 
 production:
    encoding: utf8

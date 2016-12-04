@@ -19,10 +19,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def new
   #   super
   # end
+  
   # POST /resource
   # def create
   #   super
   # end
+
   # GET /resource/edit
   # def edit
   #   super
@@ -32,7 +34,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def update
   #   super
   # end
-
+def create
+    @user = User.create(email: params[:user][:email], name: params[:user][:name], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
+    if @user.save # L'objet est enregistré si les validations passent
+      flash[:success] = "User created"
+      redirect_to root_path
+    else # Une validation a échouée
+      flash[:error] = "Something's wrong: "
+      render :new # On affiche à nouveau le formulaire de création
+    end
+  end
   # DELETE /resource
   # def destroy
   #   super
