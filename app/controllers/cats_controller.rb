@@ -9,6 +9,7 @@ def show
 end
 
 def new
+  @catList = Cat.all
   @cat = Cat.new
 end
 
