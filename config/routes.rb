@@ -2,11 +2,12 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'main', to: 'home#main'
   get 'users', to: 'profil#list'
-  # get 'profil', to: 'pages#profil'
+  get 'profil', to: 'pages#profil'
 
-  devise_for :users, :controllers => { registrations: 'users/registrations' }
+  devise_for :users, :controllers => {
+          registrations: 'users/registrations'
+      }
   resources :users
-
 
 
   resources :posts do
