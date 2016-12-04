@@ -1,17 +1,17 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-before_action :configure_sign_up_params, only: [:create]
-before_action :configure_account_update_params, only: [:update]
+# before_action :configure_sign_up_params, only: [:create]
+# before_action :configure_account_update_params, only: [:update]
 
-  # def create
-  #    @user = User.create(email: params[:user][:email], name: params[:user][:name], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
-  #    if @user.save # L'objet est enregistré si les validations passent
-  #      flash[:success] = "User created"
-  #      redirect_to root_path
-  #    else # Une validation a échouée
-  #      flash[:error] = "Something's wrong: "
-  #      render :new # On affiche à nouveau le formulaire de création
-  #    end
-  #  end
+  def create
+     @user = User.create(email: params[:user][:email], name: params[:user][:name], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
+     if @user.save # L'objet est enregistré si les validations passent
+       flash[:success] = "User created"
+       redirect_to root_path
+     else # Une validation a échouée
+       flash[:error] = "Something's wrong: "
+       render :new # On affiche à nouveau le formulaire de création
+     end
+   end
 
 
 
@@ -34,16 +34,16 @@ before_action :configure_account_update_params, only: [:update]
   # def update
   #   super
   # end
-# def create
-#     @user = User.create(email: params[:user][:email], name: params[:user][:name], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
-#     if @user.save # L'objet est enregistré si les validations passent
-#       flash[:success] = "User created"
-#       redirect_to root_path
-#     else # Une validation a échouée
-#       flash[:error] = "Something's wrong: "
-#       render :new # On affiche à nouveau le formulaire de création
-#     end
-#   end
+def create
+    @user = User.create(email: params[:user][:email], name: params[:user][:name], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
+    if @user.save # L'objet est enregistré si les validations passent
+      flash[:success] = "User created"
+      redirect_to root_path
+    else # Une validation a échouée
+      flash[:error] = "Something's wrong: "
+      render :new # On affiche à nouveau le formulaire de création
+    end
+  end
   # DELETE /resource
   # def destroy
   #   super
@@ -58,17 +58,17 @@ before_action :configure_account_update_params, only: [:update]
   #   super
   # end
 
-protected
+  # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-def configure_sign_up_params
-  devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation])
-end
+  # def configure_sign_up_params
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+  # end
 
   # If you have extra params to permit, append them to the sanitizer.
-def configure_account_update_params
-  devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :password_confirmation, :current_passwords])
-end
+  # def configure_account_update_params
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:username])
+  # end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)

@@ -36,7 +36,10 @@
     <%= f.text_area :public %>
   </p>
 
-  <%= f.collection_select(:parent_id, Cat.all, :id, :name) %>
+  <p>
+    <%= f.label :parent_id %><br>
+    <%= f.text_area :parent_id %>
+  </p>
 
   <p>
     <%= f.submit %>
