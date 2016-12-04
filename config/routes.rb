@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'main', to: 'home#main'
+  get 'users', to: 'profil#list'
+  get 'profil', to: 'pages#profil'
+  resources :users
 
   resources :posts do
     resources :ranks
