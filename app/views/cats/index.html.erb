@@ -6,12 +6,14 @@
   <tr>
     <th>Name</th>
     <th>Slug</th>
+    <th>Parent ID</th>
   </tr>
 
   <% @cats.each do |cat| %>
     <tr>
       <td><%= cat.name %></td>
       <td><%= cat.slug %></td>
+      <td><%= cat.parent_id %></td>
       <td><%= link_to 'Show', cat_path(cat) %></td>
       <td><%= link_to 'Edit', edit_cat_path(cat) %></td>
       <td><%= link_to 'Destroy', cat_path(cat),
