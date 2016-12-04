@@ -33,3 +33,260 @@
       border-top-right-radius: 0;
     }
 }
+
+
+
+// CSS PROFIL
+
+.container_profil1 {
+  width:100%;
+  background-color: #ffffff;
+  border: solid 1px #d9d9d9;
+  padding: 20px;
+  float:left;
+  border-radius: 10px;
+  display: block;
+
+  .img_profil {
+    width: 100%;
+    height: 225px;
+
+  }
+
+  .description_profil {
+    width: 100%;
+    height: 133px;
+    font-family: Avenir-Roman;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.36;
+    text-align: left;
+    color: #c5c5c5;
+    margin-top: 15px;
+  }
+}
+
+.container_profil {
+  width: 18.5%;
+  height: 483px;
+  background-color: #ffffff;
+  border: solid 1px #d9d9d9;
+  padding: 20px;
+  float:left;
+  border-radius: 10px;
+  display: block;
+
+  .img_profil {
+    width: 100%;
+    height: 225px;
+  }
+
+  .img_profil img {
+    margin: 0 auto;
+    //background-image: url(asset-path("Profil_picture.png"));
+  }
+
+  .description_profil {
+    width: 100%;
+    height: 133px;
+    font-family: Avenir-Roman;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.36;
+    text-align: left;
+    color: #c5c5c5;
+    margin-top: 15px;
+  }
+}
+
+
+.add_post {
+  width: 23.5%;
+  // width: 100%;
+  // height: 70%;
+  border: solid 1px #d9d9d9;
+  float:right;
+  border-radius: 10px;
+  margin-top: 1.5%;
+  position: static; 
+  background-color: #f6f6f6;
+
+  .poster-une-ressource {
+    width: 75%;
+    font-family: Avenir;
+    font-size: 22px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    text-align: center;
+    color: #bdbdbd;
+  }
+
+  .btn-default {
+    width: 90%;
+    margin: 5%;
+  }
+
+  .form-control1{
+      display: block;
+      width: 90%;
+      height: 34px;
+      margin: 5%;
+      padding: 2%;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555555;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+  }
+
+  .message{
+    height:100px;
+  }
+
+  .ressource{
+    height:40px;
+  }
+
+  .btn{
+    width: 90%;
+    margin: 5%;
+    background-color: #d9d9d9;
+    color:#fff;
+  }
+
+  .tu-ne-trouves-pas-de {
+    width: 80%;
+    height: 38px; 
+    font-family: Avenir;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    color: #c5c5c5;
+    margin-left: 7%;
+  }
+
+
+}
+
+.container_view {
+  width: 100%;
+  height: 100px;
+  border-radius: 10px;
+  background-color: #f6f6f6;
+
+  .shit{
+    width: 100%;
+    margin-top: 20%;
+    text-align: center;
+    font-family: Avenir-Book;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    color:#aaa;
+  }
+
+  .shit-btn{
+    width: 100%;
+    margin-top: 30%;
+    text-align: center;
+    font-family: Avenir-Book;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    color: #fff
+  }
+
+}
+
+.btn-hidden{
+    display:none;
+  }
+
+.flux1 {
+  width: 100%;
+  border: solid 1px #d9d9d9;
+  border-radius: 10px;
+  margin-top: 4.5%;
+
+  .titre-flux{
+    font-family: Avenir;
+    font-size: 16px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    text-align: left;
+    color: #c5c5c5;
+  }
+
+  .soustitre-flux{
+    font-family: Avenir;
+    font-size: 14px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    text-align: left;
+    color: #d5d5d5;
+  }
+
+  .text-flux{
+    width: 100%;
+    font-family: Avenir-Roman;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.36;
+    color: #c5c5c5;
+  }
+
+  .article-flux {
+    width: 100%;
+    height: 326px;
+    border: solid 1px #d9d9d9;
+    border-radius:10px;
+  }
+  
+}
+
+
+@media (max-width: 992px){
+  .col-xs-12 {
+    margin-top:3%;
+  }
+  .col-md-9 {
+    margin-top:3%;
+  }
+
+  .btn-hidden{
+    display: block;
+    margin: 0 auto;
+    border: solid 1px #d9d9d9;
+  }
+
+  .add_post{
+    display: none;
+  }
+
+  .container_profil {
+    display: none;
+  }
+
+}
+
+@media (min-width: 992px){
+
+  .container_profil1 {
+    display: none;
+  }
+
+}

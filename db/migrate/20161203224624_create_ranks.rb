@@ -4,6 +4,7 @@ class CreateRanks < ActiveRecord::Migration[5.0]
       t.integer :note
       t.integer :post_id
       t.integer :user_id
+
       t.timestamps
     end
   end

@@ -4,7 +4,7 @@ class HomeController < ApplicationController
     if user_signed_in?
       redirect_to main_path
     else
-    render :layout => "application"
+      render :layout => false
     end
   end
 
