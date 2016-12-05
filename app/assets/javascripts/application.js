@@ -16,6 +16,6 @@
 //= require_tree .
 
 
-$( "#user_avatar" ).change(() => {
-  console.log (input( $( this ).val() ) );
-});
+// $( "#user_avatar" ).change(() => {
+//   console.log (input( $( this ).val() ) );
+// });
