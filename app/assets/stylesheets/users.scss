@@ -78,7 +78,20 @@
 
   .img_profil img {
     margin: 0 auto;
-    //background-image: url(asset-path("Profil_picture.png"));
+  }
+
+  .name_profil {
+
+  }
+
+  .url_profil ul {
+    padding-left: 0;
+  }
+
+  .url_profil li{
+    display: block;
+    list-style: none;
+    font-size: 10px;
   }
 
   .description_profil {

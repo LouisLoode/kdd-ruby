@@ -4,11 +4,37 @@
   			<div class="container_profil" data-spy="affix" >
 
 	  			<div class="img_profil ">
-	  				<img src="" alt=""> Image de profil </img>
+	  				<img src="
+	  				<% if !@user.avatar.blank? %>
+	  					<%= @user.avatar %>
+	  				<% else %>
+	  					/assets/defaut-avatar.jpg
+	  				<% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="100%" />
+	  			</div>
+
+	  			<div class="name_profil">
+	  				<%= "@" + @user.name %>
+	  			</div>
+
+	  			<div class="url_profil">
+	  			<ul>
+	  				<% if !@user.github.blank? %>
+	  					<li class="fa fa-github github" aria-hidden="true">
+	  						<a href="<%= @user.github %>" title=<%= @user.name + "'s Github" %>><%= @user.github %></a>
+	  					</li>
+	  				<% end %>
+	  				<% if !@user.website.blank? %>	
+	  				<li class="fa fa-globe website" aria-hidden="true">
+	  					<a href="<%= @user.website %>" title=<%= @user.name + "'s Website" %>><%= @user.website %></a>
+	  				</li>
+	  				<% end %>
+	  			</ul>	
+	  		
 	  			</div>
 
 	  			<div class="description_profil ">
-	  				<p class="">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+	  				<p>
+	  				<%= @user.biography %>
 	  				</p>
 	  			</div>
   			</div>
@@ -69,14 +95,13 @@
 								<p class="">0</p>
 							</div>
 						</div>
-
+						<% if current_user == @user %>
 						<div class="col-xs-2">
 							<div class="shit-btn">
-								<button class="btn">
-									<%= link_to 'Edit profile', edit_user_registration_path %>
-								</button>
+								<%= link_to 'Edit profile', edit_user_registration_path, :class => "btn" %>
 							</div>
 						</div>
+						<% end %>
 					</div>
 				</div>
 			</div>
@@ -93,7 +118,12 @@
 						<div class="row">
 							<div class="col-md-2">
 								<div class="img_profil ">
-					  				<img src="" alt=""> Image de profil </img>
+					  				<img src="
+	  									<% if !@user.avatar.blank? %>
+	  										<%= @user.avatar %>
+	  									<% else %>
+	  										/assets/defaut-avatar.jpg
+	  									<% end %>" alt="<%= @user.name + " Avatar" %>" width="50" height="50" />
 					  			</div>
 							</div>
 							<div class="col-md-8">

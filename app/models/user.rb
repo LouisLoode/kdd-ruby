@@ -11,12 +11,13 @@ class User < ApplicationRecord
   validates :github, uniqueness: true, format: { with: /\Ahttps:\/\/github.com\// }, allow_blank: true
   validates :website, format: { with: /\A(http|https):\/\// }, allow_blank: true
   validates :biography, length: { maximum: 250 }, allow_blank: true
-  validates :avatar, format: { with: /\A(http|https):\/\//}, allow_blank: true
+  validates :avatar, format: { with: %r{\Ahttps?://.+\.(?:jpe?g|png)\z}i }, allow_blank: true
 
   has_many :posts
   has_many :followers
 
   has_many :ranks
+
 #   has_many :posts, through: :ranks
 
 
