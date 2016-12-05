@@ -4,6 +4,7 @@
 
     <h2 class="form-signup-heading">Edit your Profil</h2>
 
+    <%= devise_error_messages! %>
 
     <%= f.label :name, :class => "sr-only" %><br />
     <%= f.text_field :name, :class => "form-control", autofocus: true %>
@@ -12,13 +13,13 @@
     <%= f.email_field :email, :class => "form-control", placeholder: "Email adress" %>
 
     <%= f.label :avatar, :class => "sr-only" %><br />
-    <%= f.text_field :avatar, :class => "form-control", placeholder: "Avatar" %>
+    <%= f.url_field :avatar, :class => "form-control" , placeholder: "Avatar url"%>
 
     <%= f.label :github, :class => "sr-only" %><br />
-    <%= f.url_field :github, :class => "form-control", placeholder: "Github adress" %>
+    <%= f.url_field :github, :class => "form-control", placeholder: "Github url" %>
 
     <%= f.label :website, :class => "sr-only" %><br />
-    <%= f.url_field :website, :class => "form-control", placeholder: "Website adress" %>
+    <%= f.url_field :website, :class => "form-control", placeholder: "Website url" %>
 
     <%= f.label :biography, :class => "sr-only" %><br />
     <%= f.text_area :biography, :class => "form-control", placeholder: "Your biography" %>
