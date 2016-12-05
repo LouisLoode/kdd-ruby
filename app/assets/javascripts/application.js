@@ -14,3 +14,8 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+
+$( "#user_avatar" ).change(() => {
+  console.log (input( $( this ).val() ) );
+});

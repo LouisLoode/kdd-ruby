@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 20161204004335) do
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
+  create_table "posts_categories", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "post_id"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_posts_categories_on_category_id", using: :btree
+    t.index ["post_id"], name: "index_posts_categories_on_post_id", using: :btree
+  end
+
   create_table "ranks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "note"
     t.integer  "user_id"

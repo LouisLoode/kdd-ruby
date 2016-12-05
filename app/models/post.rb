@@ -1,7 +1,8 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :ranks
-  has_one :category
+  # has_one :category
+  has_and_belongs_to_many :categories
   validates :url, presence: true,
                     length: { minimum: 5 }
   validates :message,
