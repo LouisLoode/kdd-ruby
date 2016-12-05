@@ -1,6 +1,6 @@
-class CreateCats < ActiveRecord::Migration[5.0]
+class CreateCategories < ActiveRecord::Migration[5.0]
   def change
-    create_table :cats do |t|
+    create_table :categories do |t|
       t.string :name
       t.string :slug
       t.text :description

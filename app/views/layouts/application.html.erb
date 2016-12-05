@@ -44,20 +44,6 @@
 			</form>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <li class="dropdown user_menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <img src="" height="50px" width="50px" style="background-color: #000000;" /><span class="caret"></span></a>
@@ -66,7 +52,7 @@
             <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
             <li class="divider"></li>
             <li><%= link_to 'Posts', posts_path %></li>
-            <li><%= link_to 'Categories', cats_path %></li>
+            <li><%= link_to 'Categories', categories_path %></li>
             <li class="divider"></li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :get %></li>
           </ul>

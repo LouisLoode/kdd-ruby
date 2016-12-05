@@ -1,0 +1,39 @@
+<h1>Listing categories</h1>
+
+<%= link_to 'Create Category', new_category_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Slug</th>
+    <th>Parent ID</th>
+  </tr>
+
+  <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.name %></td>
+      <td><%= category.slug %></td>
+      <td><%= category.parent_id %></td>
+      <td><%= link_to 'Show', category_path(category) %></td>
+      <td><%= link_to 'Edit', edit_category_path(category) %></td>
+      <td><%= link_to 'Destroy', category_path(category),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Hierarchy</h2>
+<ul>
+  <% @hierarchy.each do |parent| %>
+    <li><%= parent.name %> (number of subcat: <%= parent.subcategories.size %>)</li>
+    <%= puts parent.subcategories %>
+    <% parent.subcategories.each do |category| %>
+      <li> > <%= category.name %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<h2>JUST FOR TEST</h2>
+
+<h2>GOOD SAMPLE</h2>

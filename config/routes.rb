@@ -14,6 +14,6 @@ Rails.application.routes.draw do
     # post 'ranks', to: 'rank#votes'
   end
 
-  resources :cats
+  resources :categories
 
 end

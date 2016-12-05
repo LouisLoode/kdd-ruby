@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
-  def show_by_id
-    @user = User.find(params[:id])
-    @posts = Post.where('user_id' => params[:id])
-  end
+  def show
+    id_user = params[:id] === nil ? current_user.id : params[:id]
 
+    @user = User.find(id_user)
+    @posts = Post.where('user_id' => id_user)
+  end
 
 end

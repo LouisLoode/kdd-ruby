@@ -27,8 +27,8 @@
   </p>
 
   <p>
-    <%= f.label :cat_id %><br>
-    <%= f.collection_select :cat_id, Cat.where(public: true), :id, :name,
+    <%= f.label :category_id %><br>
+    <%= f.collection_select :category_id, Category.where(public: true), :id, :name,
                                         :include_blank => "Nothing selected" %>
   </p>
 
