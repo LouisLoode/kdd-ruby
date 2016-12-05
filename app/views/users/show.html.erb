@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
   		<div class="col-xs-12 .col-sm-2 col-md-3">
-  			<div class="container_profil" data-spy="affix" >
+  			<div class="container_profil">
 
 	  			<div class="img_profil ">
 	  				<img src="
@@ -10,10 +10,6 @@
 	  				<% else %>
 	  					/assets/defaut-avatar.jpg
 	  				<% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="100%" />
-	  			</div>
-
-	  			<div class="name_profil">
-	  				<%= "@" + @user.name %>
 	  			</div>
 
 	  			<div class="url_profil">
@@ -58,6 +54,9 @@
 
 	  	<!-- <div class="col-md-9 md-9-padding"> -->
 	  	<div class="col-md-9">
+	  		<div class="name_profil">
+	  			<%= "@" + @user.name.upcase %>
+	  		</div>
 	  		<div class="row">
 		  		<div class="col-xs-12">
 					<div class="container_view" >
@@ -115,7 +114,7 @@
 				<div class="col-md-7">
 					<div class="col-xs-12 flux1">
 
-						<div class="row">
+						<div class="row article">
 							<div class="col-md-2">
 								<div class="img_profil ">
 					  				<img src="
@@ -181,7 +180,7 @@
 				</div>
 
 				<div class="col-md-5">
-					<div class="add_post" data-spy="affix">
+					<div class="add_post">
 
 						<h2 class="poster-une-ressource">
 							Poster une ressource

@@ -29,7 +29,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <div class="navbar-brand navbar-brand-centered">KamasutraDuDev</div>
+      <div class="navbar-brand navbar-brand-centered">
+        <% if user_signed_in? %>
+          <%= link_to 'KamasutraDuDev', main_path %>
+        <% else %>
+          KamasutraDuDev
+        <% end %>  
+      </div>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

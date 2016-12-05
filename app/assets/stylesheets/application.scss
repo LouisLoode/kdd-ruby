@@ -22,11 +22,30 @@
 
 /*
 *
-* CUSTOM CSS FOR THE LAYOUT
+* VARIABLES COLOR ----------------------------------------------------------------------------------------------------------
+*
+*/
+
+$main-color: #211d8d;
+
+
+
+
+
+
+
+/*
+*
+* HEADER -------------------------------------------------------------------------------------------------------------------
 *
 */
 
 @media screen and (min-width:768px){
+
+  .navbar {
+    height: 238px;
+  }
+
   .navbar-brand-centered {
     position: absolute;
     left: 42.5%;
@@ -41,13 +60,27 @@
   }
 }
 .navbar-nav>.user_menu>a {
-  padding: 0 15px;
+  padding: 0 15px 0 0;
 }
 
 .alert {
   max-width: 50%;
   margin: auto;
 }
+
+
+
+
+
+
+
+
+
+/*
+*
+* FOOTER -------------------------------------------------------------------------------------------------------------------
+*
+*/
 
 footer {
   background-color: #f8f8f8;
