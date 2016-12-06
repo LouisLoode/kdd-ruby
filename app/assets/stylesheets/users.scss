@@ -32,6 +32,88 @@
 
 // CSS PROFIL
 
+#main-wraper {
+  background-color: #f8f8f8;
+
+  #left-wraper {
+    width: 250px;
+    display: block;
+    float: left;
+    padding: 15px;
+    border-radius: 3px;
+    box-shadow: 0 1px 4px 0 rgba(34, 34, 34, 0.2); 
+
+    img {
+      display: block;
+      margin-bottom: 20px;
+      border-radius: 3%;
+    }
+
+    p.user-biography {
+      font-family: Avenir-Roman;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.36;
+      text-align: center;
+    }
+
+    ul {
+      padding-left: 0;
+    }
+
+    li {
+      display: block;
+      list-style: none;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+  }
+
+  #right-wraper {
+    width: 100%;
+    display: block;
+    margin-left: 20px;
+    padding: 15px;
+    border: solid 1px;
+
+    #name-content {
+      font-family: Avenir;
+      font-size: 20px;
+      font-weight: 900;
+      font-style: normal;
+      font-stretch: normal
+    }
+
+    #bar-content {
+      display: block;
+      width: 100%;
+      margin: 20px 0 20px 0;
+      border-radius: 3px;
+      box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.05);
+
+    }  
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .container_profil1 {
   width:100%;
