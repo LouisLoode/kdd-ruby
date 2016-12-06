@@ -9,4 +9,11 @@
   <%= @post.message %>
 </p>
 
+<p>
+  <strong>Author:</strong>
+  <%= @post.user %>
+  <%= @post.user.name %>
+  <%= @post.user.email %>
+</p>
+
 <%= link_to 'Back', posts_path %>

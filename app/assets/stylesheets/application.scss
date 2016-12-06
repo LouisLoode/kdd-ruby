@@ -16,39 +16,79 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "bootstrap-select";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+
 
 /*
 *
-* CUSTOM CSS FOR THE LAYOUT
+* VARIABLES COLOR ----------------------------------------------------------------------------------------------------------
 *
 */
 
-  @media screen and (min-width:768px){
-      .navbar-brand-centered {
-          position: absolute;
-          left: 42.5%;
-          display: block;
-          width: 160px;
-          text-align: center;
-          background-color: #eee;
-      }
-      .navbar>.container .navbar-brand-centered,
-      .navbar>.container-fluid .navbar-brand-centered {
-          margin-left: -80px;
-      }
-  }
-  .navbar-nav>.user_menu>a {
-      padding: 0 15px;
+$main-color: #211d8d;
+
+/*
+*
+* HEADER -------------------------------------------------------------------------------------------------------------------
+*
+*/
+
+@media screen and (min-width:768px){
+
+  .navbar {
+    margin: 0;
   }
 
-
-  footer {
-    background-color: #f8f8f8;
+  .navbar-brand-centered {
+    position: absolute;
+    left: 42.5%;
+    display: block;
+    width: 160px;
     text-align: center;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    height: 5em;
-    line-height: 5em;
-    white-space: nowrap;
+    background-color: #eee;
   }
+  .navbar>.container .navbar-brand-centered,
+  .navbar>.container-fluid .navbar-brand-centered {
+    margin-left: -80px;
+  }
+}
+.navbar-nav>.user_menu>a {
+  padding: 0 15px 0 0;
+}
+
+.alert {
+  max-width: 50%;
+  margin: auto;
+}
+
+header {
+  width: 100%;
+  height: 238px;
+  display: block;
+  background-image:url(/assets/header.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-grey {
+  background-color: #fdfdfd;
+}
+
+/*
+*
+* FOOTER -------------------------------------------------------------------------------------------------------------------
+*
+*/
+
+footer {
+  background-color: #f8f8f8;
+  text-align: center;
+  width: 100%;
+  height: 5em;
+  line-height: 5em;
+  white-space: nowrap;
+  display: block;
+}

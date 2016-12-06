@@ -1,5 +1,14 @@
 <h2>MAIN</h2>
 <p>
   The time is now: <%= Time.now %>
-  <%= current_user.email %>
 </p>
+
+<% @posts.each do |post| %>
+	<article>
+	
+	<!-- C'est un test !! A retravailler -->
+	
+	<%= post.message %>
+
+	</article>
+<% end %>

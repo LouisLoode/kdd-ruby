@@ -1,0 +1,29 @@
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @category.slug %>
+</p>
+
+<p>
+  <strong>Public:</strong>
+  <%= @category.public %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @category.description %>
+</p>
+
+<h1>Posts</h1>
+
+<% @category.posts.each do |post| %>
+  <li><%= post.url %> -> <%= post.message %></li>
+<% end %>
+
+
+
+<%= link_to 'Back', categories_path %>

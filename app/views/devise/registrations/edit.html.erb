@@ -1,39 +1,47 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-signup"}) do |f| %>
 
+    <h2 class="form-signup-heading">Edit your Profil</h2>
+
+    <%= devise_error_messages! %>
+
+    <%= f.label :name, :class => "sr-only" %><br />
+    <%= f.text_field :name, :class => "form-control", autofocus: true %>
+
+    <%= f.label :email, :class => "sr-only" %><br />
+    <%= f.email_field :email, :class => "form-control", placeholder: "Email adress" %>
+
+    <%= f.label :avatar, :class => "sr-only" %><br />
+    <%= f.url_field :avatar, :class => "form-control" , placeholder: "Avatar url"%>
+
+    <%= f.label :github, :class => "sr-only" %><br />
+    <%= f.url_field :github, :class => "form-control", placeholder: "Github url" %>
+
+    <%= f.label :website, :class => "sr-only" %><br />
+    <%= f.url_field :website, :class => "form-control", placeholder: "Website url" %>
+
+    <%= f.label :biography, :class => "sr-only" %><br />
+    <%= f.text_area :biography, :class => "form-control", placeholder: "Your biography" %>
+
+  <!-- Ca sert à quoi ça ???? -->
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+    <%= f.label :biography, :class => "sr-only" %><br />
+    <%= f.password_field :password, autocomplete: "off", :class => "form-control", placeholder: "New password" %>
+      <small>(leave blank if you don't want to change it)</small><br />
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <%= f.label :password_confirmation, :class => "sr-only"  %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", placeholder: "Password verification" %>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+    <%= f.label :current_password, :class => "sr-only"  %> <br />
+    <%= f.password_field :current_password, autocomplete: "off", :class => "form-control", placeholder: "Current password" %>
+    <small>(we need your current password to confirm your changes)</small>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+    <%= f.submit "Update", :class => "btn btn-lg btn-primary btn-block" %>
+
 <% end %>
 
 <h3>Cancel my account</h3>

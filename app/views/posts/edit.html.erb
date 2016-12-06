@@ -27,6 +27,22 @@
   </p>
 
   <p>
+    <%= f.label :category_id %><br>
+    <!-- <%= f.collection_select :category_id, Category.where(public: true), :id, :name, :include_blank => "Nothing selected" %> -->
+    <select name="post[category_id]" id="post_category_id" class="selectpicker form-control" multiple data-max-options="3" data-live-search="true" title="Choose one of the following..." data-selected-text-format="count > 2" data-actions-box="true">
+      <% @hierarchy.each do |parent| %>
+      <option data-tokens="<%= parent.name %>"><b><%= parent.name %></b><small>(child(s): <%= parent.subcategories.size %>)</small></option>
+        <%= puts parent.subcategories %>
+        <% parent.subcategories.each do |category| %>
+          <li> > <%= category.name %></li>
+          <option data-tokens="<%= category.name %>"><%= category.name %></option>
+        <% end %>
+        <option data-divider="true"></option>
+      <% end %>
+    </select>
+  </p>
+
+  <p>
     <%= f.submit %>
   </p>
 

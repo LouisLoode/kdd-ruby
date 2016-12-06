@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
-//= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-select
 //= require_tree .
+
+
+// $( "#user_avatar" ).change(() => {
+//   console.log (input( $( this ).val() ) );
+// });

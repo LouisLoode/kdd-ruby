@@ -1,0 +1,173 @@
+<div class="container gover">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2 col-md-3">
+            <div class="container_profil">
+                <div class="img_profil ">
+                    <img src="
+                    <% if !@user.avatar.blank? %>
+                        <%= @user.avatar %>
+                    <% else %>
+                        /assets/defaut-avatar.jpg
+                    <% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="100%" />
+                </div>
+                <div class="description_profil ">
+                    <p>
+                    <%= @user.biography %>
+                    </p>
+                </div>
+                <div class="url_profil">
+                    <ul>
+                        <% if !@user.github.blank? %>
+                            <li class="fa fa-github github" aria-hidden="true">
+                                <a href="<%= @user.github %>" title=<%= @user.name + "'s Github" %>><%= @user.github %></a>
+                            </li>
+                        <% end %>
+                        <% if !@user.website.blank? %>
+                            <li class="fa fa-globe website" aria-hidden="true">
+                                <a href="<%= @user.website %>" title="<%= @user.name + "'s Website" %>"><%= @user.website %></a>
+                            </li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="name_profil">
+                <%= "@" + @user.name.upcase %>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="container_view" >
+                        <div class="col-xs-2">
+                            <div class="shit">
+                                <p class="title">Pertinence</p>
+                                <p class=""> * * * * * </p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="shit">
+                                <p class="">Positions</p>
+                                <p class="">0</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="shit">
+                                <p class="">Followers</p>
+                                <p class="">0</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="shit">
+                                <p class="">Following</p>
+                                <p class="">0</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="shit">
+                                <p class="">Favoris</p>
+                                <p class="">0</p>
+                            </div>
+                        </div>
+                        <% if current_user == @user %>
+                        <div class="col-xs-2">
+                            <div class="shit-btn">
+                                <%= link_to 'Edit profile', edit_user_registration_path, :class => "btn btn-primary" %>
+                            </div>
+                        </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-hidden">
+                <a href=""> blaval</a>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="col-xs-12 flux1">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="img_profil ">
+                                    <img src="
+                                        <% if !@user.avatar.blank? %>
+                                            <%= @user.avatar %>
+                                        <% else %>
+                                            /assets/defaut-avatar.jpg
+                                        <% end %>" alt="<%= @user.name + " Avatar" %>" width="50" height="50" />
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <h2 class="titre-flux">@MASTERKDD</h2>
+                                <h4 class="soustitre-flux">#PHP #SYMPHONY</h4>
+                                <p class="text-flux">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et arcu non orci cursus sagittis. Ut in mauris congue, auctor sem sit amet, egestas lectus. Ut tristique ligula non orci pulvinar, quis ornare nunc tempor.
+                                </p>
+                                <div class="article-flux"></div>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                    </div>
+                    </div>
+                    <div class="col-xs-12 flux1">
+                        Flux d'information
+                    </div>
+                    <div class="col-xs-12 flux1">
+                        Flux d'information
+                    </div>
+                    <div class="col-xs-12 flux1">
+                        Flux d'information
+                    </div>
+                    <div class="col-xs-12 flux1">
+                        Flux d'information
+                    </div>
+                    <div class="col-xs-12 flux1">
+                        Flux d'information
+                    </div>
+                    <div class="col-xs-12 flux1">
+                        Flux d'information
+                    </div>
+                    <div class="col-xs-12 flux1">
+                        Flux d'information
+                    </div>
+                    <div class="col-xs-12 flux1">
+                        Flux d'information
+                    </div>
+                    <div class="col-xs-12 flux1">
+                        Flux d'information
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="add_post">
+                        <h2 class="poster-une-ressource">
+                            Poster une ressource
+                        </h2>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Sujet
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="texte" class="form-control1 message" id="inputEmail3" placeholder="Message">
+                                    <input type="catégorie" class=" form-control1 ressource" id="inputPassword3" placeholder="Url">
+                                    <button class="btn">
+                                        Publier cette ressource
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <p class="tu-ne-trouves-pas-de">Tu ne trouves pas de sujet correspondant à ta ressource ?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
