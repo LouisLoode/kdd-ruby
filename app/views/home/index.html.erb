@@ -1,5 +1,130 @@
-<h2>INDEX</h2>
-<%= link_to "Login", new_user_session_path %>
-<p>
-  The time is now: <%= Time.now %>
-</p>
+
+<nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-brand-centered">
+      <form class="navbar-form navbar-left search-form" role="search">
+        <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" />
+        <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+        </div>
+            </form>
+      <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li class="dropdown user_menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi <%= current_user.name %>  <img src="
+            <% if !current_user.avatar.blank? %>
+              <%= current_user.avatar %>
+            <% else %>
+              /assets/defaut-avatar.jpg
+            <% end %>" alt="<%= current_user.name + " Avatar" %>" height="50px" width="50px" /><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'View profile', show_user_path(:user_id => current_user.id) %></li>
+            <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+            <li class="divider"></li>
+            <li><%= link_to 'Posts', posts_path %></li>
+            <li><%= link_to 'Categories', categories_path %></li>
+            <li class="divider"></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, :method => :get %></li>
+          </ul>
+        </li>
+      <% else %>
+        <li><%= link_to "Login", new_user_session_path %></li>
+      <% end %>
+            </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+
+<header>
+	<div class="row">
+		<div class="col-md-7 col-xs-0"></div>
+		<div class="col-md-5 col-xs-12">
+			
+		</div>
+
+	</div>
+
+</header>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-sx-12">
+			<div class="ordi">
+				
+			</div>
+		</div>
+
+		<div class="col-md-4 col-xs-12">
+			<div class="descriptif">
+				
+				<div class="titre-home">
+					<div class="test">
+						<h3 class="titre titre1">Les plus intimes secrets du dev </h3>
+						<h5 class="sous-titre">Dans toute se profondeur !</h5>
+					</div>
+				</div>
+
+				<p class="home-descriptif">
+					Pour avoir accés à tous nos savoirs il te faura être parrainé par un de nos membres. Si il te faut de l’aide, des renseignements où trouver celui qui aura ta confiance viens posez tes questions, on est gentil :)  
+				</p>
+
+				<div class="btn_slack">
+					<a href="https://slack.com/oauth/authorize?scope=identity.basic&client_id=your_client_id"><img src="https://api.slack.com/img/sign_in_with_slack.png" /></a>
+				</div>
+
+			</div>	
+
+		</div>
+
+
+	</div>
+
+
+	<div class="row row1">
+		<!--<div class="col-md-12">-->
+			
+			<div class="container-kdd">
+
+				<H3> Les Maitres du KDD </H3>
+		
+				<div class="col-md-4">
+
+					<div class="master-kdd">
+					
+					</div>
+
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="master-kdd">
+
+					</div>
+						
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="master-kdd">
+
+					</div>
+						
+				</div>
+
+					
+			</div>	
+
+	</div>
+
+
+</div>
