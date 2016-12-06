@@ -5,16 +5,15 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'main', to: 'home#main'
-  get 'users', to: 'profil#list'
-  get 'profil', to: 'pages#profil'
-  get 'home', to: 'pages#home'
   resources :users
+  get 'users/list', to: 'users#list'
+  get 'user/:user_id', to: 'users#show', as: 'show_user'
 
   resources :posts do
     resources :ranks
     # post 'ranks', to: 'rank#votes'
   end
 
-  resources :cats
+  resources :categories
 
 end

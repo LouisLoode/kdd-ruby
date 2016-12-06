@@ -1,6 +1,7 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .form-signin, .form-signup {
     max-width: 330px;
     padding: 15px;
@@ -31,6 +32,10 @@
 
 // CSS PROFIL
 
+.gover {
+  position: relative;
+  top: -100px;
+}
 .container_profil1 {
   width:100%;
   background-color: #ffffff;
@@ -62,14 +67,12 @@
 }
 
 .container_profil {
-  width: 18.5%;
   height: 483px;
   background-color: #ffffff;
-  border: solid 1px #d9d9d9;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px 0 rgba(34, 34, 34, 0.2);
   padding: 20px;
   float:left;
-  border-radius: 10px;
-  display: block;
 
   .img_profil {
     width: 100%;
@@ -78,7 +81,16 @@
 
   .img_profil img {
     margin: 0 auto;
-    //background-image: url(asset-path("Profil_picture.png"));
+  }
+
+  .url_profil ul {
+    padding-left: 0;
+  }
+
+  .url_profil li{
+    display: block;
+    list-style: none;
+    font-size: 10px;
   }
 
   .description_profil {
@@ -96,17 +108,19 @@
   }
 }
 
+.name_profil {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+  }
 
 .add_post {
-  width: 23.5%;
-  // width: 100%;
-  // height: 70%;
-  border: solid 1px #d9d9d9;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px 0 rgba(34, 34, 34, 0.2);
   float:right;
-  border-radius: 10px;
-  margin-top: 1.5%;
-  position: static;
-  background-color: #f6f6f6;
+  margin-top: 4.5%;
 
   .poster-une-ressource {
     width: 75%;
@@ -168,23 +182,25 @@
 
 
 }
-
 .container_view {
   width: 100%;
-  height: 100px;
-  border-radius: 10px;
-  background-color: #f6f6f6;
+  height: 92px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.05);
 
   .shit{
     width: 100%;
-    margin-top: 20%;
+    height: 92px;
+    padding-top: 20%;
     text-align: center;
     font-family: Avenir-Book;
     font-size: 12px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
-    color:#aaa;
+    color: #5c748d;
+    border-right: solid 1px;
   }
 
   .shit-btn{
@@ -207,8 +223,9 @@
 
 .flux1 {
   width: 100%;
-  border: solid 1px #d9d9d9;
-  border-radius: 10px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px 0 rgba(34, 34, 34, 0.2);
   margin-top: 4.5%;
 
   .titre-flux{

@@ -4,6 +4,7 @@
 
     <h2 class="form-signup-heading">Edit your Profil</h2>
 
+    <%= devise_error_messages! %>
 
     <%= f.label :name, :class => "sr-only" %><br />
     <%= f.text_field :name, :class => "form-control", autofocus: true %>
@@ -12,13 +13,13 @@
     <%= f.email_field :email, :class => "form-control", placeholder: "Email adress" %>
 
     <%= f.label :avatar, :class => "sr-only" %><br />
-    <%= f.text_field :avatar, :class => "form-control", placeholder: "Avatar" %>
+    <%= f.url_field :avatar, :class => "form-control" , placeholder: "Avatar url"%>
 
     <%= f.label :github, :class => "sr-only" %><br />
-    <%= f.url_field :github, :class => "form-control", placeholder: "Github adress" %>
+    <%= f.url_field :github, :class => "form-control", placeholder: "Github url" %>
 
     <%= f.label :website, :class => "sr-only" %><br />
-    <%= f.url_field :website, :class => "form-control", placeholder: "Website adress" %>
+    <%= f.url_field :website, :class => "form-control", placeholder: "Website url" %>
 
     <%= f.label :biography, :class => "sr-only" %><br />
     <%= f.text_area :biography, :class => "form-control", placeholder: "Your biography" %>
@@ -28,18 +29,16 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+    <%= f.label :biography, :class => "sr-only" %><br />
+    <%= f.password_field :password, autocomplete: "off", :class => "form-control", placeholder: "New password" %>
+      <small>(leave blank if you don't want to change it)</small><br />
 
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+    <%= f.label :password_confirmation, :class => "sr-only"  %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", placeholder: "Password verification" %>
 
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off", :class => "form-control" %>
+    <%= f.label :current_password, :class => "sr-only"  %> <br />
+    <%= f.password_field :current_password, autocomplete: "off", :class => "form-control", placeholder: "Current password" %>
+    <small>(we need your current password to confirm your changes)</small>
 
     <%= f.submit "Update", :class => "btn btn-lg btn-primary btn-block" %>
 

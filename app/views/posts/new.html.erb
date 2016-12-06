@@ -1,6 +1,6 @@
-<h1>New Post</h1>
+<%= form_for :post, url: posts_path , html: {class: "form-signup"} do |f| %>
 
-<%= form_for :post, url: posts_path do |f| %>
+  <h1>New Post</h1>
 
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -16,24 +16,26 @@
     </div>
   <% end %>
 
-  <p>
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </p>
+    <%= f.label :url, :class => "sr-only" %><br />
+    <%= f.url_field :url, :class => "form-control", placeholder: "Url" %>
+
+    <%= f.label :message, :class => "sr-only" %><br />
+    <%= f.text_area :message, :class => "form-control", placeholder: "Message" %>
+
+
+    <%= f.label :category_id, :class => "sr-only" %><br>
+    <select name="post[category_ids][]" id="post_category_id" class="selectpicker form-control" multiple data-max-options="3" data-live-search="true" title="Choose one of the following..." data-selected-text-format="count > 2" data-actions-box="true" data-multiple-separator=", " data-selected-text-format="values">
+      <% @hierarchy.each do |parent| %>
+      <option value="<%= parent.id %>" data-tokens="<%= parent.id %>"><b><%= parent.name %></b></option>
+        <% parent.subcategories.each do |category| %>
+          <option value="<%= category.id %>" data-tokens="<%= category.id %>"><%= category.name %></option>
+        <% end %>
+        <option data-divider="true"></option>
+      <% end %>
+    </select>
 
   <p>
-    <%= f.label :message %><br>
-    <%= f.text_area :message %>
-  </p>
-
-  <p>
-    <%= f.label :cat_id %><br>
-    <%= f.collection_select :cat_id, Cat.where(public: true), :id, :name,
-                                        :include_blank => "Nothing selected" %>
-  </p>
-
-  <p>
-    <%= f.submit %>
+    <%= f.submit "New post", :class => "btn btn-lg btn-primary btn-block" %>
   </p>
 
   <%= link_to 'Back', posts_path %>

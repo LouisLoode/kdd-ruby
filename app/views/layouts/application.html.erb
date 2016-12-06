@@ -6,12 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Kamasutra Du Dev</title>
-
     <!-- Stylesheets -->
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -29,32 +26,39 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <div class="navbar-brand navbar-brand-centered">KamasutraDuDev</div>
+      <div class="navbar-brand navbar-brand-centered">
+        <% if user_signed_in? %>
+          <%= link_to 'KamasutraDuDev', main_path %>
+        <% else %>
+          KamasutraDuDev
+        <% end %>
+      </div>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar-brand-centered">
       <form class="navbar-form navbar-left search-form" role="search">
         <div class="input-group">
-				<input type="text" class="form-control" placeholder="Search" />
+                <input type="text" class="form-control" placeholder="Search" />
         <div class="input-group-btn">
               <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
         </div>
         </div>
-			</form>
-
-
+            </form>
       <ul class="nav navbar-nav navbar-right">
-      <!-- @TODO -->
       <% if user_signed_in? %>
         <li class="dropdown user_menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.name %> <img src="" height="50px" width="50px" style="background-color: #000000;" /><span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><%= link_to 'View profile', profil_path %></li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi <%= current_user.name %>  <img src="
+            <% if !current_user.avatar.blank? %>
+              <%= current_user.avatar %>
+            <% else %>
+              /assets/defaut-avatar.jpg
+            <% end %>" alt="<%= current_user.name + " Avatar" %>" height="50px" width="50px" /><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'View profile', show_user_path(:user_id => current_user.id) %></li>
             <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
             <li class="divider"></li>
             <li><%= link_to 'Posts', posts_path %></li>
-            <li><%= link_to 'Categories', cats_path %></li>
+            <li><%= link_to 'Categories', categories_path %></li>
             <li class="divider"></li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :get %></li>
           </ul>
@@ -62,22 +66,21 @@
       <% else %>
         <li><%= link_to "Login", new_user_session_path %></li>
       <% end %>
-			</ul>
+            </ul>
     </div><!-- /.navbar-collapse -->
     </nav>
+    <header>
 
-    <div class="container-fluid">
-
+    </header>
+    <div class="container-fluid bg-grey">
         <% if notice %>
           <p class="alert alert-success"><%= notice %></p>
         <% end %>
         <% if alert %>
           <p class="alert alert-danger"><%= alert %></p>
         <% end %>
-
         <%= yield %>
     </div>
-
     <footer>
       <div class="container-fluid">
         <p>
@@ -88,4 +91,4 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
-</html>
+  </html>

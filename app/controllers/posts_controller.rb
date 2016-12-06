@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!
-  # before_filer :authenticate_user!, except: [ :index, :show ]
+  # before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [ :show ]
   skip_before_filter :verify_authenticity_token, :only => :create
   prepend_before_filter :verify_authenticity_token, only: [:destroy]
 
@@ -13,16 +13,19 @@ class PostsController < ApplicationController
   end
 
   def new
+    @hierarchy = Category.where(public: true, parent_id: nil)
     @post = Post.new
   end
 
   def edit
+    @hierarchy = Category.where(public: true, parent_id: nil)
     @post = Post.find(params[:id])
   end
 
 
   def create
     @post = Post.new(post_params)
+    puts params[:category_ids]
     @post.user_id = current_user.id #or whatever is you session name
     # @post.cat_id
     if @post.save
@@ -51,6 +54,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:url, :message)
+      params.require(:post).permit(:url, :message, category_ids: [])
     end
 end
