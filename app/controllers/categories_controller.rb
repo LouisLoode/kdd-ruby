@@ -2,7 +2,6 @@ class CategoriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    # @categories = Category.all
     @categories = Category.where(public: true)
     @hierarchy = Category.where(public: true, parent_id: nil)
   end

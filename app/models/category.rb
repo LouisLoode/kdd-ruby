@@ -11,21 +11,7 @@ class Category < ApplicationRecord
 
   def slugiy_name
     if name
-      #strip the string
-      ret = self.name
-      #blow away apostrophes
-      ret.gsub! /['`]/,""
-      # @ --> at, and & --> and
-      ret.gsub! /\s*@\s*/, " at "
-      ret.gsub! /\s*&\s*/, " and "
-      #replace all non alphanumeric, underscore or periods with underscore
-       ret.gsub! /\s*[^A-Za-z0-9\.\-]\s*/, '_'
-       #convert double underscores to single
-       ret.gsub! /_+/,"_"
-       #strip off leading/trailing underscore
-       ret.gsub! /\A[_\.]+|[_\.]+\z/,""
-       ret
-       self.slug = ret.downcase
+       self.slug = self.name.parameterize
     end
   end
 end
