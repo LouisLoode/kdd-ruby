@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'main', to: 'home#main'
   get 'users', to: 'profil#list'
   get 'profil', to: 'pages#profil'
+  get 'home', to: 'pages#home'
   resources :users
 
   resources :posts do
