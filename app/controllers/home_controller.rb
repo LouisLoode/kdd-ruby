@@ -13,7 +13,8 @@ class HomeController < ApplicationController
     if !user_signed_in?
       redirect_to root_path
     end
-    @posts = Post.all
+    #@TODO need to get followed posts
+    @posts = Post.where(user_id: current_user.id)
   end
 
 end

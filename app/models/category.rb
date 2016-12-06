@@ -4,13 +4,14 @@ class Category < ApplicationRecord
   belongs_to :parent_category, :class_name => "Category"
 
   validates :name, length: { minimum: 2 }, uniqueness: true, presence: true
-  validates :slug, presence: true
   validates :description, length: { maximum: 250 }
 
+  before_create :slugiy_name
+  before_update :slugiy_name
 
-  def self.for_select
-    Category.where(public: true, parent_id: nil).map do |category|
-      [category.name, category.subcategories.map { |cat| [cat.id, cat.name] }]
+  def slugiy_name
+    if name
+       self.slug = self.name.parameterize
     end
   end
 end

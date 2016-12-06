@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   # before_filter :authenticate_user!
-  before_filter :authenticate_user!, except: [ :show ]
-  skip_before_filter :verify_authenticity_token, :only => :create
-  prepend_before_filter :verify_authenticity_token, only: [:destroy]
+  before_action :authenticate_user!, except: [ :show ]
+  skip_before_action :verify_authenticity_token, :only => :create
+  prepend_before_action :verify_authenticity_token, only: [:destroy]
 
   def index
     @posts = Post.all
@@ -25,9 +25,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    puts params[:category_ids]
     @post.user_id = current_user.id #or whatever is you session name
-    # @post.cat_id
     if @post.save
       redirect_to @post
     else

@@ -3,29 +3,29 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .form-signin, .form-signup {
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
 
-    .form-signin-heading, .form-signup-heading, .checkbox {
-      margin-bottom: 10px;
-    }
-    .checkbox {
-      font-weight: normal;
-      text-align: center;
-    }
-    .form-control {
-      position: relative;
-      height: auto;
-      -webkit-box-sizing: border-box;
-         -moz-box-sizing: border-box;
-              box-sizing: border-box;
-      padding: 10px;
-      font-size: 16px;
-    }
-    input[type="submit"] {
-      margin-top: 10px;
-    }
+	.form-signin-heading, .form-signup-heading, .checkbox {
+		margin-bottom: 10px;
+	}
+	.checkbox {
+		font-weight: normal;
+		text-align: center;
+	}
+	.form-control {
+		position: relative;
+		height: auto;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		padding: 10px;
+		font-size: 16px;
+	}
+	input[type="submit"] {
+		margin-top: 10px;
+	}
 }
 
 
@@ -33,270 +33,229 @@
 // CSS PROFIL
 
 .gover {
-  position: relative;
-  top: -100px;
-}
-.container_profil1 {
-  width:100%;
-  background-color: #ffffff;
-  border: solid 1px #d9d9d9;
-  padding: 20px;
-  float:left;
-  border-radius: 10px;
-  display: block;
-
-  .img_profil {
-    width: 100%;
-    height: 225px;
-
-  }
-
-  .description_profil {
-    width: 100%;
-    height: 133px;
-    font-family: Avenir-Roman;
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.36;
-    text-align: left;
-    color: #c5c5c5;
-    margin-top: 15px;
-  }
+	position: relative;
+	top: -95px;
 }
 
 .container_profil {
-  height: 483px;
-  background-color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 0 1px 4px 0 rgba(34, 34, 34, 0.2);
-  padding: 20px;
-  float:left;
+	min-height: 300px;
+	background-color: #ffffff;
+	border-radius: 5px;
+	box-shadow: 0 1px 4px 0 rgba(34, 34, 34, 0.7);
+	padding: 20px;
+	float:left;
 
-  .img_profil {
-    width: 100%;
-    height: 225px;
-  }
+	.img_profil {
+		width: 100%;
+		height: 225px;
+	}
 
-  .img_profil img {
-    margin: 0 auto;
-  }
+	img {
+		margin: 0 auto;
+	}
 
-  .url_profil ul {
-    padding-left: 0;
-  }
+	ul {
+		padding-left: 0;
+	}
 
-  .url_profil li{
-    display: block;
-    list-style: none;
-    font-size: 10px;
-  }
+	li{
+		display: block;
+		list-style: none;
+		font-size: 10px;
+		margin-bottom: 15px;
+	}
 
-  .description_profil {
-    width: 100%;
-    height: 133px;
-    font-family: Avenir-Roman;
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.36;
-    text-align: left;
-    color: #c5c5c5;
-    margin-top: 15px;
-  }
+	.description_profil {
+		width: 100%;
+		min-height: 100px;
+		font-family: Avenir-Roman;
+		font-size: 14px;
+		font-weight: normal;
+		font-style: normal;
+		font-stretch: normal;
+		line-height: 1.36;
+		text-align: left;
+		color: #c5c5c5;
+		margin-top: 15px;
+	}
 }
 
 .name_profil {
-  font-size: 17px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: white;
-  }
+	font-size: 17px;
+	font-weight: bold;
+	margin-bottom: 25px;
+	color: white;
+}
 
 .add_post {
-  border-radius: 3px;
-  background-color: #ffffff;
-  box-shadow: 0 1px 4px 0 rgba(34, 34, 34, 0.2);
-  float:right;
-  margin-top: 4.5%;
+	border-radius: 3px;
+	background-color: #ffffff;
+	box-shadow: 0 1px 4px 0 rgba(34, 34, 34, 0.7);
+	float:right;
 
-  .poster-une-ressource {
-    width: 75%;
-    font-family: Avenir;
-    font-size: 22px;
-    font-weight: 900;
-    font-style: normal;
-    font-stretch: normal;
-    text-align: center;
-    color: #bdbdbd;
-  }
+	.poster-une-ressource {
+		width: 75%;
+		font-family: Avenir;
+		font-size: 22px;
+		font-weight: 900;
+		font-style: normal;
+		font-stretch: normal;
+		text-align: center;
+		color: #bdbdbd;
+	}
 
-  .btn-default {
-    width: 90%;
-    margin: 5%;
-  }
+	.btn-default {
+		width: 90%;
+		margin: 5%;
+	}
 
-  .form-control1{
-      display: block;
-      width: 90%;
-      height: 34px;
-      margin: 5%;
-      padding: 2%;
-      font-size: 14px;
-      line-height: 1.42857143;
-      color: #555555;
-      background-color: #fff;
-      background-image: none;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-  }
+	.form-control1{
+		display: block;
+		width: 90%;
+		height: 34px;
+		margin: 5%;
+		padding: 2%;
+		font-size: 14px;
+		line-height: 1.42857143;
+		color: #555555;
+		background-color: #fff;
+		background-image: none;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+	}
 
-  .message{
-    height:100px;
-  }
+	.message{
+		height:100px;
+	}
 
-  .ressource{
-    height:40px;
-  }
+	.ressource{
+		height:40px;
+	}
 
-  .btn{
-    width: 90%;
-    margin: 5%;
-    background-color: #d9d9d9;
-    color:#fff;
-  }
+	.btn{
+		width: 90%;
+		margin: 5%;
+		background-color: #d9d9d9;
+		color:#fff;
+	}
 
-  .tu-ne-trouves-pas-de {
-    width: 80%;
-    height: 38px;
-    font-family: Avenir;
-    font-size: 14px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    color: #c5c5c5;
-    margin-left: 7%;
-  }
+	.tu-ne-trouves-pas-de {
+		width: 80%;
+		height: 38px;
+		font-family: Avenir;
+		font-size: 14px;
+		font-weight: 500;
+		font-style: normal;
+		font-stretch: normal;
+		color: #c5c5c5;
+		margin-left: 7%;
+	}
 
 
 }
+
 .container_view {
-  width: 100%;
-  height: 92px;
-  border-radius: 3px;
-  background-color: #ffffff;
-  box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.05);
+	width: 100%;
+	height: 92px;
+	border-radius: 3px;
+	background-color: #ffffff;
+	box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.1);
+	margin-bottom: 25px;
 
-  .shit{
-    width: 100%;
-    height: 92px;
-    padding-top: 20%;
-    text-align: center;
-    font-family: Avenir-Book;
-    font-size: 12px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    color: #5c748d;
-    border-right: solid 1px;
-  }
+	.nomargpadd {
+		margin: 0;
+		padding: 0;
+	}
 
-  .shit-btn{
-    width: 100%;
-    margin-top: 30%;
-    text-align: center;
-    font-family: Avenir-Book;
-    font-size: 15px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    color: #fff
-  }
+	.box {
+		width: 100%;
+		height: 92px;
+		padding-top: 20%;
+		color: #5c748d;
+		border-right: solid 1px;
+	}
 
+	.title {
+		font-family: Avenir-Book;
+		font-size: 12px;
+		font-weight: normal;
+		font-style: normal;
+		font-stretch: normal;
+		text-align: center;
+	}
+
+	.content {
+		text-align: center;
+	}
+
+	.link{
+		padding-top: 20%; 
+		width: 100%;
+		text-align: center;
+		font-family: "Avenir-Book";
+		font-size: 15px;
+		font-weight: normal;
+		font-style: normal;
+		font-stretch: normal;
+		color: #fff
+	}
 }
 
-.btn-hidden{
-    display:none;
-  }
+article {
+	width: 100%;
+	margin-bottom: 20px;
+	border-radius: 3px;
+	background-color: #ffffff;
+	box-shadow: 0 1px 4px 0 rgba(34, 34, 34, 0.7);
 
-.flux1 {
-  width: 100%;
-  border-radius: 3px;
-  background-color: #ffffff;
-  box-shadow: 0 1px 4px 0 rgba(34, 34, 34, 0.2);
-  margin-top: 4.5%;
+	.metadata{
+		padding: 15px;
+		margin-bottom: 15px;
 
-  .titre-flux{
-    font-family: Avenir;
-    font-size: 16px;
-    font-weight: 900;
-    font-style: normal;
-    font-stretch: normal;
-    text-align: left;
-    color: #c5c5c5;
-  }
+		.name_post {
+			font-size: 15px;
+			font-weight: bold;
+		}
+		.categorie_post {
+			font-size: 12px;
+			font-style: italic;
+		}
+		.time_post {
+			text-align: right;
+		}
+	}
 
-  .soustitre-flux{
-    font-family: Avenir;
-    font-size: 14px;
-    font-weight: 900;
-    font-style: normal;
-    font-stretch: normal;
-    text-align: left;
-    color: #d5d5d5;
-  }
+	.content {
+		padding: 0 10% 0 10%;
+		margin-bottom: 20px;
 
-  .text-flux{
-    width: 100%;
-    font-family: Avenir-Roman;
-    font-size: 12px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.36;
-    color: #c5c5c5;
-  }
+		.content_post {
+			margin-bottom: 10px;
+		}
 
-  .article-flux {
-    width: 100%;
-    height: 326px;
-    border: solid 1px #d9d9d9;
-    border-radius:10px;
-  }
+		.iframe_post {
+			border-radius: 3px;
+			min-width: 100%;
+			min-height: 200px;
+			box-shadow: 0 1px 4px 0 rgba(34, 34, 34, 0.5);
+		}
+	}
 
-}
+	.action {
+		padding: 20px;
 
+		.rank {
 
-@media (max-width: 992px){
-  .col-xs-12 {
-    margin-top:3%;
-  }
-  .col-md-9 {
-    margin-top:3%;
-  }
+			ul {
+				margin: 0;
+				padding: 0;
+			}
+			li {
 
-  .btn-hidden{
-    display: block;
-    margin: 0 auto;
-    border: solid 1px #d9d9d9;
-  }
-
-  .add_post{
-    display: none;
-  }
-
-  .container_profil {
-    display: none;
-  }
-
-}
-
-@media (min-width: 992px){
-
-  .container_profil1 {
-    display: none;
-  }
-
+			}
+		}
+		.favoris {
+			text-align: right;
+		}
+	}
 }

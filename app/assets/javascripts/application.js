@@ -11,12 +11,25 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
-//= require turbolinks
+//= require bootstrap
 //= require bootstrap-select
+//= require jquery.turbolinks
+//= require jquery_ujs
+//= require turbolinks
 //= require_tree .
 
+// Init the dropdown
+ $('.dropdown-toggle').dropdown()
+
+// Init the bootstrap-select
+$('.selectpicker').selectpicker('refresh');
 
 // $( "#user_avatar" ).change(() => {
 //   console.log (input( $( this ).val() ) );
 // });
+console.log('Hi !');
+
+// OK: these two are guaranteed to work.
+// $(document).ready(function () { /* ... */ });
+// $(function () { /* ... */ });
+Contact GitHub API Training Shop Blog About
