@@ -4,13 +4,28 @@ class Category < ApplicationRecord
   belongs_to :parent_category, :class_name => "Category"
 
   validates :name, length: { minimum: 2 }, uniqueness: true, presence: true
-  validates :slug, presence: true
   validates :description, length: { maximum: 250 }
 
+  before_create :slugiy_name
+  before_update :slugiy_name
 
-  def self.for_select
-    Category.where(public: true, parent_id: nil).map do |category|
-      [category.name, category.subcategories.map { |cat| [cat.id, cat.name] }]
+  def slugiy_name
+    if name
+      #strip the string
+      ret = self.name
+      #blow away apostrophes
+      ret.gsub! /['`]/,""
+      # @ --> at, and & --> and
+      ret.gsub! /\s*@\s*/, " at "
+      ret.gsub! /\s*&\s*/, " and "
+      #replace all non alphanumeric, underscore or periods with underscore
+       ret.gsub! /\s*[^A-Za-z0-9\.\-]\s*/, '_'
+       #convert double underscores to single
+       ret.gsub! /_+/,"_"
+       #strip off leading/trailing underscore
+       ret.gsub! /\A[_\.]+|[_\.]+\z/,""
+       ret
+       self.slug = ret.downcase
     end
   end
 end

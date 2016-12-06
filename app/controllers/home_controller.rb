@@ -4,7 +4,8 @@ class HomeController < ApplicationController
     if user_signed_in?
       redirect_to main_path
     else
-      render :layout => false
+      # render :layout => false
+      render layout: "home_layout"
     end
   end
 
@@ -12,7 +13,8 @@ class HomeController < ApplicationController
     if !user_signed_in?
       redirect_to root_path
     end
-    @posts = Post.all
+    #@TODO need to get followed posts
+    @posts = Post.where(user_id: current_user.id)
   end
 
 end

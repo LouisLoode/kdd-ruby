@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     # @categories = Category.all
@@ -45,10 +45,13 @@ class CategoriesController < ApplicationController
     redirect_to categories_path
   end
 
+  def get_all_oses
+    @hierarchy = Category.where(public: true)
+  end
+
   private
     def category_params
-      params.require(:category).permit(:name, :slug, :description, :public, :parent_id)
+      params.require(:category).permit(:name, :description, :public, :parent_id)
     end
-
 
 end
