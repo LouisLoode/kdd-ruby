@@ -1,3 +1,64 @@
+<div id="main-wraper">
+	<div id="left-wraper">
+		<img src="<% if !@user.avatar.blank? %>
+	  					<%= @user.avatar %>
+	  				<% else %>
+	  					/assets/defaut-avatar.jpg
+	  				<% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="100%" />
+
+	  	<p class="biography">
+	  		<%= @user.biography %>
+	  	</p>
+
+	  	<ul>
+	  		<% if !@user.github.blank? %>
+	  			<li class="fa fa-github github" aria-hidden="true">
+	  				<a href="<%= @user.github %>" title=<%= @user.name + "'s Github" %>><%= @user.github %></a>
+	  			</li>
+	  		<% end %>
+	  		<% if !@user.website.blank? %>	
+	  			<li class="fa fa-globe website" aria-hidden="true">
+	  				<a href="<%= @user.website %>" title=<%= @user.name + "'s Website" %>><%= @user.website %></a>
+	  			</li>
+	  		<% end %>
+	  	</ul>
+
+	</div>
+	<div id="right-wraper">
+		<div id="name-content">
+			<%= "@" + @user.name.upcase %>
+		</div>
+		<div id="bar-content">
+			<ul>
+				<li>
+				test
+				</li>
+				<li>
+				test
+				</li>
+				<li>
+				test
+				</li>
+				<li>
+				test
+				</li>
+				<li>
+				test
+				</li>
+			</ul>
+		</div>
+		<div id="post-wraper">
+			<div id="posts">
+				<article>
+				</article>
+			</div>
+			<div id="new-post">
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--
 <div class="container">
 	<div class="row">
   		<div class="col-xs-12 col-sm-2 col-md-3">
@@ -221,3 +282,4 @@
 		</div>
 	</div>
 </div>
+-->
