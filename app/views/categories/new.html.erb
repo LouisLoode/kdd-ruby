@@ -1,6 +1,6 @@
-<h1>New Category</h1>
+<%= form_for :category, url: categories_path, html: {class: "form-signup"} do |f| %>
 
-<%= form_for :category, url: categories_path do |f| %>
+  <h1>New Category</h1>
 
   <% if @category.errors.any? %>
     <div id="error_explanation">
@@ -16,35 +16,21 @@
     </div>
   <% end %>
 
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
+    <%= f.label :name, :class => "sr-only" %><br />
+    <%= f.text_field :name, :class => "form-control", placeholder: "Name" %>
 
-  <p>
-    <%= f.label :slug %><br>
-    <%= f.text_field :slug %>
-  </p>
+    <%= f.label :description, :class => "sr-only" %><br />
+    <%= f.text_area :description, :class => "form-control", placeholder: "Message" %>
 
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
-
-  <p>
-    <%= f.label :public %><br>
-    <%= f.select :public, [['true', true], ['false', false]] %>
-  </p>
-
-  <p>
-    <%= f.label :parent_id %><br>
-    <%= f.collection_select :parent_id, Category.where(public: true), :id, :name,
-                    :include_blank => "Nothing selected" %>
-  </p>
+    <%= f.label :public, :class => "sr-only" %><br>
+    <%= f.select :public, [['true', true], ['false', false]], {}, { :class => 'form-control' } %>
 
 
+    <%= f.label :parent_id, :class => "sr-only" %><br>
+    <%= f.collection_select :parent_id, Category.where(public: true), :id, :name, {:include_blank => "Nothing selected"}, {:class=>'form-control'} %>
+
   <p>
-    <%= f.submit %>
+    <%= f.submit "New category", :class => "btn btn-lg btn-primary btn-block" %>
   </p>
 
   <%= link_to 'Back', categories_path %>

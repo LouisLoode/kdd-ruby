@@ -1,4 +1,4 @@
-<%= form_for :post, url: posts_path , html: {class: "form-signup"} do |f| %>
+<%= form_for :post, url: posts_path, html: {class: "form-signup"} do |f| %>
 
   <h1>New Post</h1>
 
@@ -21,7 +21,6 @@
 
     <%= f.label :message, :class => "sr-only" %><br />
     <%= f.text_area :message, :class => "form-control", placeholder: "Message" %>
-
 
     <%= f.label :category_id, :class => "sr-only" %><br>
     <select name="post[category_ids][]" id="post_category_id" class="selectpicker form-control" multiple data-max-options="3" data-live-search="true" title="Choose one of the following..." data-selected-text-format="count > 2" data-actions-box="true" data-multiple-separator=", " data-selected-text-format="values">
