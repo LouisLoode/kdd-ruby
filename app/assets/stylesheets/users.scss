@@ -2,29 +2,97 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@font-face {
+  font-family: 'AvenirRegular';
+  src: url('../Avenir/Avenir_r.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'AvenirMedium';
+  src: url('../Avenir/Avenir_m.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'AvenirHeavy';
+  src: url('../Avenir/Avenir_b.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 .form-signin, .form-signup {
-    max-width: 330px;
-    padding: 15px;
+    max-width: 430px;
+    padding: 25px;
     margin: 0 auto;
+    background:#FFF;
+    margin-top:-115px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+    font-family: 'AvenirRegular',sans-serif;
+
+    a{
+      color:#748DEF;
+    }
+    a:hover{
+      color:#748DEF;
+    }
+    
 
     .form-signin-heading, .form-signup-heading, .checkbox {
       margin-bottom: 10px;
+      font-size:24px;
+      color:#5C748D;
+      font-family: 'AvenirHeavy',sans-serif;
+      text-align:center;
+      font-weight:500;
     }
     .checkbox {
       font-weight: normal;
       text-align: center;
+
+      label{
+        font-size:14px;
+        color:#5C748D;
+      }
+      input[type="checkbox"]{
+        padding:50px;
+        margin-left:-100px;
+      }
     }
+
     .form-control {
       position: relative;
       height: auto;
       -webkit-box-sizing: border-box;
          -moz-box-sizing: border-box;
               box-sizing: border-box;
-      padding: 10px;
+      padding: 13px;
+      border-radius:2px;
       font-size: 16px;
+      color:#5C748D;
+      outline-color:#748DEF;
+      border-color:#5C748D;
+    }
+     .form-control:focus {
+      color:#748DEF;
+      border-color:#748DEF;
+      outline-color:#748DEF;
     }
     input[type="submit"] {
       margin-top: 10px;
+      background:#748DEF;
+      font-size:20px;
+      border-radius:0;
+      border:0;
+      padding-top:15px;
+      padding-bottom:15px;
+      margin-bottom:15px;
+      transition:all ease-in-out 0.3s;
+    }
+    input[type="submit"]:hover {
+      background:#5272EF;
     }
 }
 
