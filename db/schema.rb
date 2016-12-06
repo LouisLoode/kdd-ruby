@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20161204004335) do
     t.integer  "parent_id"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
+    t.index ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
+  end
+
+  create_table "categories_posts", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "post_id"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_categories_posts_on_category_id", using: :btree
+    t.index ["post_id"], name: "index_categories_posts_on_post_id", using: :btree
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -31,13 +39,6 @@ ActiveRecord::Schema.define(version: 20161204004335) do
     t.datetime "updated_at",                null: false
     t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
-  end
-
-  create_table "posts_categories", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "post_id"
-    t.integer "category_id"
-    t.index ["category_id"], name: "index_posts_categories_on_category_id", using: :btree
-    t.index ["post_id"], name: "index_posts_categories_on_post_id", using: :btree
   end
 
   create_table "ranks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 20161204004335) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
+    t.string   "slug"
     t.string   "biography"
     t.string   "github"
     t.string   "website"
@@ -71,6 +73,7 @@ ActiveRecord::Schema.define(version: 20161204004335) do
     t.string   "last_sign_in_ip"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["slug"], name: "index_users_on_slug", unique: true, using: :btree
   end
 
   add_foreign_key "posts", "users"

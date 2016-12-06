@@ -9,9 +9,10 @@ class CreateCategories < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    create_table :posts_categories, id: false do |t|
+    create_table :categories_posts, id: false do |t|
       t.belongs_to :post, index: true
       t.belongs_to :category, index: true
     end
+    add_index :categories, :slug, unique: true
   end
 end

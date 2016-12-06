@@ -1,4 +1,4 @@
-<h1>New Cat</h1>
+<h1>New Category</h1>
 
 <%= form_for :category, url: categories_path do |f| %>
 
@@ -42,13 +42,6 @@
                     :include_blank => "Nothing selected" %>
     <%= f.select :parent_id, grouped_options_for_select(Category.for_select), :include_blank => true , :id => nil %>
   </p>
-
-  <select class="selectpicker form-control" multiple data-max-options="3" data-live-search="true" title="Choose one of the following..." data-selected-text-format="count > 2" data-actions-box="true">
-    <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
-    <option data-divider="true"></option>
-    <option data-tokens="mustard">Burger, Shake and a Smile</option>
-    <option data-tokens="frosting">Sugar, Spice and all things nice</option>
-  </select>
 
 
   <p>

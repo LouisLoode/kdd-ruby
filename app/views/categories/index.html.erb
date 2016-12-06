@@ -27,7 +27,6 @@
 <ul>
   <% @hierarchy.each do |parent| %>
     <li><%= parent.name %> (number of subcat: <%= parent.subcategories.size %>)</li>
-    <%= puts parent.subcategories %>
     <% parent.subcategories.each do |category| %>
       <li> > <%= category.name %></li>
     <% end %>
