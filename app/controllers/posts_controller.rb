@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   prepend_before_action :verify_authenticity_token, only: [:destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.where(user_id: current_user.id)
   end
 
   def show
