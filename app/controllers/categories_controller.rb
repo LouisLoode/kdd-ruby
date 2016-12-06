@@ -3,10 +3,8 @@ class CategoriesController < ApplicationController
 
   def index
     # @categories = Category.all
-    # @category = nil
     @categories = Category.where(public: true)
     @hierarchy = Category.where(public: true, parent_id: nil)
-    # @categories = Category.parents.all
   end
 
   def show
@@ -23,7 +21,6 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    # @category.slug =
     if @category.save
       redirect_to @category
     else
