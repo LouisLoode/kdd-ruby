@@ -34,7 +34,7 @@
           <%= link_to 'KamasutraDuDev', main_path %>
         <% else %>
           KamasutraDuDev
-        <% end %>  
+        <% end %>
       </div>
     </div>
 
@@ -52,13 +52,13 @@
       <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <li class="dropdown user_menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi <%= current_user.name %>  <img src="
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi <%= current_user.name %>  <img src="
             <% if !current_user.avatar.blank? %>
               <%= current_user.avatar %>
             <% else %>
               /assets/defaut-avatar.jpg
             <% end %>" alt="<%= current_user.name + " Avatar" %>" height="50px" width="50px" /><span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
+          <ul class="dropdown-menu">
             <li><%= link_to 'View profile', show_user_path(:user_id => current_user.id) %></li>
             <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
             <li class="divider"></li>
@@ -75,7 +75,7 @@
     </div><!-- /.navbar-collapse -->
     </nav>
 
-    <div class="container-fluid">
+    <div class="container-fluid container_body">
 
         <% if notice %>
           <p class="alert alert-success"><%= notice %></p>

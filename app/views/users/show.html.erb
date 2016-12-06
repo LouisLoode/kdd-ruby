@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-  		<div class="col-xs-12 .col-sm-2 col-md-3">
+  		<div class="col-xs-12 col-sm-2 col-md-3">
   			<div class="container_profil">
 
 	  			<div class="img_profil ">
@@ -21,7 +21,7 @@
 	  				<% end %>
 	  				<% if !@user.website.blank? %>
 	  				<li class="fa fa-globe website" aria-hidden="true">
-	  					<a href="<%= @user.website %>" title=<%= @user.name + "'s Website" %>><%= @user.website %></a>
+	  					<a href="<%= @user.website %>" title="<%= @user.name + "'s Website" %>"><%= @user.website %></a>
 	  				</li>
 	  				<% end %>
 	  			</ul>
@@ -41,8 +41,6 @@
 
 
 
-	  				<%= image_tag "rails.png" %>
-	  				<!-- <img src="http://0.0.0.0:3000/rails.png" width="16" height="10" alt="Edit Entry" /> -->
 	  			</div>
 
 	  			<div class="description_profil ">
@@ -52,7 +50,7 @@
   			</div>
   		</div>
 
-	  	<!-- <div class="col-md-9 md-9-padding"> -->
+
 	  	<div class="col-md-9">
 	  		<div class="name_profil">
 	  			<%= "@" + @user.name.upcase %>
