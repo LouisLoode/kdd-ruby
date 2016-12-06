@@ -32,89 +32,10 @@
 
 // CSS PROFIL
 
-#main-wraper {
-  background-color: #f8f8f8;
-
-  #left-wraper {
-    width: 250px;
-    display: block;
-    float: left;
-    padding: 15px;
-    border-radius: 3px;
-    box-shadow: 0 1px 4px 0 rgba(34, 34, 34, 0.2); 
-
-    img {
-      display: block;
-      margin-bottom: 20px;
-      border-radius: 3%;
-    }
-
-    p.user-biography {
-      font-family: Avenir-Roman;
-      font-size: 14px;
-      font-weight: normal;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 1.36;
-      text-align: center;
-    }
-
-    ul {
-      padding-left: 0;
-    }
-
-    li {
-      display: block;
-      list-style: none;
-      font-size: 13px;
-      margin-bottom: 5px;
-    }
-  }
-
-  #right-wraper {
-    width: 100%;
-    display: block;
-    margin-left: 20px;
-    padding: 15px;
-    border: solid 1px;
-
-    #name-content {
-      font-family: Avenir;
-      font-size: 20px;
-      font-weight: 900;
-      font-style: normal;
-      font-stretch: normal
-    }
-
-    #bar-content {
-      display: block;
-      width: 100%;
-      margin: 20px 0 20px 0;
-      border-radius: 3px;
-      box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.05);
-
-    }  
-  }
+.gover {
+  position: relative;
+  top: -100px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .container_profil1 {
   width:100%;
   background-color: #ffffff;
@@ -148,12 +69,10 @@
 .container_profil {
   height: 483px;
   background-color: #ffffff;
-  border: solid 1px #d9d9d9;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px 0 rgba(34, 34, 34, 0.2);
   padding: 20px;
   float:left;
-  border-radius: 10px;
-  position: relative;
-  top: -150px;
 
   .img_profil {
     width: 100%;
@@ -190,17 +109,18 @@
 }
 
 .name_profil {
-  position: relative;
-  top: -110px;
   font-size: 17px;
   font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
   }
 
 .add_post {
-  border: solid 1px #d9d9d9;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px 0 rgba(34, 34, 34, 0.2);
   float:right;
-  border-radius: 10px;
-  background-color: #f6f6f6;
+  margin-top: 4.5%;
 
   .poster-une-ressource {
     width: 75%;
@@ -262,25 +182,25 @@
 
 
 }
-.article {
-  margin: 0;
-}
 .container_view {
   width: 100%;
-  height: 100px;
-  border-radius: 10px;
-  background-color: #f6f6f6;
+  height: 92px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.05);
 
   .shit{
     width: 100%;
-    margin-top: 20%;
+    height: 92px;
+    padding-top: 20%;
     text-align: center;
     font-family: Avenir-Book;
     font-size: 12px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
-    color:#aaa;
+    color: #5c748d;
+    border-right: solid 1px;
   }
 
   .shit-btn{
@@ -303,8 +223,9 @@
 
 .flux1 {
   width: 100%;
-  border: solid 1px #d9d9d9;
-  border-radius: 10px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px 0 rgba(34, 34, 34, 0.2);
   margin-top: 4.5%;
 
   .titre-flux{
