@@ -8,7 +8,7 @@
     <title>Kamasutra Du Dev</title>
 
     <!-- Stylesheets -->
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= csrf_meta_tags %>
 
@@ -34,7 +34,7 @@
           <%= link_to 'KamasutraDuDev', main_path %>
         <% else %>
           KamasutraDuDev
-        <% end %>  
+        <% end %>
       </div>
     </div>
 
@@ -49,9 +49,7 @@
         </div>
 			</form>
 
-
       <ul class="nav navbar-nav navbar-right">
-      <!-- @TODO -->
       <% if user_signed_in? %>
         <li class="dropdown user_menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi <%= current_user.name %>  <img src="
@@ -65,7 +63,7 @@
             <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
             <li class="divider"></li>
             <li><%= link_to 'Posts', posts_path %></li>
-            <li><%= link_to 'Categories', cats_path %></li>
+            <li><%= link_to 'Categories', categories_path %></li>
             <li class="divider"></li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :get %></li>
           </ul>
@@ -77,7 +75,7 @@
     </div><!-- /.navbar-collapse -->
     </nav>
 
-    <div class="container-fluid">
+    <div class="container-fluid container_body">
 
         <% if notice %>
           <p class="alert alert-success"><%= notice %></p>

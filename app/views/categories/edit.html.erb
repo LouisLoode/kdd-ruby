@@ -1,15 +1,15 @@
 <h1>Edit cat</h1>
 
-<%= form_for :cat, url: cat_path(@cat), method: :patch do |f| %>
+  <%= form_for :category, url: category_path(@category), method: :patch do |f| %>
 
-  <% if @cat.errors.any? %>
+  <% if @category.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@cat.errors.count, "error") %> prohibited
+        <%= pluralize(@category.errors.count, "error") %> prohibited
         this article from being saved:
       </h2>
       <ul>
-        <% @cat.errors.full_messages.each do |msg| %>
+        <% @category.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -38,7 +38,7 @@
 
   <p>
     <%= f.label :parent_id %><br>
-    <%= f.collection_select :parent_id, Cat.where(public: true), :id, :name,
+    <%= f.collection_select :parent_id, Category.where(public: true), :id, :name,
                     :include_blank => "Nothing selected" %>
   </p>
 
@@ -48,4 +48,4 @@
 
 <% end %>
 
-<%= link_to 'Back', cats_path %>
+<%= link_to 'Back', categories_path %>

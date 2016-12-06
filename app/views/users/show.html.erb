@@ -80,13 +80,13 @@
 	  						<a href="<%= @user.github %>" title=<%= @user.name + "'s Github" %>><%= @user.github %></a>
 	  					</li>
 	  				<% end %>
-	  				<% if !@user.website.blank? %>	
-	  					<li class="fa fa-globe website" aria-hidden="true">
-	  						<a href="<%= @user.website %>" title=<%= @user.name + "'s Website" %>><%= @user.website %></a>
-	  					</li>
+	  				<% if !@user.website.blank? %>
+	  				<li class="fa fa-globe website" aria-hidden="true">
+	  					<a href="<%= @user.website %>" title="<%= @user.name + "'s Website" %>"><%= @user.website %></a>
+	  				</li>
 	  				<% end %>
-	  			</ul>	
-	  		
+	  			</ul>
+
 	  			</div>
 
 	  			<div class="description_profil ">
@@ -156,7 +156,7 @@
 						<% if current_user == @user %>
 						<div class="col-xs-2">
 							<div class="shit-btn">
-								<%= link_to 'Edit profile', edit_user_registration_path, :class => "btn" %>
+								<%= link_to 'Edit profile', edit_user_registration_path, :class => "btn btn-primary" %>
 							</div>
 						</div>
 						<% end %>
