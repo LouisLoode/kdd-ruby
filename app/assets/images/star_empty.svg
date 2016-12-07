@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="30px" viewBox="0 0 32 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>Star 1 Copy 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="347.804765 110.740404 338.210366 115.252358 339.617416 104.90183 332.280701 97.3398425 342.744705 95.4548182 347.804765 86.2692989 352.864825 95.4548182 363.32883 97.3398425 355.992115 104.90183 357.399165 115.252358"></polygon>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="31.0481289" height="28.9830594" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="HOME" transform="translate(-567.000000, -886.000000)" stroke-width="4" stroke="#FFB62E" fill="#FFFFFF">
+            <g id="Group-6" transform="translate(235.000000, 800.000000)">
+                <g id="Group-9">
+                    <use id="Star-1-Copy-4" mask="url(#mask-2)" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -75,11 +75,13 @@
       color:#5C748D;
       outline-color:#748DEF;
       border-color:#5C748D;
+      transition:all ease-in-out 0.3s;
     }
      .form-control:focus {
       color:#748DEF;
       border-color:#748DEF;
       outline-color:#748DEF;
+      transform:scale(0.98);
     }
     input[type="submit"] {
       margin-top: 10px;
@@ -94,6 +96,7 @@
     }
     input[type="submit"]:hover {
       background:#5272EF;
+      transform:scale(0.98);
     }
 
 	// max-width: 330px;
