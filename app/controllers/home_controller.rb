@@ -14,7 +14,7 @@ class HomeController < ApplicationController
       redirect_to root_path
     end
     #@TODO need to get followed posts
-    @posts = Post.where(user_id: current_user.id)
+    @posts = Post.all.sort_by(&:created_at).reverse!
   end
 
 end
