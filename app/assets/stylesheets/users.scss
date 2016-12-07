@@ -79,7 +79,7 @@ $color2: #748DEF;
 }
 
 .form-signin, .form-signup {
-  
+
     max-width: 430px;
     padding: 25px;
     margin: 0 auto;
@@ -94,7 +94,7 @@ $color2: #748DEF;
     a:hover{
       color:#748DEF;
     }
-    
+
 
     .form-signin-heading, .form-signup-heading, .checkbox {
       margin-bottom: 10px;
@@ -191,7 +191,7 @@ $color2: #748DEF;
       background:#5272EF;
       transform:scale(0.98);
     }
- 
+
 
 	// max-width: 330px;
 	// padding: 15px;
@@ -519,10 +519,15 @@ $color2: #748DEF;
 				background: url(/assets/star_empty.svg) transparent;
 				background-size:cover;
 		}
-		
+
 	}
 
 	.link{
+<<<<<<< HEAD
+=======
+		padding-top: 20%;
+		width: 100%;
+>>>>>>> 288cb8722878af0f0b8f9cc83320c3d585815e84
 		text-align: center;
 		font-family: 'AvenirMedium',sans-serif;
 		font-size: 15px;

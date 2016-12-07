@@ -22,24 +22,24 @@
 
 
 
-@font-face {
-  font-family: 'AvenirRegular';
-  src: url('/assets/Avenir_r.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'AvenirMedium';
-  src: url('/assets/Avenir_m.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'AvenirHeavy';
-  src: url('/assets/Avenir_b.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+// @font-face {
+//   font-family: 'AvenirRegular';
+//   src: url('/assets/Avenir_r.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: 'AvenirMedium';
+//   src: url('/assets/Avenir_m.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: 'AvenirHeavy';
+//   src: url('/assets/Avenir_b.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
 
 
 
@@ -194,7 +194,7 @@ header {
   a{
     display:block;
     height:70px;
-    line-height:40px; 
+    line-height:40px;
     color:$color2;
     transition:all ease-in-out 0.3s;
   }
@@ -278,7 +278,7 @@ header {
     }
   }
 
-  .linkdrop{ 
+  .linkdrop{
     font-size:16px;
     font-family:Avenir;
 
@@ -299,7 +299,7 @@ header {
       }
   }
 
-  .signout{ 
+  .signout{
     font-size:16px;
     font-family:Avenir;
 
@@ -330,6 +330,12 @@ header {
   padding:0;
   margin:0;
 }
+.select-bold{
+  font-weight: bold;
+  font-size: 16px;
+  font-style: oblique;
+}
+
 
 /*
 *

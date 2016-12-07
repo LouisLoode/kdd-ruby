@@ -1,4 +1,4 @@
-class Rank < ApplicationRecord
+class Rate < ApplicationRecord
   belongs_to :user
   belongs_to :post
 
