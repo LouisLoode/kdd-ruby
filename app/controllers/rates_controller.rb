@@ -1,4 +1,4 @@
-class RanksController < ApplicationController
+class RatesController < ApplicationController
   before_filter :authenticate_user!
 
   # def create
@@ -8,10 +8,21 @@ class RanksController < ApplicationController
 
   def create
     # if !current_user.already_likes?(@post)
-      @rank = Rank.new(:note => params[:note], :user_id => current_user.id, :post_id => params[:post_id])
-      @rank.save
+      @rate = Rate.new(:note => params[:note], :user_id => current_user.id, :post_id => params[:post_id])
+      @rate.save
     # end
   end
+
+  def update
+    @rate = Rate.find(params[:id])
+    @post = @rate.post
+    if @rate.update_attributes(score: params[:score])
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+  
 
   # private
   #   def ranks_params

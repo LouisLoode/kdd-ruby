@@ -1,19 +1,25 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-        registrations: 'users/registrations'
-      }
+
+
+
 
   root 'home#index'
   get 'main', to: 'home#main'
-  resources :users
+  devise_for :users, controllers: {
+        registrations: 'users/registrations'
+      }
+  # resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships,       only: [:create, :destroy]
   get 'users/list', to: 'users#list'
   get 'user/:user_id', to: 'users#show', as: 'show_user'
-  get 'post/:post_id/user/:user_id/rank/:note', to: 'ranks#create', as: 'ranks_create'
-
-  resources :posts do
-    resources :ranks
-    # post 'ranks', to: 'rank#votes'
-  end
+  get 'post/:post_id/rate/:note', to: 'rates#create', as: 'rates_create'
+  resources :rates, only: :update
+  resources :posts
 
   resources :categories
 

@@ -14,7 +14,9 @@ class HomeController < ApplicationController
       redirect_to root_path
     end
     #@TODO need to get followed posts
-    @posts = Post.all.sort_by(&:created_at).reverse!
+    # @micropost  = current_user.posts.build
+    @feed_items = current_user.feed.sort_by(&:created_at).reverse!
+    # @posts = Post.all
   end
 
 end
