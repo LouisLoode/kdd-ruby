@@ -32,8 +32,11 @@ gem 'devise', "~> 4.2.0"
 gem 'font-awesome-sass'
 
 # Search
-gem "searchkick"
+gem 'searchkick'
 gem 'bootstrap-typeahead-rails'
+
+# OpenGraph scrapper
+ gem 'opengraph_parser'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

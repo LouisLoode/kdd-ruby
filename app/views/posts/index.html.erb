@@ -20,15 +20,3 @@
     </tr>
   <% end %>
 </table>
-
-<%= form_tag posts_path, method: :get do %>
-<div id="multiple-datasets">
-  <%= text_field_tag :query, params[:query], class: 'form-control typeahead', id: "article_search" %>
-  <%= submit_tag 'Search' %>
-</div>
-<% end %>
-
-
-
-  <input class="typeahead" type="text" placeholder="NBA and NHL teams">
-</div>

@@ -38,6 +38,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
     autoprefixer-rails (6.5.3.1)
       execjs
@@ -112,7 +114,11 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
+    opengraph_parser (0.2.3)
+      addressable
+      nokogiri
     orm_adapter (0.5.0)
+    public_suffix (2.0.4)
     puma (3.6.2)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -206,6 +212,7 @@ DEPENDENCIES
   jquery-turbolinks
   listen (~> 3.0.5)
   mysql2 (>= 0.3.18, < 0.5)
+  opengraph_parser
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   sass-rails (~> 5.0)
