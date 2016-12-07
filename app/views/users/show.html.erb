@@ -19,12 +19,12 @@
 
                     <% if !@user.github.blank? %>
                     <li class="fa fa-github github" aria-hidden="true">
-                        <a href="<%= @user.github %>" title=<%= @user.name + "'s Github" %>><%= @user.github %></a>
+                        <a href="<%= @user.github %>" title="<%= @user.name + 's Github' %>"><%= @user.github %></a>
                     </li>
                     <% end %>
                     <% if !@user.website.blank? %>
                     <li class="fa fa-globe website" aria-hidden="true">
-                        <a href="<%= @user.website %>" title="<%= @user.name + "'s Website" %>"><%= @user.website %></a>
+                        <a href="<%= @user.website %>" title="<%= @user.name + 's Website' %>"><%= @user.website %></a>
                     </li>
                     <% end %>
                 </ul>

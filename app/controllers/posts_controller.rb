@@ -37,7 +37,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post
     else
-      render 'new'
+      @hierarchy = Category.where(public: true, parent_id: nil)
+      render :new
     end
   end
 

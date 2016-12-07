@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships,       only: [:create, :destroy]
-  
+
   get 'users/list', to: 'users#list'
   get 'user/:user_id', to: 'users#show', as: 'show_user'
   get 'post/:post_id/rate/:note', to: 'rates#create', as: 'rates_create'
