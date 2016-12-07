@@ -67,8 +67,23 @@ $color2: #748DEF;
   overflow-x:hidden;
   }
 
+
   #fixfoooter{
     min-height:690px;
+  }
+
+  #logo{
+    position:absolute;
+    left:50%;
+    margin-left:-125px;
+    width:250px;
+    height:100%;
+  }
+
+  #logo img{
+    width:100%;
+    height:32px;
+    margin-top:19px;
   }
 
   .navbar {
@@ -85,7 +100,7 @@ $color2: #748DEF;
     display: block;
     width: 160px;
     text-align: center;
-    background-color: #eee;
+    background-color:transparent;
   }
 
   .container-fluid{
@@ -112,7 +127,10 @@ header {
   width: 100%;
   height: 236px;
   display: block;
+  margin-top:70px;
+  transition:all ease-in-out 0.3s;
   background:$color1;
+  z-index:10;
   // background-image:url(/assets/header.png);
   // background-color: #424b98;
   // background-repeat: no-repeat;
@@ -158,7 +176,7 @@ header {
   }
 
   button:hover{
-      background:rgba(297,37,96,0.07);
+      background:rgba(0,0,0,0.07);
       width:30px;
       height:30px;
   }

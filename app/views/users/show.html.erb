@@ -1,5 +1,13 @@
-<div class="container gover">
-    <div class="row">
+<div class="headerfake">
+    <div id="contentfake" class="container">
+    <div class="img_fake">
+        <img src="/assets/louisloode.jpg" />
+    </div>
+    <p><%= "@" + @user.name %></p>
+    </div>
+</div>
+<div id="part" class="container gover">
+    <div id="fixprofil" class="row">
         <div class="col-xs-12 col-sm-2 col-md-3">
             <div class="container_profil">
                 <div class="img_profil ">
@@ -7,7 +15,7 @@
                     <% if !@user.avatar.blank? %>
                     <%= @user.avatar %>
                     <% else %>
-                    /assets/defaut-avatar.jpg
+                    /assets/louisloode.jpg
                     <% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="100%" />
                 </div>
                 <div class="description_profil ">
@@ -17,12 +25,14 @@
                 </div>
                 <ul>
                     <% if !@user.github.blank? %>
-                    <li class="fa fa-github github" aria-hidden="true">
+                    <li class="fa" aria-hidden="true">
+                        <img src="/assets/github.svg">
                         <a href="<%= @user.github %>" title=<%= @user.name + "'s Github" %>><%= @user.github %></a>
                     </li>
                     <% end %>
                     <% if !@user.website.blank? %>
-                    <li class="fa fa-globe website" aria-hidden="true">
+                    <li class="fa" aria-hidden="true">
+                        <img src="/assets/website.svg">
                         <a href="<%= @user.website %>" title="<%= @user.name + "'s Website" %>"><%= @user.website %></a>
                     </li>
                     <% end %>
@@ -31,69 +41,71 @@
         </div>
         <div class="col-md-9">
             <div class="name_profil">
-                <%= "@" + @user.name.upcase %>
+                <%= "@" + @user.name %>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="container_view" >
-                        <div class="col-md-2 nomargpadd">
+
                             <div class="box">
                                 <p class="title">Pertinence</p>
-                                <p class="content"> * * * * * </p>
+                                <div class="content">
+                                    <p class="star star-full"></p>
+                                    <p class="star star-full"></p>
+                                    <p class="star star-full"></p>
+                                    <p class="star star-full"></p>
+                                    <p class="star star-empty"></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-2 nomargpadd">
+
                             <div class="box">
                                 <p class="title">Positions</p>
-                                <p class="content">0</p>
+                                <p class="content">1246</p>
                             </div>
-                        </div>
-                        <div class="col-md-2 nomargpadd">
+
+
                             <div class="box">
                                 <p class="title">Followers</p>
                                 <p class="content">0</p>
                             </div>
-                        </div>
-                        <div class="col-md-2 nomargpadd">
+
                             <div class="box">
                                 <p class="title">Following</p>
                                 <p class="content">0</p>
                             </div>
-                        </div>
-                        <div class="col-md-2 nomargpadd">
+
                             <div class="box">
                                 <p class="title">Favoris</p>
                                 <p class="content">0</p>
                             </div>
-                        </div>
-                        <div class="col-md-2 nomargpadd">
+
                             <% if current_user == @user %>
-                            <div class="link">
-                                <%= link_to 'Edit profile', edit_user_registration_path, :class => "btn btn-primary" %>
+                            <div class="box">
+                                <%= link_to 'Éditer le profil', edit_user_registration_path, :class => "btnedit" %>
                             </div>
-                            <% end %>
-                        </div>
+                             <% end %>
+
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-7">
 
                     <% @posts.each do |post| %>
                     <article>
                         <div class="row metadata">
-                            <div class="col-md-2">
+                            <div class="profil_img col-md-2">
                                 <img src="
                                 <% if !@user.avatar.blank? %>
                                 <%= @user.avatar %>
                                 <% else %>
-                                /assets/defaut-avatar.jpg
+                                /assets/louisloode.jpg
                                 <% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="100%" />
                             </div>
                             <div class="col-md-8">
-                                <p class="name_post"><%= "@" + post.user.name.upcase %></p>
-                                <p class="categorie_post">#SYMPHONIE #JAVASCRIPT</p>
+                                <p class="name_post"><%= "@" + post.user.name %></p>
+                                <p class="categorie_post"><span>#SYMPHONIE</span><span>#JAVASCRIPT</span></p>
                             </div>
                             <div class="col-md-2">
                                 <p class="time_post">
@@ -114,26 +126,23 @@
                         </div>
                         <div class="row action">
                             <div class="col-md-6 rank">
-                                <ul>
-                                    <li class="fa fa-star-o fa-2x" aria-hidden="true">
-                                        <%= link_to 'rank 1', ranks_create_path(:post_id => post.id, :note => 1, :user_id => current_user.id), remote: true %>
+                                <ul class="notation">
+                                    <li class="star star-full" aria-hidden="true">
+                                        <!-- <%= link_to 'rank 1', ranks_create_path(:post_id => post.id, :note => 1, :user_id => current_user.id), remote: true %>
                                         <%= link_to 'rank 2', ranks_create_path(:post_id => post.id, :note => 2, :user_id => current_user.id), remote: true %>
                                         <%= link_to 'rank 3', ranks_create_path(:post_id => post.id, :note => 3, :user_id => current_user.id), remote: true %>
                                         <%= link_to 'rank 4', ranks_create_path(:post_id => post.id, :note => 4, :user_id => current_user.id), remote: true %>
-                                        <%= link_to 'rank 5', ranks_create_path(:post_id => post.id, :note => 5, :user_id => current_user.id), remote: true %>
+                                        <%= link_to 'rank 5', ranks_create_path(:post_id => post.id, :note => 5, :user_id => current_user.id), remote: true %> -->
                                     </li>
-                                    <li class="fa fa-star-o fa-2x" aria-hidden="true">
+                                    <li class="star star-full" aria-hidden="true">
                                     </li>
-                                    <li class="fa fa-star-o fa-2x" aria-hidden="true">
+                                    <li class="star star-full" aria-hidden="true">
                                     </li>
-                                    <li class="fa fa-star-o fa-2x" aria-hidden="true">
+                                    <li class="star star-full" aria-hidden="true">
                                     </li>
-                                    <li class="fa fa-star-o fa-2x" aria-hidden="true">
+                                    <li class="star star-empty" aria-hidden="true">
                                     </li>
                                 </ul>
-
-
-
 
                             </div>
                             <div class="col-md-6 favoris">
@@ -145,7 +154,7 @@
 
 
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="add_post">
                         <h2 class="poster-une-ressource">
                             Poster une ressource
@@ -153,7 +162,7 @@
                         <div class="dropdown">
                             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 Sujet
-                                <span class="caret"></span>
+                            <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                 <li><a href="#">Action</a></li>
@@ -166,15 +175,15 @@
                         <form class="form-horizontal">
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <input type="texte" class="form-control1 message" id="inputEmail3" placeholder="Message">
-                                    <input type="catégorie" class=" form-control1 ressource" id="inputPassword3" placeholder="Url">
+                                    <textarea class="form-control1 message" id="inputEmail3" placeholder="Message"></textarea>
+                                    <input type="catégorie" class=" form-control1 ressource" id="inputPassword3" placeholder="Ressource">
                                     <button class="btn">
                                         Publier cette ressource
                                     </button>
                                 </div>
                             </div>
                         </form>
-                        <p class="tu-ne-trouves-pas-de">Tu ne trouves pas de sujet correspondant à ta ressource ?</p>
+                        <p class="tu-ne-trouves-pas-de">Tu ne trouves pas de sujet correspondant à ta ressource ? <a href="#">Créer un nouveau sujet</a></p>
                     </div>
                 </div>
             </div>

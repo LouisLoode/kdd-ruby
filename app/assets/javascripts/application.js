@@ -28,6 +28,68 @@ $('.selectpicker').selectpicker('refresh');
 // });
 console.log('Hi !');
 
+var i = 0;
+var j = 1;
+
+$(document).on('scroll', function() {
+	var y = $(this).scrollTop();
+	console.log(y);
+	if (y >= 236) {
+        // > 100px from top - show div
+       if(j==1){ 
+        console.log('startHeader');
+        startHeader();
+        i=1;
+       }
+    } else if(y <= 165) {
+    	console.log('scroll < 236px');
+    	
+    	if(i==1){
+    		console.log('closeHeader');
+    		closeHeader();
+    		j = 1;
+    	}
+    }
+});
+// $(window).scroll(function() {
+//     if ($(window).scrollTop() > header) {
+//         // > 100px from top - show div
+//         console.log('startHeader');
+//         startHeader();
+//         i=1;
+//     }
+//     else {
+//     	console.log('scroll < 236px');
+//     	if(i==1){
+//     		console.log('closeHeader');
+//     	closeHeader();
+//     	}
+//     }
+// });
+
+function startHeader(){
+	    $(".headerfake").animate({top:70}, 300, function() {
+		    // console.log('open');
+		});
+		$(".container_profil").animate({marginTop:-200}, 300, function() {
+		    console.log('add marginTop -300');
+		});
+
+		j=0;
+}
+function closeHeader(){
+		// alert('salut');
+
+		$(".headerfake").animate({top:-70}, 200, function() {
+		    console.log('closed');
+		});
+		$(".container_profil").animate({marginTop:0}, 300, function() {
+		    //callback
+		});
+
+		i=0;
+}
+
 // OK: these two are guaranteed to work.
 // $(document).ready(function () { /* ... */ });
 // $(function () { /* ... */ });
