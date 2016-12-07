@@ -58,9 +58,43 @@
         color:#5C748D;
       }
       input[type="checkbox"]{
-        padding:50px;
-        margin-left:-100px;
+        margin-left:-118px;
+        z-index:10;
+        width: 17px; height: 17px;
+        opacity:0;
       }
+
+      input[type="checkbox"]:not(:checked) + label:before,
+	  input[type="checkbox"]:checked + label:before {
+		  content: '';
+		  position: absolute;
+		  left:0; top: 2px;
+		  width: 17px; height: 17px; /* dim. de la case */
+		  border: 1px solid grey;
+		  background: #FFF;
+	  }
+
+		input[type="checkbox"]:not(:checked) + label:after,
+		input[type="checkbox"]:checked + label:after {
+		  content: '✔';
+		  position: absolute;
+		  top: 0; left: 4px;
+		  font-size: 14px;
+		  color: #09ad7e;
+		  background: #FFF;
+		  transition: all .2s; /* on prévoit une animation */
+		}
+		/* Aspect si "pas cochée" */
+		input[type="checkbox"]:not(:checked) + label:after {
+		  opacity: 0; /* coche invisible */
+		  transform: scale(0); /* mise à l'échelle à 0 */
+		}
+		/* Aspect si "cochée" */
+		input[type="checkbox"]:checked + label:after {
+		  opacity: 1; /* coche opaque */
+		  transform: scale(1); /* mise à l'échelle 1:1 */
+		}
+
     }
 
     .form-control {
@@ -98,6 +132,7 @@
       background:#5272EF;
       transform:scale(0.98);
     }
+ 
 
 	// max-width: 330px;
 	// padding: 15px;
@@ -122,6 +157,8 @@
 	// input[type="submit"] {
 	// 	margin-top: 10px;
 	// }
+
+
 }
 
 
