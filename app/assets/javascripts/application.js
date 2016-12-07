@@ -13,13 +13,12 @@
 //= require jquery
 //= require bootstrap
 //= require bootstrap-select
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 
 // Init the dropdown
- $('.dropdown-toggle').dropdown()
+$('.dropdown-toggle').dropdown()
 
 // Init the bootstrap-select
 $('.selectpicker').selectpicker('refresh');
