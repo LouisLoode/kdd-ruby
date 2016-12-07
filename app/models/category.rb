@@ -6,10 +6,10 @@ class Category < ApplicationRecord
   validates :name, length: { minimum: 2 }, uniqueness: true, presence: true
   validates :description, length: { maximum: 250 }
 
-  before_create :slugiy_name
-  before_update :slugiy_name
+  before_create :slugify_name
+  before_update :slugify_name
 
-  def slugiy_name
+  def slugify_name
     if name
        self.slug = self.name.parameterize
     end
