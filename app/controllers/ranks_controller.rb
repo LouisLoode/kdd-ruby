@@ -6,4 +6,9 @@ class RanksController < ApplicationController
     @rank.save
   end
 
+  # private
+  #   def ranks_params
+  #     params.require(:rank).permit(:note, :user_id, :post_id, :pant_id)
+  #   end
+
 end
