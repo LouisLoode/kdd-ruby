@@ -26,6 +26,7 @@
                 <ul>
 
                     <% if !@user.github.blank? %>
+
                     <li class="fa" aria-hidden="true">
                         <img src="/assets/github.svg">
                         <a href="<%= @user.github %>" title=<%= @user.name + "'s Github" %>><%= @user.github %></a>
@@ -35,6 +36,7 @@
                     <li class="fa" aria-hidden="true">
                         <img src="/assets/website.svg">
                         <a href="<%= @user.website %>" title="<%= @user.name + "'s Website" %>"><%= @user.website %></a>
+
                     </li>
                     <% end %>
                 </ul>
@@ -46,47 +48,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="container_view" >
-
-                            <div class="box">
-                                <p class="title">Pertinence</p>
-                                <div class="content">
-                                    <p class="star star-full"></p>
-                                    <p class="star star-full"></p>
-                                    <p class="star star-full"></p>
-                                    <p class="star star-full"></p>
-                                    <p class="star star-empty"></p>
-                                </div>
-                            </div>
-
-                            <div class="box">
-                                <p class="title">Positions</p>
-                                <p class="content">1246</p>
-                            </div>
-
-
-                            <div class="box">
-                                <p class="title">Followers</p>
-                                <p class="content">0</p>
-                            </div>
-
-                            <div class="box">
-                                <p class="title">Following</p>
-                                <p class="content">0</p>
-                            </div>
-
-                            <div class="box">
-                                <p class="title">Favoris</p>
-                                <p class="content">0</p>
-                            </div>
-
-                            <% if current_user == @user %>
-                            <div class="box">
-                                <%= link_to 'Éditer le profil', edit_user_registration_path, :class => "btnedit" %>
-                            </div>
-                             <% end %>
-
-                    </div>
+                  <%= render 'shared/stats' %>
                 </div>
             </div>
 
@@ -129,11 +91,11 @@
                             <div class="col-md-6 rank">
                                 <ul class="notation">
                                     <li class="star star-full" aria-hidden="true">
-                                        <!-- <%= link_to 'rank 1', ranks_create_path(:post_id => post.id, :note => 1, :user_id => current_user.id), remote: true %>
-                                        <%= link_to 'rank 2', ranks_create_path(:post_id => post.id, :note => 2, :user_id => current_user.id), remote: true %>
-                                        <%= link_to 'rank 3', ranks_create_path(:post_id => post.id, :note => 3, :user_id => current_user.id), remote: true %>
-                                        <%= link_to 'rank 4', ranks_create_path(:post_id => post.id, :note => 4, :user_id => current_user.id), remote: true %>
-                                        <%= link_to 'rank 5', ranks_create_path(:post_id => post.id, :note => 5, :user_id => current_user.id), remote: true %> -->
+                                        <!-- <%= link_to 'rank 1', rates_create_path(:post_id => post.id, :note => 1, :user_id => current_user.id), remote: true %>
+                                        <%= link_to 'rank 2', rates_create_path(:post_id => post.id, :note => 2, :user_id => current_user.id), remote: true %>
+                                        <%= link_to 'rank 3', rates_create_path(:post_id => post.id, :note => 3, :user_id => current_user.id), remote: true %>
+                                        <%= link_to 'rank 4', rates_create_path(:post_id => post.id, :note => 4, :user_id => current_user.id), remote: true %>
+                                        <%= link_to 'rank 5', rates_create_path(:post_id => post.id, :note => 5, :user_id => current_user.id), remote: true %> -->
                                     </li>
                                     <li class="star star-full" aria-hidden="true">
                                     </li>
@@ -191,6 +153,3 @@
         </div>
     </div>
 </div>
-<%= render 'shared/stats' %>
-
-    <%= render 'follow_form' %>

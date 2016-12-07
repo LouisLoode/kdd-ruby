@@ -1,9 +1,15 @@
 class PostsController < ApplicationController
   # before_filter :authenticate_user!
-  before_action :authenticate_user!, except: [ :show ]
+  before_action :authenticate_user!, except: [ :show, :autocomplete ]
   skip_before_action :verify_authenticity_token, :only => :create
     before_action :correct_user,   only: :destroy
   prepend_before_action :verify_authenticity_token, only: [:destroy]
+
+  def autocomplete
+    render json: Post.search(params[:query], autocomplete: false, limit: 10).map do |post|
+      { title: post.url, value: post.id }
+    end
+  end
 
   def index
     @posts = Post.where(user_id: current_user.id)
@@ -31,7 +37,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post
     else
-      render 'new'
+      @hierarchy = Category.where(public: true, parent_id: nil)
+      render :new
     end
   end
 

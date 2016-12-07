@@ -3,6 +3,12 @@
   before_action :authenticate_user!, only: [:index, :edit, :update, :destroy,
                                       :following, :followers]
 
+  def autocomplete
+    render json: Post.search(params[:query], autocomplete: false, limit: 10).map do |post|
+      { title: post.url, value: post.id }
+    end
+  end
+
   def show
     id_user = params[:id] === nil ? current_user.id : params[:id]
     @user = User.find(id_user)

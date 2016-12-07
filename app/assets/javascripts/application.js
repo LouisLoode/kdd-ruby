@@ -16,6 +16,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
+//= require typeahead
 //= require_tree .
 
 // Init the dropdown
@@ -93,3 +94,166 @@ function closeHeader(){
 // OK: these two are guaranteed to work.
 // $(document).ready(function () { /* ... */ });
 // $(function () { /* ... */ });
+
+
+// SEARCH (Autocomplete)
+// var categories = new Bloodhound({
+//   datumTokenizer: Bloodhound.tokenizers.whitespace,
+//   queryTokenizer: Bloodhound.tokenizers.whitespace,
+//   remote: {
+//     url: '/categories/autocomplete?query=%QUERY',
+//     wildcard: '%QUERY'
+//   }
+// });
+//
+// var posts = new Bloodhound({
+//   datumTokenizer: Bloodhound.tokenizers.whitespace,
+//   queryTokenizer: Bloodhound.tokenizers.whitespace,
+//   remote: {
+//     url: '/posts/autocomplete?query=%QUERY',
+//     wildcard: '%QUERY'
+//   }
+// });
+//
+// $('#multiple-datasets .typeahead').typeahead(null, {
+//   highlight: true
+// },
+// {
+//   name: 'categories',
+//   display: 'post',
+//   source: categories,
+//   templates: {
+//     header: '<h3 class="league-name">NBA Teams</h3>'
+//   }
+// });
+// ,
+// {
+//   name: 'nhl-teams',
+//   display: 'team',
+//   source: posts,
+//   templates: {
+//     header: '<h3 class="league-name">NHL Teams</h3>'
+//   }
+// }
+// );
+
+
+
+var ready;
+ready = function() {
+    // var categoryEngine = new Bloodhound({
+    //     datumTokenizer: function(d) {
+    //         console.log(d);
+    //         return Bloodhound.tokenizers.whitespace(d.title);
+    //     },
+    //     queryTokenizer: Bloodhound.tokenizers.whitespace,
+    //     remote: {
+    //           url: '/categories/autocomplete?query=%QUERY',
+    //           wildcard: '%QUERY'
+    //     }
+    // });
+    //
+    // var promiseCategory = categoryEngine.initialize();
+    //
+    // promiseCategory
+    //     .done(function() { console.log('success!'); })
+    //     .fail(function() { console.log('err!'); });
+    //
+    // $('.typeahead').typeahead(null, {
+    //     name: 'category',
+    //     displayKey: 'name',
+    //     source: categoryEngine.ttAdapter()
+    // });
+    // {
+    //   highlight: true
+    // },
+    // {
+    //   name: 'categories',
+    //   display: 'post',
+        //  displayKey: 'title',
+    //   source: categoryEngine.ttAdapter(),
+    //   templates: {
+    //     header: '<h3 class="league-name">NBA Teams</h3>'
+    //   }
+    // });
+    // ,
+    // {
+    //   name: 'nhl-teams',
+    //   display: 'team',
+    //   source: posts,
+    //   templates: {
+    //     header: '<h3 class="league-name">NHL Teams</h3>'
+    //   }
+    // }
+    // );
+    var categories = new Bloodhound({
+      datumTokenizer: function(cat) {
+        console.log("datumTokenizer posts: ");
+          console.log(cat);
+          return Bloodhound.tokenizers.whitespace(cat.name);
+      },
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      remote: {
+            url: '/categories/autocomplete?query=%QUERY',
+            wildcard: '%QUERY'
+      }
+    });
+
+    var posts = new Bloodhound({
+      datumTokenizer: function(post) {
+          console.log(post);
+          return Bloodhound.tokenizers.whitespace(post.url);
+      },
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      remote: {
+            url: '/posts/autocomplete?query=%QUERY',
+            wildcard: '%QUERY'
+      }
+    });
+
+    var users = new Bloodhound({
+      datumTokenizer: function(user) {
+          console.log(user);
+          return Bloodhound.tokenizers.whitespace(user.name);
+      },
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      remote: {
+            url: '/users/autocomplete?query=%QUERY',
+            wildcard: '%QUERY'
+      }
+    });
+
+    $('#search > #query').typeahead({
+      highlight: true
+    },
+    {
+      name: 'category',
+      // display: 'post',
+      displayKey: 'name',
+      source: categories,
+      templates: {
+        header: '<h3 class="league-name">Categories</h3>'
+      }
+    },
+    {
+      name: 'post',
+      // display: 'post',
+      displayKey: 'url',
+      source: posts,
+      templates: {
+        header: '<h3 class="league-name">Posts</h3>'
+      }
+    },
+    {
+      name: 'user',
+      // display: 'post',
+      displayKey: 'name',
+      source: users,
+      templates: {
+        header: '<h3 class="league-name">Users</h3>'
+      }
+    });
+}
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
