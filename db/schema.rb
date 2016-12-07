@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204004335) do
+ActiveRecord::Schema.define(version: 20161207152638) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -32,23 +32,22 @@ ActiveRecord::Schema.define(version: 20161204004335) do
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "url"
-    t.text     "message",     limit: 65535
-    t.integer  "category_id"
+    t.text     "message",    limit: 65535
     t.integer  "user_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
-  create_table "ranks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "note"
     t.integer  "user_id"
     t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_ranks_on_post_id", using: :btree
-    t.index ["user_id"], name: "index_ranks_on_user_id", using: :btree
+    t.index ["post_id"], name: "index_rates_on_post_id", using: :btree
+    t.index ["user_id"], name: "index_rates_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

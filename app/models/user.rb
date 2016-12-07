@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,7 +14,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :followers
-  has_many :ranks
+  has_many :rates
 
   # def already_ranks?(post)
   #   puts self.ranks.find(:all, :conditions => ['post_id = ?', post.id]).size > 0
@@ -24,5 +23,12 @@ class User < ApplicationRecord
 
 #   has_many :posts, through: :ranks
 
+  before_create :slugify_name
+  before_update :slugify_name
 
+  def slugify_name
+    if name
+       self.slug = self.name.parameterize
+    end
+  end
 end

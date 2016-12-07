@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.where(user_id: current_user.id)
+    # @hierarchy = Category.where(public: true, parent_id: nil)
   end
 
   def show
