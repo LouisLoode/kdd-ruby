@@ -1,15 +1,55 @@
 <% @user ||= current_user %>
-<div class="stats">
-  <a href="<%= following_user_path(@user) %>">
-    <strong id="following" class="stat">
-      <%= @user.following.count %>
-    </strong>
-    following
-  </a>
-  <a href="<%= followers_user_path(@user) %>">
-    <strong id="followers" class="stat">
-      <%= @user.followers.count %>
-    </strong>
-    followers
-  </a>
+
+<div class="container_view" >
+
+        <div class="box">
+            <p class="title">Pertinence</p>
+            <div class="content">
+                <p class="star star-full"></p>
+                <p class="star star-full"></p>
+                <p class="star star-full"></p>
+                <p class="star star-full"></p>
+                <p class="star star-empty"></p>
+            </div>
+        </div>
+
+        <div class="box">
+            <p class="title">Positions</p>
+            <p class="content">1246</p>
+        </div>
+
+
+        <div class="box">
+          <a href="<%= followers_user_path(@user) %>">
+            <p class="title">Followers</p>
+            <p class="content"><%= @user.followers.count %></p>
+          </a>
+        </div>
+
+        <div class="box">
+          <a href="<%= following_user_path(@user) %>">
+            <p class="title">Following</p>
+            <p class="content"><%= @user.following.count %></p>
+          </a>
+        </div>
+
+        <div class="box">
+            <p class="title">Favoris</p>
+            <p class="content">0</p>
+        </div>
+
+         <% if @user != current_user %>
+           <div id="follow_form">
+           <% if current_user.following?(@user) %>
+             <%= render 'shared/unfollow' %>
+           <% else %>
+             <%= render 'shared/follow' %>
+           <% end %>
+           </div>
+         <% else %>
+           <div class="box">
+               <%= link_to 'Éditer le profil', edit_user_registration_path, :class => "btnedit" %>
+           </div>
+         <% end %>
+
 </div>
