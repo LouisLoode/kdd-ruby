@@ -2,10 +2,12 @@ class PostsController < ApplicationController
   # before_filter :authenticate_user!
   before_action :authenticate_user!, except: [ :show ]
   skip_before_action :verify_authenticity_token, :only => :create
+    before_action :correct_user,   only: :destroy
   prepend_before_action :verify_authenticity_token, only: [:destroy]
 
   def index
     @posts = Post.where(user_id: current_user.id)
+    # @hierarchy = Category.where(public: true, parent_id: nil)
   end
 
   def show
@@ -29,7 +31,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post
     else
-      render 'new'
+      @hierarchy = Category.where(public: true, parent_id: nil)
+      render :new
     end
   end
 
@@ -46,12 +49,17 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-
-    redirect_to posts_path
+    flash[:success] = "Micropost deleted"
+    redirect_to request.referrer || root_url
   end
 
   private
     def post_params
       params.require(:post).permit(:url, :message, category_ids: [])
+    end
+
+    def correct_user
+      @post = current_user.posts.find_by(id: params[:id])
+      redirect_to root_url if @post.nil?
     end
 end

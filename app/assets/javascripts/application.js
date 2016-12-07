@@ -27,7 +27,6 @@ $('.selectpicker').selectpicker('refresh');
 // $( "#user_avatar" ).change(() => {
 //   console.log (input( $( this ).val() ) );
 // });
-console.log('Hi !');
 
 // OK: these two are guaranteed to work.
 // $(document).ready(function () { /* ... */ });

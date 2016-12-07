@@ -16,6 +16,7 @@
                     </p>
                 </div>
                 <ul>
+
                     <% if !@user.github.blank? %>
                     <li class="fa fa-github github" aria-hidden="true">
                         <a href="<%= @user.github %>" title="<%= @user.name + 's Github' %>"><%= @user.github %></a>
@@ -116,11 +117,11 @@
                             <div class="col-md-6 rank">
                                 <ul>
                                     <li class="fa fa-star-o fa-2x" aria-hidden="true">
-                                        <%= link_to 'rank 1', ranks_create_path(:post_id => post.id, :note => 1, :user_id => current_user.id), remote: true %>
-                                        <%= link_to 'rank 2', ranks_create_path(:post_id => post.id, :note => 2, :user_id => current_user.id), remote: true %>
-                                        <%= link_to 'rank 3', ranks_create_path(:post_id => post.id, :note => 3, :user_id => current_user.id), remote: true %>
-                                        <%= link_to 'rank 4', ranks_create_path(:post_id => post.id, :note => 4, :user_id => current_user.id), remote: true %>
-                                        <%= link_to 'rank 5', ranks_create_path(:post_id => post.id, :note => 5, :user_id => current_user.id), remote: true %>
+                                        <%= link_to 'rate 1', rates_create_path(:post_id => post.id, :note => 1), remote: true %>
+                                        <%= link_to 'rate 2', rates_create_path(:post_id => post.id, :note => 2), remote: true %>
+                                        <%= link_to 'rate 3', rates_create_path(:post_id => post.id, :note => 3), remote: true %>
+                                        <%= link_to 'rate 4', rates_create_path(:post_id => post.id, :note => 4), remote: true %>
+                                        <%= link_to 'rate 5', rates_create_path(:post_id => post.id, :note => 5), remote: true %>
                                     </li>
                                     <li class="fa fa-star-o fa-2x" aria-hidden="true">
                                     </li>
@@ -181,3 +182,6 @@
         </div>
     </div>
 </div>
+<%= render 'shared/stats' %>
+
+    <%= render 'follow_form' %>
