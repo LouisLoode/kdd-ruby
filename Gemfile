@@ -30,6 +30,7 @@ gem 'jquery-turbolinks'
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise', "~> 4.2.0"
 gem 'font-awesome-sass'
+gem "searchkick"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

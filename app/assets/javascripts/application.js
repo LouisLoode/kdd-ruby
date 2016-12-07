@@ -15,6 +15,7 @@
 //= require bootstrap-select
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require typeahead
 //= require turbolinks
 //= require_tree .
 
@@ -31,3 +32,17 @@ $('.selectpicker').selectpicker('refresh');
 // OK: these two are guaranteed to work.
 // $(document).ready(function () { /* ... */ });
 // $(function () { /* ... */ });
+
+
+// SEARCH (Autocomplete)
+var categories = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  remote: {
+    url: '/categories/autocomplete?query=%QUERY',
+    wildcard: '%QUERY'
+  }
+});
+$('#query').typeahead(null, {
+  source: categories
+});

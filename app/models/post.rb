@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  # searchkick word_start: [:url, :message]
   belongs_to :user
   has_many :rates
   has_and_belongs_to_many :categories

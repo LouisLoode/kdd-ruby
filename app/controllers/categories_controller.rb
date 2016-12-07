@@ -1,6 +1,16 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
 
+  def autocomplete
+    render json: Category.search(params[:query], {
+          fields: ["name^5", "description"],
+          match: :word_start,
+          limit: 10,
+          load: false,
+          misspellings: {below: 5}
+        }).map(&:title)
+  end
+
   def index
     @categories = Category.where(public: true)
     @hierarchy = Category.where(public: true, parent_id: nil)

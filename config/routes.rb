@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   resources :rates, only: :update
   resources :posts
 
-  resources :categories
+  resources :categories, only: :index do
+    get :autocomplete
+  end
+
 
 end
