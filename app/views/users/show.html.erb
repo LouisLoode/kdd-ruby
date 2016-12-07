@@ -116,7 +116,11 @@
                             <div class="col-md-6 rank">
                                 <ul>
                                     <li class="fa fa-star-o fa-2x" aria-hidden="true">
+                                        <%= link_to 'rank 1', ranks_create_path(:post_id => post.id, :note => 1, :user_id => current_user.id), remote: true %>
                                     </li>
+                                    <div id="target-for-change">
+  Now you see "ME"!
+</div>
                                     <li class="fa fa-star-o fa-2x" aria-hidden="true">
                                     </li>
                                     <li class="fa fa-star-o fa-2x" aria-hidden="true">

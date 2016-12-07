@@ -10,5 +10,10 @@ class UsersController < ApplicationController
   def list
   	@users = User.all
   end
+
+  def test
+  	current_user.name = params[:name]
+  	current_user.update
+  end
   
 end
