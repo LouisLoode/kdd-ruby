@@ -24,19 +24,19 @@
 
 @font-face {
   font-family: 'AvenirRegular';
-  src: url('../Avenir/Avenir_r.ttf') format('truetype');
+  src: url('/assets/Avenir_r.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'AvenirMedium';
-  src: url('../Avenir/Avenir_m.ttf') format('truetype');
+  src: url('/assets/Avenir_m.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'AvenirHeavy';
-  src: url('../Avenir/Avenir_b.ttf') format('truetype');
+  src: url('/assets/Avenir_b.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -113,6 +113,10 @@ header {
   height: 236px;
   display: block;
   background:$color1;
+  // background-image:url(/assets/header.png);
+  // background-color: #424b98;
+  // background-repeat: no-repeat;
+  // background-size: cover;
 }
 
 .bg-grey {
@@ -179,6 +183,9 @@ header {
   a:hover{
     color:$color1;
   }
+  a:visited{
+      background:none;
+  }
 }
 
 .cont_img{
@@ -242,28 +249,69 @@ header {
 #dropdown-menu
 {
   min-width:185px;
-  margin-top:13px;
   border-radius:0;
   border:0;
   box-shadow: 0px 2px 12px rgbz(0,0,0,0.1);
 
-  li{ 
+  .divider{
+    a{
+      padding:0;
+      margin:0;
+    }
+  }
+
+  .linkdrop{ 
     font-size:16px;
     font-family:Avenir;
 
       a{
           display:block;
-          height:40px;
-          line-height:35px;
+          height:50px;
+          line-height:50px;
+          padding:0;
+          padding-left:25px;
           transition:all ease-in-out 0.3s;
       }
       a:hover{
           color:$color2;
-          background:rgba(297,37,96,0.07);
+          background:rgba(0,0,0,0.04);
+      }
+      a:active{
+          background:none;
+      }
+  }
+
+  .signout{ 
+    font-size:16px;
+    font-family:Avenir;
+
+      a{
+          display:block;
+          height:50px;
+          line-height:50px;
+          padding:0;
+          padding-left:25px;
+          transition:all ease-in-out 0.2s;
+      }
+      a:hover{
+          color:rgba(255,0,0,0.7);
+          background:rgba(0,0,0,0.04);
+      }
+      a:active{
+          background:none;
       }
   }
 }
 
+#dropdown-menu{
+  padding:0;
+  margin:0;
+  margin-top:13px;
+}
+#dropdown-menu .divider{
+  padding:0;
+  margin:0;
+}
 
 /*
 *

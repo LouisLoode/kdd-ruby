@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'main', to: 'home#main'
+  resources :users
   get 'users/list', to: 'users#list'
   get 'user/:user_id', to: 'users#show', as: 'show_user'
 

@@ -57,24 +57,24 @@
 										<% end %>" alt="<%= current_user.name + " Avatar" %>" height="50px" width="50px" />
 									</div>	
 
-									<a href="#" class="namelink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@<%= current_user.name %> 
+									<a id="linkname" href="#" class="namelink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@<%= current_user.name %> 
 									<span class="caret"></span>
 									</a>
 
 									<ul id="dropdown-menu" class="dropdown-menu">
-										<li><%= link_to 'View profile', show_user_path(:user_id => current_user.id) %></li>
-										<li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+										<li class="linkdrop"><%= link_to 'View profile', show_user_path(:user_id => current_user.id) %></li>
+										<li class="linkdrop"><%= link_to 'Edit profile', edit_user_registration_path %></li>
 										<li class="divider"></li>
-										<li><%= link_to 'Posts', posts_path %></li>
-										<li><%= link_to 'Categories', categories_path %></li>
+										<li class="linkdrop"><%= link_to 'Posts', posts_path %></li>
+										<li class="linkdrop"><%= link_to 'Categories', categories_path %></li>
 										<li class="divider"></li>
-										<li><%= link_to "Sign out", destroy_user_session_path, :method => :get %></li>
+										<li class="signout"><%= link_to "Sign out", destroy_user_session_path, :method => :get %></li>
 									</ul>
 
 							</li>
 
 						<% else %>
-						<li id="login"><%= link_to "Connexion", new_user_session_path %></li>
+							<li id="login"><%= link_to "Connexion", new_user_session_path %></li>
 						<% end %>
 					</ul>
 				</div><!-- /.navbar-collapse -->

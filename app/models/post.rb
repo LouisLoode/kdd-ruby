@@ -9,4 +9,5 @@ class Post < ApplicationRecord
                     length: { maximum: 250 }
   validates :user_id, presence: true
   # validates :cat_id, presence: true
+
 end

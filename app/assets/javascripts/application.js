@@ -18,7 +18,7 @@
 //= require_tree .
 
 // Init the dropdown
- $('.dropdown-toggle').dropdown()
+$('.dropdown-toggle').dropdown()
 
 // Init the bootstrap-select
 $('.selectpicker').selectpicker('refresh');
