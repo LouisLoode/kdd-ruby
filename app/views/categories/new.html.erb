@@ -27,7 +27,7 @@
 
 
     <%= f.label :parent_id, :class => "sr-only" %><br>
-    <%= f.collection_select :parent_id, Category.where(public: true), :id, :name, {:include_blank => "Nothing selected"}, {:class=>'form-control'} %>
+    <%= f.collection_select :parent_id, Category.where(public: true, parent_id: nil), :id, :name, {:include_blank => "Nothing selected"}, {:class=>'form-control'} %>
 
   <p>
     <%= f.submit "New category", :class => "btn btn-lg btn-primary btn-block" %>

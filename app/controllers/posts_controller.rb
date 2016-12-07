@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # before_filter :authenticate_user!
   before_action :authenticate_user!, except: [ :show, :autocomplete ]
   skip_before_action :verify_authenticity_token, :only => :create
-    before_action :correct_user,   only: :destroy
+  before_action :correct_user,   only: :destroy
   prepend_before_action :verify_authenticity_token, only: [:destroy]
 
   def autocomplete
@@ -36,10 +36,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     og = OpenGraph.new(@post.url)
-    puts og.title
-    puts og.type
-    puts og.description
-    puts og.images[0]
     @post.og_title = og.title # og.title # => "Open Graph protocol"
     @post.og_type = og.type # og.type # => "website"
     @post.og_description = og.description # og.description # => "The Open Graph protocol enables any web page to become a rich object in a social graph."

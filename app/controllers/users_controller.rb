@@ -4,15 +4,19 @@
                                       :following, :followers]
 
   def autocomplete
-    render json: Post.search(params[:query], autocomplete: false, limit: 10).map do |post|
-      { title: post.url, value: post.id }
+    render json: User.search(params[:query], autocomplete: false, limit: 10).map do |user|
+      { title: user.name, value: user.id }
     end
   end
 
   def show
-    # id_user = params[:id] === nil ? current_user.id : params[:id]
-    @user = User.find(params[:user_id])
-    @posts = Post.where('user_id' => params[:user_id]).sort_by(&:created_at).reverse!
+    id_user = params[:id] === nil ? current_user.id : params[:id]
+    if id_user.to_i.to_s
+      @user = User.find(id_user)
+      @posts = Post.where('user_id' => id_user).sort_by(&:created_at).reverse!
+    else
+      redirect_to root_path
+    end
   end
 
   def list
