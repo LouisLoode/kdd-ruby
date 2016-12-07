@@ -18,7 +18,7 @@
 //= require_tree .
 
 // Init the dropdown
- $('.dropdown-toggle').dropdown()
+$('.dropdown-toggle').dropdown()
 
 // Init the bootstrap-select
 $('.selectpicker').selectpicker('refresh');
@@ -31,4 +31,3 @@ console.log('Hi !');
 // OK: these two are guaranteed to work.
 // $(document).ready(function () { /* ... */ });
 // $(function () { /* ... */ });
-Contact GitHub API Training Shop Blog About
