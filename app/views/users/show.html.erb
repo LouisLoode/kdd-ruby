@@ -16,6 +16,7 @@
                     </p>
                 </div>
                 <ul>
+
                     <% if !@user.github.blank? %>
                     <li class="fa fa-github github" aria-hidden="true">
                         <a href="<%= @user.github %>" title=<%= @user.name + "'s Github" %>><%= @user.github %></a>
@@ -181,3 +182,6 @@
         </div>
     </div>
 </div>
+<%= render 'shared/stats' %>
+
+    <%= render 'follow_form' %>
