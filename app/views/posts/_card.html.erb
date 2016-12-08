@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-8">
             <p class="name_post"><%= "@" + post.user.name %></p>
-            <p class="categorie_@post">
+            <p class="categorie_post">
               <% post.categories.each do |category| %>
                 <span><%= link_to '#' + category.slug, category_path(:id => category.id) %></span>
               <% end %>
@@ -40,27 +40,29 @@
     </div>
     <div class="row action">
         <div class="col-md-6 rank">
-            <ul class="notation">
+            <ul id="notation" class="notation">
+
               <%= link_to rates_create_path(:post_id => post.id, :score => 1), remote: true do %>
-                <li class="star star-empty" aria-hidden="true">
+                <li class="star1 star star-empty" aria-hidden="true">
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 2), remote: true do %>
-                <li class="star star-empty" aria-hidden="true">
+                <li class="star2 star star-empty" aria-hidden="true">
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 3), remote: true do %>
-                <li class="star star-empty" aria-hidden="true">
+                <li class="star3 star star-empty" aria-hidden="true">
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 4), remote: true do %>
-                <li class="star star-empty" aria-hidden="true">
+                <li class="star4 star star-empty" aria-hidden="true">
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 5), remote: true do %>
-                <li class="star star-empty" aria-hidden="true">
+                <li class="star5 star star-empty" aria-hidden="true">
                 </li>
               <% end %>
+
             </ul>
 
         </div>

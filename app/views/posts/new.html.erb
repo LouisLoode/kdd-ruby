@@ -17,13 +17,14 @@
   <% end %>
 
     <%= f.label :url, :class => "sr-only" %><br />
-    <%= f.url_field :url, :class => "form-control", placeholder: "Url" %>
+    <%= f.url_field :url, :class => "form-control", placeholder: "URL de la ressource" %>
 
     <%= f.label :message, :class => "sr-only" %><br />
     <%= f.text_area :message, :class => "form-control", placeholder: "Message" %>
 
     <%= f.label :category_id, :class => "sr-only" %><br>
     <select name="post[category_ids][]" id="post_category_id" class="selectpicker form-control" multiple data-max-options="3" data-live-search="true" title="Choose one of the following..." data-selected-text-format="count > 2" data-actions-box="true" data-multiple-separator=", " data-selected-text-format="values">
+    
       <% @hierarchy.each do |parent| %>
       <option value="<%= parent.id %>" data-tokens="<%= parent.id %>" class="select-bold"><%= parent.name %></option>
         <% parent.subcategories.each do |category| %>
@@ -38,4 +39,5 @@
   </p>
 
   <%= link_to 'Back', posts_path %>
+
 <% end %>
