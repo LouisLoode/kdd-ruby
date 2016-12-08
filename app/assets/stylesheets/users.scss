@@ -78,11 +78,7 @@ $color2: #748DEF;
 	}
 }
 
-.form-signin, .form-signup{
-	max-width: 430px;
-	padding: 25px;
-	margin-top:-115px;
-}
+
 
 .form-signin, .form-signup, .add_post {
 		padding: 15px;
@@ -197,7 +193,11 @@ $color2: #748DEF;
 
 }
 
-
+.form-signin, .form-signup{
+	max-width: 430px;
+	padding: 25px;
+	margin-top: -10vh;
+}
 
 // CSS PROFIL
 
@@ -589,7 +589,7 @@ $color2: #748DEF;
 	}
 	.box:last-child:hover{
 		background:transparent;
-	}	
+	}
 	.boxfocus{
 			background:rgba(0,0,0,0.03);
 			border-bottom:5px solid $color2;

@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     @post.og_images = og.images[0] # og.images # => ["http://ogp.me/logo.png"]
     @post.user_id = current_user.id #or whatever is you session name
     if @post.save
-      redirect_to @post
+      redirect_to show_profile_path
     else
       @hierarchy = Category.where(public: true, parent_id: nil)
       render :new
