@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def autocomplete
     render json: Category.search(params[:query], autocomplete: false, limit: 10).map do |category|
-      { title: category.name, value: category.id }
+      { title: category.name, value: 'category-' + category.id }
     end
   end
 
