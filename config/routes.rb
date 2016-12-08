@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :relationships,       only: [:create, :destroy]
 
   get 'users/list', to: 'users#list'
-  get 'user/:user_id', to: 'users#show', as: 'show_user'
+  get 'users/:user_id', to: 'users#show', as: 'show_user'
   get 'post/:post_id/rate/:note', to: 'rates#create', as: 'rates_create'
   get 'categories/autocomplete', to: 'categories#autocomplete'
   get 'posts/autocomplete', to: 'posts#autocomplete'

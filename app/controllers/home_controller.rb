@@ -11,12 +11,10 @@ class HomeController < ApplicationController
   def main
     if !user_signed_in?
       redirect_to root_path
+    else
+      @user = @user = User.find(current_user.id)
+      @feed_items = current_user.feed.sort_by(&:created_at).reverse!
     end
-    #@TODO need to get followed posts
-    # @micropost  = current_user.posts.build
-    @user = @user = User.find(current_user.id)
-    @feed_items = current_user.feed.sort_by(&:created_at).reverse!
-    # @posts = Post.all
   end
 
 end
