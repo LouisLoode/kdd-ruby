@@ -734,7 +734,6 @@ article {
 			img{
 				width:100%;
 				height:auto;
-				max-height:200px;
 			}
 
 			h3{
@@ -749,6 +748,12 @@ article {
 				font-size:14px;
 				font-family:Avenir;
 				line-height:22px;
+			}
+			small{
+				font-size:12px;
+				font-family:Avenir;
+				line-height:18px;
+				color:#C5C5C5;
 			}
 		}
 	}
