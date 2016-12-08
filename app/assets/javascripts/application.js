@@ -19,10 +19,6 @@
 //= require typeahead
 //= require_tree .
 
-
-
-
-
 // Auto complete
 var ready;
 ready = function() {
@@ -70,7 +66,7 @@ ready = function() {
       },
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       remote: {
-            url: '/users/autocomplete?query=%QUERY',
+            url: '/user/autocomplete?query=%QUERY',
             wildcard: '%QUERY'
       }
     });
