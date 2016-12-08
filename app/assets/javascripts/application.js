@@ -19,12 +19,15 @@
 //= require typeahead
 //= require_tree .
 
+$(document).on('ready turbolinks:load', function() {
+	$('.selectpicker').selectpicker('refresh');
+});
+
+
 // Auto complete
 var ready;
 ready = function() {
-	alert("setting")
 
-		// $('.selectpicker').selectpicker('refresh');
 		$('.dropdown-toggle').dropdown()
 
     $('#query').bind('typeahead:select', function(ev, suggestion) {
@@ -170,5 +173,6 @@ ready = function() {
 
 }
 
-$(document).ready(ready);
-$(document).on('page:load', ready);
+
+$(document).on('ready turbolinks:load', ready);
+// $(document).on('ready page:load', ready);
