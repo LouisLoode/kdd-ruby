@@ -1,16 +1,5 @@
 <%= form_for :post, url: posts_path, html: {class: "add_post"} do |f| %>
 
-<% content_for :head do %>
-  <script type="text/javascript">
-
-    $(document).on('ready page:load', function() {
-      console.log('selectpicker(refresh) in forms partial 1');
-      $('.selectpicker').selectpicker('refresh');
-      console.log('selectpicker(refresh) in forms partial 2');
-    });
-  </script>
-<% end %>
-
   <h2 class="poster-une-ressource">
       Poster une ressource
   </h2>

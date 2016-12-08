@@ -19,22 +19,40 @@
 //= require typeahead
 //= require_tree .
 
-$(document).on('ready turbolinks:load', function() {
-	$('.selectpicker').selectpicker('refresh');
-});
+// $(document).on('ready turbolinks:load', function() {
+// 	$('.selectpicker').selectpicker('refresh');
+// });
 
 
 // Auto complete
 var ready;
 ready = function() {
 
+		$('.selectpicker').selectpicker('refresh');
+
 		$('.dropdown-toggle').dropdown()
 
-    $('#query').bind('typeahead:select', function(ev, suggestion) {
-      // console.log(ev);
-      console.log('Selection: ');
-      console.log(suggestion);
-    });
+		$('#query').on('typeahead:select',function(event, item){
+
+				// Not cool but don't find other tricks.. T_T
+				if ("name" in item && "slug" in item &&  "public" in item &&  "parent_id" in item){
+					// console.log('CATEGORY');
+					var base_url = 'categories'
+				} else if ("email" in item && "name" in item && "slug" in item && "biography" in item && "github" in item && "avatar" in item){
+					// console.log('USER');
+					var base_url = 'users'
+				} else if ("url" in item && "message" in item && "user_id" in item && "og_title" in item){
+					// console.log('POST');
+					var base_url = 'posts'
+				} else {
+					console.log(item);
+					alert('Error during the search');
+				}
+
+			  var path = base_url+'/'+item.id;
+			  url = window.location.origin+'/'+path;
+			  window.location = url;
+			});
 
 
     var categories = new Bloodhound({
@@ -42,7 +60,6 @@ ready = function() {
           return Bloodhound.tokenizers.whitespace(cat.name);
       },
       queryTokenizer: Bloodhound.tokenizers.whitespace,
-      identify: function(obj) { return obj; },
       remote: {
             url: '/categories/autocomplete?query=%QUERY',
             wildcard: '%QUERY'
@@ -76,50 +93,26 @@ ready = function() {
     },
     {
       name: 'category',
-      // display: 'post',
       displayKey: 'name',
       source: categories,
-      onselect: function(obj) {
-				var data = {
-					type: 'category',
-					model: obj
-				}
-				// console.log(data)
-			},
       templates: {
-        header: '<h3 class="league-name">Categories</h3>'
+        header: '<h3 class="parent-name">Categories</h3>'
       }
     },
     {
       name: 'post',
-      // display: 'post',
       displayKey: 'url',
       source: posts,
-      onselect: function(obj) {
-				var data = {
-					type: 'post',
-					model: obj
-				}
-				// console.log(data)
-			},
       templates: {
-        header: '<h3 class="league-name">Posts</h3>'
+        header: '<h3 class="parent-name">Posts</h3>'
       }
     },
     {
       name: 'user',
-      // display: 'post',
       displayKey: 'name',
       source: users,
-      onselect: function(obj) {
-				var data = {
-								type: 'user',
-								model: obj
-							}
-							// console.log(data)
-			},
       templates: {
-        header: '<h3 class="league-name">Users</h3>'
+        header: '<h3 class="parent-name">Users</h3>'
       }
     });
 
