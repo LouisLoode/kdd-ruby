@@ -18,16 +18,16 @@
           </div>
 
           <div class="box<% if action_name === 'followers' %> boxfocus<% end %>">
-           <a class="linkpage"  href="<%= followers_user_path(@user) %>">
-              <p class="title">Followers</p>
-              <p class="content"><%= @user.followers.count %></p>
-           </a>
+              <%= link_to followers_user_path(@user), class: "linkpage" do %>
+                <p class="title">Followers</p>
+                <p class="content"><%= @user.followers.count %></p>
+              <% end %>
           </div>
 
           <div class="box<% if action_name === 'following' %> boxfocus<% end %>">
           <a class="linkpage"  href="<%= following_user_path(@user) %>">
               <p class="title">Following</p>
-              <p class="content"><%= @user.following.count %></p>
+              <p id ="followers" class="content"><%= @user.following.count %></p>
           </a>
           </div>
 
@@ -36,7 +36,7 @@
             <p class="content">0</p>
         </div>
 
-         <% if @user != current_user %>
+         <% if @user != current_user && current_user %>
            <div id="follow_form">
            <% if current_user.following?(@user) %>
              <%= render 'shared/unfollow' %>
@@ -44,7 +44,7 @@
              <%= render 'shared/follow' %>
            <% end %>
            </div>
-         <% else %>
+         <% elsif current_user %>
            <div class="box">
                <%= link_to 'Éditer le profil', edit_user_registration_path, :class => "btnedit" %>
            </div>

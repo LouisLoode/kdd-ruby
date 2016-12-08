@@ -1,5 +1,4 @@
   class UsersController < ApplicationController
-  before_action :authenticate_user!
   before_action :authenticate_user!, only: [:index, :edit, :update, :destroy,
                                       :following, :followers]
 
@@ -12,12 +11,12 @@
   def list
   	@users = User.all
   end
-  
+
   def show
      if params[:id]
        @user = User.find(params[:id])
        @posts = Post.where('user_id' => params[:id]).sort_by(&:created_at).reverse!
-     else
+     elsif !params[:id] && current_user
        @user = User.find(current_user.id)
        @posts = Post.where('user_id' => current_user.id).sort_by(&:created_at).reverse!
      end

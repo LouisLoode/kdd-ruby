@@ -1,5 +1,7 @@
 class User < ApplicationRecord
+
   searchkick autocomplete: [:name, :email]
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -16,7 +18,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
 
-  has_many :rates
+  has_many :rates, dependent: :destroy
 
   has_many :active_relationships,  class_name:  "Relationship",
                                    foreign_key: "follower_id",
