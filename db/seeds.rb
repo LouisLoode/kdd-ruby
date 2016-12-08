@@ -37,6 +37,7 @@ Category.create(name: 'KoaJS', description: 'Description', public: true, parent_
 Category.create(name: 'ExpressJS', description: 'Description', public: true, parent_id: 2)
 
 Category.create(name: 'Docker', description: 'Description', public: true, parent_id: 3)
-Category.create(name: 'Git', description: 'Description', public: true, parent_id: 2)
-Category.create(name: 'Micro-Services', description: 'Description', public: true, parent_id: 2)
-Category.create(name: 'Travis', description: 'Description', public: true, parent_id: 2)
+Category.create(name: 'Git', description: 'Description', public: true, parent_id: 3)
+Category.create(name: 'Micro-Services', description: 'Description', public: true, parent_id: 3)
+Category.create(name: 'AWS', description: 'Description', public: true, parent_id: 3)
+Category.create(name: 'Travis', description: 'Description', public: true, parent_id: 3)

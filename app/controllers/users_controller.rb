@@ -3,10 +3,20 @@
   before_action :authenticate_user!, only: [:index, :edit, :update, :destroy,
                                       :following, :followers]
 
+  def autocomplete
+    render json: User.search(params[:query], autocomplete: false, limit: 10).map do |user|
+      { title: user.name, value: user.id }
+    end
+  end
+
   def show
     id_user = params[:id] === nil ? current_user.id : params[:id]
-    @user = User.find(id_user)
-    @posts = Post.where('user_id' => params[:user_id]).sort_by(&:created_at).reverse!
+    # if id_user.to_i.to_s
+      @user = User.find(id_user)
+      @posts = Post.where('user_id' => id_user).sort_by(&:created_at).reverse!
+    # else
+      # redirect_to root_path
+    # end
   end
 
   def list

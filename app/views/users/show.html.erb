@@ -9,36 +9,8 @@
 <div id="part" class="container gover">
     <div id="fixprofil" class="row">
         <div class="col-xs-12 col-sm-2 col-md-3">
-            <div class="container_profil">
-                <div class="img_profil ">
-                    <img src="
-                    <% if !@user.avatar.blank? %>
-                    <%= @user.avatar %>
-                    <% else %>
-                    /assets/louisloode.jpg
-                    <% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="100%" />
-                </div>
-                <div class="description_profil ">
-                    <p>
-                        <%= @user.biography %>
-                    </p>
-                </div>
-                <ul>
+            <%= render partial: 'shared/profil_card', locals: {user: @user} %>
 
-                    <% if !@user.github.blank? %>
-                    <li class="fa" aria-hidden="true">
-                        <img src="/assets/github.svg">
-                        <a href="<%= @user.github %>" title=<%= @user.name + "'s Github" %>><%= @user.github %></a>
-                    </li>
-                    <% end %>
-                    <% if !@user.website.blank? %>
-                    <li class="fa" aria-hidden="true">
-                        <img src="/assets/website.svg">
-                        <a href="<%= @user.website %>" title="<%= @user.name + "'s Website" %>"><%= @user.website %></a>
-                    </li>
-                    <% end %>
-                </ul>
-            </div>
         </div>
         <div class="col-md-9">
             <div class="name_profil">
@@ -46,160 +18,78 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="container_view" >
+                  <div class="container_view" >
 
-                            <div class="box">
-                                <p class="title">Pertinence</p>
-                                <div class="content">
-                                    <p class="star star-full"></p>
-                                    <p class="star star-full"></p>
-                                    <p class="star star-full"></p>
-                                    <p class="star star-full"></p>
-                                    <p class="star star-empty"></p>
-                                </div>
-                            </div>
+                          <div class="box">
+                              <p class="title">Pertinence</p>
+                              <div class="content">
+                                  <p class="star star-full"></p>
+                                  <p class="star star-full"></p>
+                                  <p class="star star-full"></p>
+                                  <p class="star star-full"></p>
+                                  <p class="star star-empty"></p>
+                              </div>
+                          </div>
 
-                            
                             <div class="box boxfocus">
                             <a class="linkpage" href="<%= show_user_path(@user) %>">
                                 <p class="title">Publications</p>
-                                <p class="content">1246</p>
+                                <p class="content"><%= @user.posts.count %></p>
                             </a>
                             </div>
-                           
 
-
-                           
                             <div class="box">
                              <a class="linkpage"  href="<%= followers_user_path(@user) %>">
                                 <p class="title">Followers</p>
-                                <p class="content">0</p>
-                             </a>   
+                                <p class="content"><%= @user.followers.count %></p>
+                             </a>
                             </div>
-                           
 
-                            
                             <div class="box">
                             <a class="linkpage"  href="<%= following_user_path(@user) %>">
                                 <p class="title">Following</p>
-                                <p class="content">0</p>
+                                <p class="content"><%= @user.following.count %></p>
                             </a>
                             </div>
-                           
 
-                            <div class="box">
-                                <p class="title">Favoris</p>
-                                <p class="content">0</p>
-                            </div>
+                          <div class="box">
+                              <p class="title">Favoris</p>
+                              <p class="content">0</p>
+                          </div>
 
-                            <% if current_user == @user %>
-                            <div class="box">
-                                <%= link_to 'Éditer le profil', edit_user_registration_path, :class => "btnedit" %>
-                            </div>
+                           <% if @user != current_user %>
+                             <div id="follow_form">
+                             <% if current_user.following?(@user) %>
+                               <%= render 'shared/unfollow' %>
+                             <% else %>
+                               <%= render 'shared/follow' %>
                              <% end %>
+                             </div>
+                           <% else %>
+                             <div class="box">
+                                 <%= link_to 'Éditer le profil', edit_user_registration_path, :class => "btnedit" %>
+                             </div>
+                           <% end %>
 
-                    </div>
+                  </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-7">
-
+                  <% if @posts.size > 0 %>
                     <% @posts.each do |post| %>
-                    <article>
-                        <div class="row metadata">
-                            <div class="profil_img col-md-2">
-                                <img src="
-                                <% if !@user.avatar.blank? %>
-                                <%= @user.avatar %>
-                                <% else %>
-                                /assets/louisloode.jpg
-                                <% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="100%" />
-                            </div>
-                            <div class="col-md-8">
-                                <p class="name_post"><%= "@" + post.user.name %></p>
-                                <p class="categorie_post"><span>#SYMPHONIE</span><span>#JAVASCRIPT</span></p>
-                            </div>
-                            <div class="col-md-2">
-                                <p class="time_post">
-                                    <%= how_much_time(post.created_at) %>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row content">
-                            <div class="col-md-12">
-                                <div class="content_post"><p><%= post.message%></p>
-                                </div>
-                                <div class="iframe_post">
-                                    <a href="<%= post.url %>" title="<%= post.url %>" class="btn">
-                                        <img src="" width="100%" height="300px" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row action">
-                            <div class="col-md-6 rank">
-                                <ul class="notation">
-                                    <li class="star star-full" aria-hidden="true">
-                                    </li>
-                                    <li class="star star-full" aria-hidden="true">
-                                    </li>
-                                    <li class="star star-full" aria-hidden="true">
-                                    </li>
-                                    <li class="star star-full" aria-hidden="true">
-                                    </li>
-                                    <li class="star star-empty" aria-hidden="true">
-                                    </li>
-                                </ul>
-
-                            </div>
-                            <div class="col-md-6 favoris">
-                                <i class="fa fa-bookmark-o fa-2x" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </article>
+                      <%= render partial: 'posts/card', locals: {post: post, user: @user} %>
                     <% end %>
-
-
+                  <% else %>
+                  <p class="text-center">Vous n'avez pour l'instant rien publié</p>
+                  <% end %>
                 </div>
 
                 <div class="col-md-5">
-                    <div class="add_post">
-                        <h2 class="poster-une-ressource">
-                            Poster une ressource
-                        </h2>
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Sujet
-                            <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-                        <form class="form-horizontal">
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <textarea class="form-control1 message" id="inputEmail3" placeholder="Message"></textarea>
-                                    <input type="catégorie" class=" form-control1 ressource" id="inputPassword3" placeholder="Ressource">
-                                    <button class="btn">
-                                        Publier cette ressource
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                        <p class="tu-ne-trouves-pas-de">Tu ne trouves pas de sujet correspondant à ta ressource ? <a href="#">Créer un nouveau sujet</a></p>
-                    </div>
+                  <%= render partial: 'posts/form'%>
                 </div>
             </div>
 
         </div>
     </div>
 </div>
-<%= render 'shared/stats' %>
-
-    <%= render 'follow_form' %>

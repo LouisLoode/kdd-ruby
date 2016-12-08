@@ -1,0 +1,34 @@
+<% # @user ||= current_user %>
+
+<div class="container_profil">
+    <div class="img_profil ">
+        <img src="
+        <% if !@user.avatar.blank? %>
+        <%= @user.avatar %>
+        <% else %>
+        /assets/louisloode.jpg
+        <% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="100%" />
+    </div>
+    <div class="description_profil ">
+        <p>
+            <%= @user.biography %>
+        </p>
+    </div>
+    <ul>
+
+        <% if !@user.github.blank? %>
+
+        <li class="fa" aria-hidden="true">
+            <img src="/assets/github.svg">
+            <a href="<%= @user.github %>" title=<%= @user.name + "'s Github" %>><%= @user.github %></a>
+        </li>
+        <% end %>
+        <% if !@user.website.blank? %>
+        <li class="fa" aria-hidden="true">
+            <img src="/assets/website.svg">
+            <a href="<%= @user.website %>" title="<%= @user.name + "'s Website" %>"><%= @user.website %></a>
+
+        </li>
+        <% end %>
+    </ul>
+</div>

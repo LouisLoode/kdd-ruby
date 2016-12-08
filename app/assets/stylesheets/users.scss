@@ -13,24 +13,24 @@ $main-color: #211d8d;
 $color1: #414B98;
 $color2: #748DEF;
 
-@font-face {
-  font-family: 'AvenirRegular';
-  src: url('../Avenir/Avenir_r.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'AvenirMedium';
-  src: url('../Avenir/Avenir_m.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'AvenirHeavy';
-  src: url('../Avenir/Avenir_b.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+// @font-face {
+//   font-family: 'AvenirRegular';
+//   src: url('../Avenir/Avenir_r.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: 'AvenirMedium';
+//   src: url('../Avenir/Avenir_m.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: 'AvenirHeavy';
+//   src: url('../Avenir/Avenir_b.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
 
 .headerfake{
 	width:100%;
@@ -78,13 +78,12 @@ $color2: #748DEF;
 	}
 }
 
-.form-signin, .form-signup {
 
-    max-width: 430px;
-    padding: 25px;
+
+.form-signin, .form-signup, .add_post {
+		padding: 15px;
     margin: 0 auto;
     background:#FFF;
-    margin-top:-115px;
     box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
     font-family: 'AvenirRegular',sans-serif;
 
@@ -192,35 +191,13 @@ $color2: #748DEF;
       transform:scale(0.98);
     }
 
-
-	// max-width: 330px;
-	// padding: 15px;
-	// margin: 0 auto;
-
-	// .form-signin-heading, .form-signup-heading, .checkbox {
-	// 	margin-bottom: 10px;
-	// }
-	// .checkbox {
-	// 	font-weight: normal;
-	// 	text-align: center;
-	// }
-	// .form-control {
-	// 	position: relative;
-	// 	height: auto;
-	// 	-webkit-box-sizing: border-box;
-	// 	-moz-box-sizing: border-box;
-	// 	box-sizing: border-box;
-	// 	padding: 10px;
-	// 	font-size: 16px;
-	// }
-	// input[type="submit"] {
-	// 	margin-top: 10px;
-	// }
-
-
 }
 
-
+.form-signin, .form-signup{
+	max-width: 430px;
+	padding: 25px;
+	margin-top: -10vh;
+}
 
 // CSS PROFIL
 
@@ -502,19 +479,27 @@ $color2: #748DEF;
 	.btn{
 		width:calc(100% - 40px);
 		margin-left:20px;
+		color:#5C748D;
+		height:50px;
+		border-radius:2px;
+		border:1px solid #5C748D;
+		font-size:16px;
+	}
+
+	.btn-primary{
+		width:calc(100% - 40px);
+		margin-left:20px;
 		background-color:$color2;
 		color:#fff;
 		height:50px;
 		border-radius:2px;
 		font-size:16px;
 	}
-	.btn:first-child{
+	.btn-primary:first-child{
 		width:calc(100% - 40px);
 		margin-left:20px;
 		margin-top:10px;
-		background-color:#FFF;
 		border:1px solid #5C748D;
-		color:#5C748D;
 		height:50px;
 		font-size:16px;
 	}
@@ -604,7 +589,7 @@ $color2: #748DEF;
 	}
 	.box:last-child:hover{
 		background:transparent;
-	}	
+	}
 	.boxfocus{
 			background:rgba(0,0,0,0.03);
 			border-bottom:5px solid $color2;
@@ -743,7 +728,28 @@ article {
 			min-width: 100%;
 			min-height: 200px;
 			margin-top:10px;
+			padding:20px;
 			box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.08);
+
+			img{
+				width:100%;
+				height:auto;
+				max-height:200px;
+			}
+
+			h3{
+				font-size:22px;
+				line-height:28px;
+				font-weight:700;
+				font-family:Avenir;
+				color:$color2;
+			}
+			p{
+				color:#666;
+				font-size:14px;
+				font-family:Avenir;
+				line-height:22px;
+			}
 		}
 	}
 
