@@ -8,9 +8,9 @@ class RatesController < ApplicationController
 
   def create
     # if !current_user.already_likes?(@post)
-      @rate = Rate.new(:note => params[:note], :user_id => current_user.id, :post_id => params[:post_id])
+      @rate = Rate.new(:score => params[:score], :user_id => current_user.id, :post_id => params[:post_id])
 
-      @rate.save if !Rate.where(user_id: current_user.id, post_id: params[:post_id])
+      @rate.save
       # just for some log in console
       puts "Rate created and succesfull send to db"
     # end

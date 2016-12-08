@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20161207170820) do
   end
 
   create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "note"
+    t.integer  "score"
     t.integer  "user_id"
     t.integer  "post_id"
     t.datetime "created_at", null: false
