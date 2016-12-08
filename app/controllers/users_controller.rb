@@ -12,21 +12,19 @@
   def list
   	@users = User.all
   end
-
-  # @TODO
+  
   def show
-    id_user = params[:id] === nil ? current_user.id : params[:id]
-    if id_user === 'list'
-      @user = User.find(id_user)
-      @users = User.all
-      render 'list'
-    elsif  id_user.to_i.to_s
-      @user = User.find(id_user)
-      @posts = Post.where('user_id' => id_user).sort_by(&:created_at).reverse!
-      render 'show'
-    else
-      redirect_to root_path
-    end
+     if params[:id]
+       @user = User.find(params[:id])
+       @posts = Post.where('user_id' => params[:id]).sort_by(&:created_at).reverse!
+     else
+       @user = User.find(current_user.id)
+       @posts = Post.where('user_id' => current_user.id).sort_by(&:created_at).reverse!
+     end
+  end
+
+  def list
+  	@users = User.all
   end
 
   def test
