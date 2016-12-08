@@ -18,10 +18,10 @@
           </div>
 
           <div class="box<% if action_name === 'followers' %> boxfocus<% end %>">
-           <a class="linkpage"  href="<%= followers_user_path(@user) %>">
-              <p class="title">Followers</p>
-              <p class="content"><%= @user.followers.count %></p>
-           </a>
+              <%= link_to followers_user_path(@user), class: "linkpage" do %>
+                <p class="title">Followers</p>
+                <p class="content"><%= @user.followers.count %></p>
+              <% end %>
           </div>
 
           <div class="box<% if action_name === 'following' %> boxfocus<% end %>">

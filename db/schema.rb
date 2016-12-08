@@ -32,14 +32,14 @@ ActiveRecord::Schema.define(version: 20161207170820) do
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "url"
-    t.text     "message",    limit: 65535
+    t.text     "message",        limit: 65535
     t.integer  "user_id"
     t.string   "og_title"
     t.string   "og_type"
     t.string   "og_description"
     t.string   "og_images"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end

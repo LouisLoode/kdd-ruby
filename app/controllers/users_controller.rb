@@ -13,14 +13,12 @@
   end
 
   def show
-     if params[:id] && !current_user
+     if params[:id]
        @user = User.find(params[:id])
        @posts = Post.where('user_id' => params[:id]).sort_by(&:created_at).reverse!
      elsif !params[:id] && current_user
        @user = User.find(current_user.id)
        @posts = Post.where('user_id' => current_user.id).sort_by(&:created_at).reverse!
-     else
-       redirect_to root_path
      end
   end
 
