@@ -25,7 +25,9 @@
                             <div id="listfollow" class="row col-md-12">
                               <% if @users.size > 0 %>
                                 <% @users.each do |user| %>
-                                  <%= render partial: 'users/list_card', locals: {user: user} %>
+                                  <%= link_to show_user_path(:user_id => user.id) do %>
+                                    <%= render partial: 'users/list_card', locals: {user: user} %>
+                                  <% end %>
                                 <% end %>
                               <% else %>
                               <p class="text-center">Vous n'avez pour l'instant aucune relation</p>
