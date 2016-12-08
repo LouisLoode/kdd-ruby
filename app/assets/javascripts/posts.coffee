@@ -3,5 +3,5 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 # Init the bootstrap-select
-jQuery ->
-$('.selectpicker').selectpicker('refresh');
+# jQuery ->
+# $('.selectpicker').selectpicker('refresh');

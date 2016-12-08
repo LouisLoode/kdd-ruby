@@ -9,7 +9,7 @@
 <div id="part" class="container gover">
     <div id="fixprofil" class="row">
         <div class="col-xs-12 col-sm-2 col-md-3">
-            <%= render partial: 'shared/profil_card', locals: {user: @user ||= current_user} %>
+            <%= render partial: 'shared/profil_card', locals: {user: @user} %>
 
         </div>
         <div class="col-md-9">
@@ -33,7 +33,7 @@
 
                           <div class="box">
                               <p class="title">Positions</p>
-                              <p class="content">1246</p>
+                              <p class="content"><%= @user.posts.count %></p>
                           </div>
 
 
@@ -73,48 +73,18 @@
                   </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-7">
-
+                  <% if @posts.size > 0 %>
                     <% @posts.each do |post| %>
                       <%= render partial: 'posts/card', locals: {post: post, user: @user} %>
                     <% end %>
-
-
+                  <% else %>
+                  <p class="text-center">Vous n'avez pour l'instant rien publié</p>
+                  <% end %>
                 </div>
                 <div class="col-md-5">
                   <%= render partial: 'posts/form'%>
-                    <!-- <div class="add_post">
-                        <h2 class="poster-une-ressource">
-                            Poster une ressource
-                        </h2>
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Sujet
-                            <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-                        <form class="form-horizontal">
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <textarea class="form-control1 message" id="inputEmail3" placeholder="Message"></textarea>
-                                    <input type="catégorie" class=" form-control1 ressource" id="inputPassword3" placeholder="Ressource">
-                                    <button class="btn">
-                                        Publier cette ressource
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                        <p class="tu-ne-trouves-pas-de">Tu ne trouves pas de sujet correspondant à ta ressource ? <a href="#">Créer un nouveau sujet</a></p>
-                    </div> -->
                 </div>
             </div>
         </div>

@@ -195,32 +195,6 @@ $color2: #748DEF;
       transform:scale(0.98);
     }
 
-
-	// max-width: 330px;
-	// padding: 15px;
-	// margin: 0 auto;
-
-	// .form-signin-heading, .form-signup-heading, .checkbox {
-	// 	margin-bottom: 10px;
-	// }
-	// .checkbox {
-	// 	font-weight: normal;
-	// 	text-align: center;
-	// }
-	// .form-control {
-	// 	position: relative;
-	// 	height: auto;
-	// 	-webkit-box-sizing: border-box;
-	// 	-moz-box-sizing: border-box;
-	// 	box-sizing: border-box;
-	// 	padding: 10px;
-	// 	font-size: 16px;
-	// }
-	// input[type="submit"] {
-	// 	margin-top: 10px;
-	// }
-
-
 }
 
 
@@ -396,19 +370,27 @@ $color2: #748DEF;
 	.btn{
 		width:calc(100% - 40px);
 		margin-left:20px;
+		color:#5C748D;
+		height:50px;
+		border-radius:2px;
+		border:1px solid #5C748D;
+		font-size:16px;
+	}
+
+	.btn-primary{
+		width:calc(100% - 40px);
+		margin-left:20px;
 		background-color:$color2;
 		color:#fff;
 		height:50px;
 		border-radius:2px;
 		font-size:16px;
 	}
-	.btn:first-child{
+	.btn-primary:first-child{
 		width:calc(100% - 40px);
 		margin-left:20px;
 		margin-top:10px;
-		background-color:#FFF;
 		border:1px solid #5C748D;
-		color:#5C748D;
 		height:50px;
 		font-size:16px;
 	}

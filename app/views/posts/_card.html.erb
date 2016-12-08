@@ -2,7 +2,7 @@
     <div class="row metadata">
         <div class="profil_img col-md-2">
             <img src="
-            <% if !@user.avatar.blank? %>
+            <% if !@user.avatar.present? %>
             <%= @user.avatar %>
             <% else %>
             /assets/louisloode.jpg

@@ -14,6 +14,7 @@ class HomeController < ApplicationController
     end
     #@TODO need to get followed posts
     # @micropost  = current_user.posts.build
+    @user = @user = User.find(current_user.id)
     @feed_items = current_user.feed.sort_by(&:created_at).reverse!
     # @posts = Post.all
   end

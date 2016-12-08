@@ -11,16 +11,15 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
+//= require jquery.turbolinks
 //= require bootstrap
 //= require bootstrap-select
-//= require jquery.turbolinks
-//= require jquery_ujs
 //= require turbolinks
 //= require typeahead
 //= require_tree .
 
 
- $('.dropdown-toggle').dropdown()
 
 var i = 0;
 var j = 1;
@@ -72,6 +71,9 @@ function closeHeader(){
 // Auto complete
 var ready;
 ready = function() {
+
+		$('.selectpicker').selectpicker('refresh');
+		$('.dropdown-toggle').dropdown()
 
     $('#query').bind('typeahead:select', function(ev, suggestion) {
       console.log(ev);
