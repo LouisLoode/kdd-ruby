@@ -179,6 +179,31 @@ ready = function() {
     });
 
 
+    var drop_li = $('.sidebar').find('.dropdown > a');
+    var i_click = 0;
+    
+    drop_li.click(function(){
+              
+              if(i_click == 0){
+                $(this).addClass('clicked');
+                var img = $(".imgplus > img");
+                var round =  $(".imgplus");
+                round.css({borderColor:"#FFF"});
+                img.attr("src","/assets/moins.svg");
+                i_click = 1;
+              }
+              else{
+                $(this).removeClass('clicked');
+                var img = $(".imgplus > img");
+                var round =  $(".imgplus");
+                round.css({borderColor:"#748DEF"});
+                img.attr("src","/assets/plus.svg");
+                i_click = 0;
+              }
+              
+    });
+
+
 
 
 
@@ -273,6 +298,9 @@ ready = function() {
 		}
 
 }
+
+
+
 
 
 
