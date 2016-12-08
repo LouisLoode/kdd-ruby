@@ -19,11 +19,8 @@
 //= require typeahead
 //= require_tree .
 
-// Init the dropdown
-$('.dropdown-toggle').dropdown()
 
-// Init the bootstrap-select
-$('.selectpicker').selectpicker('refresh');
+ $('.dropdown-toggle').dropdown()
 
 var i = 0;
 var j = 1;
@@ -76,12 +73,11 @@ function closeHeader(){
 var ready;
 ready = function() {
 
-  // var onChange = function(event) {
-  //   console.log ("Changed: " + event.target.value);
-  // };
-  //
-  // $('#search > #query').typeahead({ source: ['test1', 'test2'] });
-  // $('#search > #query').on('change', onChange);
+    $('#query').bind('typeahead:select', function(ev, suggestion) {
+      console.log(ev);
+      console.log('Selection: ');
+      console.log(suggestion);
+    });
 
 
     var categories = new Bloodhound({
@@ -91,6 +87,7 @@ ready = function() {
           return Bloodhound.tokenizers.whitespace(cat.name);
       },
       queryTokenizer: Bloodhound.tokenizers.whitespace,
+      identify: function(obj) { return obj; },
       remote: {
             url: '/categories/autocomplete?query=%QUERY',
             wildcard: '%QUERY'

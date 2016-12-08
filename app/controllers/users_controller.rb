@@ -11,12 +11,12 @@
 
   def show
     id_user = params[:id] === nil ? current_user.id : params[:id]
-    if id_user.to_i.to_s
+    # if id_user.to_i.to_s
       @user = User.find(id_user)
       @posts = Post.where('user_id' => id_user).sort_by(&:created_at).reverse!
-    else
-      redirect_to root_path
-    end
+    # else
+      # redirect_to root_path
+    # end
   end
 
   def list
