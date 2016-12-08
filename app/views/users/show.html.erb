@@ -58,7 +58,7 @@
                           </div>
 
                            <% if @user != current_user %>
-                             <div id="follow_form">
+                             <div class="box">
                              <% if current_user.following?(@user) %>
                                <%= render 'shared/unfollow' %>
                              <% else %>

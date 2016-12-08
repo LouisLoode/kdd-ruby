@@ -10,7 +10,7 @@
   end
 
   def show
-    id_user = params[:id] === nil ? current_user.id : params[:id]
+    params[:id] == nil ? id_user == current_user.id : id_user == params[:id]
     # if id_user.to_i.to_s
       @user = User.find(id_user)
       @posts = Post.where('user_id' => id_user).sort_by(&:created_at).reverse!
