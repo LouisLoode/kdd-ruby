@@ -9,7 +9,10 @@ class RatesController < ApplicationController
   def create
     # if !current_user.already_likes?(@post)
       @rate = Rate.new(:note => params[:note], :user_id => current_user.id, :post_id => params[:post_id])
+
       @rate.save
+
+      puts "Envois la moula"
     # end
   end
 
@@ -22,7 +25,7 @@ class RatesController < ApplicationController
       end
     end
   end
-  
+
 
   # private
   #   def ranks_params

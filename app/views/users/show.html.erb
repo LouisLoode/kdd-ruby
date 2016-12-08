@@ -1,16 +1,53 @@
 <div class="headerfake">
-    <div id="contentfake" class="container">
-    <div class="img_fake">
-        <img src="<%= @user.avatar  %>" />
+      <div id="contentfake" class="container">
+      <div class="img_fake">
+          <img src="<%= "@" + @user.avatar %>" />
+      </div>
+      <p class="name"><%= "@" + @user.name %></p>
+
+
+      <div class="navfake">
+          <ul>
+            <li>
+              <p class="title">Pertinence</p>
+              <div class="content">
+                  <p class="star star-full"></p>
+                  <p class="star star-full"></p>
+                  <p class="star star-full"></p>
+                  <p class="star star-full"></p>
+                  <p class="star star-empty"></p>
+               </div>
+            </li>
+            <li>
+              <p class="title">Publications</p>
+              <p class="nb"><%= @user.posts.count %></p>
+            </li>
+            <li>
+              <p class="title">Followers</p>
+              <p class="nb"><%= @user.followers.count %></p>
+            </li>
+            <li>
+              <p class="title">Following</p>
+              <p class="nb"><%= @user.following.count %></p>
+            </li>
+            <li>
+              <p class="title">Favoris</p>
+              <p class="nb">0</p>
+            </li>
+
+          </ul>
+          <div class="btnfake">
+                <%= link_to 'Éditer le profil', edit_user_registration_path, :class => "btnedit" %>
+          </div>
+      </div>
     </div>
-    <p><%= "@" + @user.name %></p>
-    </div>
+
 </div>
+
 <div id="part" class="container gover">
     <div id="fixprofil" class="row">
         <div class="col-xs-12 col-sm-2 col-md-3">
             <%= render partial: 'shared/profil_card', locals: {user: @user} %>
-
         </div>
         <div class="col-md-9">
             <div class="name_profil">
