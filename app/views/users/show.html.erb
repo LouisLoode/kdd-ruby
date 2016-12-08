@@ -1,7 +1,7 @@
 <div class="headerfake">
     <div id="contentfake" class="container">
     <div class="img_fake">
-        <img src="/assets/louisloode.jpg" />
+        <img src="<%= @user.avatar  %>" />
     </div>
     <p><%= "@" + @user.name %></p>
     </div>
@@ -31,25 +31,26 @@
                               </div>
                           </div>
 
-                          <div class="box">
-                              <p class="title">Positions</p>
-                              <p class="content"><%= @user.posts.count %></p>
-                          </div>
-
-
-                          <div class="box">
-                            <a href="<%= followers_user_path(@user) %>">
-                              <p class="title">Followers</p>
-                              <p class="content"><%= @user.followers.count %></p>
+                            <div class="box boxfocus">
+                            <a class="linkpage" href="<%= show_user_path(@user) %>">
+                                <p class="title">Publications</p>
+                                <p class="content"><%= @user.posts.count %></p>
                             </a>
-                          </div>
+                            </div>
 
-                          <div class="box">
-                            <a href="<%= following_user_path(@user) %>">
-                              <p class="title">Following</p>
-                              <p class="content"><%= @user.following.count %></p>
+                            <div class="box">
+                             <a class="linkpage"  href="<%= followers_user_path(@user) %>">
+                                <p class="title">Followers</p>
+                                <p class="content"><%= @user.followers.count %></p>
+                             </a>
+                            </div>
+
+                            <div class="box">
+                            <a class="linkpage"  href="<%= following_user_path(@user) %>">
+                                <p class="title">Following</p>
+                                <p class="content"><%= @user.following.count %></p>
                             </a>
-                          </div>
+                            </div>
 
                           <div class="box">
                               <p class="title">Favoris</p>
@@ -83,10 +84,12 @@
                   <p class="text-center">Vous n'avez pour l'instant rien publié</p>
                   <% end %>
                 </div>
+
                 <div class="col-md-5">
                   <%= render partial: 'posts/form'%>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
