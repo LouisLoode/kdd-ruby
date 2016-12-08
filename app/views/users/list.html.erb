@@ -1,9 +1,13 @@
 <div class="container">
-<% @users.each do |user| %>
-<p>
-Name: <%= user.name %>, biography: <%= user.biography %>
-</p>
-
-<% end %>
-
+  <div class="container_follow">
+      <div id="listfollow" class="row col-md-12">
+        <% if @users.size > 0 %>
+          <% @users.each do |user| %>
+            <%= render partial: 'users/list_card', locals: {user: @user} %>
+          <% end %>
+        <% else %>
+        <p class="text-center">Vous n'avez pour l'instant aucune relation</p>
+        <% end %>
+      </div>
+  </div>
 </div>

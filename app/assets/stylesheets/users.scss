@@ -254,13 +254,12 @@ $color2: #748DEF;
       transform:scale(0.98);
     }
     input[type="submit"] {
-      margin-top: 60px;
+      margin-top:20px;
+      margin-left:0px;
       background:#748DEF;
       font-size:20px;
-      border-radius:0;
+      border-radius:2px;
       border:0;
-      padding-top:15px;
-      padding-bottom:15px;
       margin-bottom:15px;
       transition:all ease-in-out 0.3s;
     }
@@ -291,6 +290,13 @@ $color2: #748DEF;
 		margin-left:0;
 		padding:0px;
 		margin-bottom:10px;
+
+
+		.zerorelation{
+			color:$color2;
+			font-size:22px;
+			margin-top:100px;
+		}
 
 		.picture_profil{
 			width:85px;
@@ -508,7 +514,6 @@ $color2: #748DEF;
 		font-style: normal;
 		font-stretch: normal;
 		color: #5C748D;
-		margin-left:20px;
 	}
 
 	.btn-default {
@@ -574,14 +579,6 @@ $color2: #748DEF;
 		border-radius:2px;
 		font-size:16px;
 	}
-	.btn-primary:first-child{
-		width:calc(100% - 40px);
-		margin-left:20px;
-		margin-top:10px;
-		border:1px solid #5C748D;
-		height:50px;
-		font-size:16px;
-	}
 	.btn:last-child{
 		transition:all ease-in-out 0.3s;
 	}
@@ -603,7 +600,7 @@ $color2: #748DEF;
 		color: #c5c5c5;
 		margin-left:10%;
 		margin-top:10px;
-		margin-bottom:30px;
+		margin-bottom:0px;
 
 		a{
 			color:$color2;
@@ -788,6 +785,19 @@ article {
 
 			span{
 				margin-right:7px;
+			}
+			a{
+				margin-top:-25px;
+				font-size: 14px;
+				font-weight:700;
+				color:#000;
+				text-transform:uppercase;
+				text-decoration:none;
+				transition:all ease-in-out 0.3s;
+			}
+			a:hover{
+				font-weight:700;
+				color:$color2;
 			}
 		}
 		.time_post {

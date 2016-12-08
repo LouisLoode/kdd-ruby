@@ -19,15 +19,19 @@
 //= require typeahead
 //= require_tree .
 
+$(document).on('ready turbolinks:load', function() {
+	$('.selectpicker').selectpicker('refresh');
+});
+
+
 // Auto complete
 var ready;
 ready = function() {
 
-		$('.selectpicker').selectpicker('refresh');
 		$('.dropdown-toggle').dropdown()
 
     $('#query').bind('typeahead:select', function(ev, suggestion) {
-      console.log(ev);
+      // console.log(ev);
       console.log('Selection: ');
       console.log(suggestion);
     });
@@ -35,8 +39,6 @@ ready = function() {
 
     var categories = new Bloodhound({
       datumTokenizer: function(cat) {
-        console.log("datumTokenizer posts: ");
-          console.log(cat);
           return Bloodhound.tokenizers.whitespace(cat.name);
       },
       queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -49,7 +51,6 @@ ready = function() {
 
     var posts = new Bloodhound({
       datumTokenizer: function(post) {
-          console.log(post);
           return Bloodhound.tokenizers.whitespace(post.url);
       },
       queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -61,7 +62,6 @@ ready = function() {
 
     var users = new Bloodhound({
       datumTokenizer: function(user) {
-          console.log(user);
           return Bloodhound.tokenizers.whitespace(user.name);
       },
       queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -79,7 +79,13 @@ ready = function() {
       // display: 'post',
       displayKey: 'name',
       source: categories,
-      onselect: function(obj) { console.log(obj) },
+      onselect: function(obj) {
+				var data = {
+					type: 'category',
+					model: obj
+				}
+				// console.log(data)
+			},
       templates: {
         header: '<h3 class="league-name">Categories</h3>'
       }
@@ -89,7 +95,13 @@ ready = function() {
       // display: 'post',
       displayKey: 'url',
       source: posts,
-      onselect: function(obj) { console.log(obj) },
+      onselect: function(obj) {
+				var data = {
+					type: 'post',
+					model: obj
+				}
+				// console.log(data)
+			},
       templates: {
         header: '<h3 class="league-name">Posts</h3>'
       }
@@ -99,7 +111,13 @@ ready = function() {
       // display: 'post',
       displayKey: 'name',
       source: users,
-      onselect: function(obj) { console.log(obj) },
+      onselect: function(obj) {
+				var data = {
+								type: 'user',
+								model: obj
+							}
+							// console.log(data)
+			},
       templates: {
         header: '<h3 class="league-name">Users</h3>'
       }
@@ -258,7 +276,5 @@ ready = function() {
 
 
 
-
-
-$(document).ready(ready);
-$(document).on('page:load', ready);
+$(document).on('ready turbolinks:load', ready);
+// $(document).on('ready page:load', ready);

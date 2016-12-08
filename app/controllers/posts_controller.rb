@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def autocomplete
     render json: Post.search(params[:query], autocomplete: false, limit: 10).map do |post|
-      { title: post.url, value: post.id }
+      { title: post.url, value: 'post-' + post.id }
     end
   end
 

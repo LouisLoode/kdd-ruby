@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-8">
             <p class="name_post"><%= "@" + post.user.name %></p>
-            <p class="categorie_@post">
+            <p class="categorie_post">
               <% post.categories.each do |category| %>
                 <span><%= link_to '#' + category.slug, category_path(:id => category.id) %></span>
               <% end %>

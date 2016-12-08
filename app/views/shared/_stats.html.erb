@@ -1,5 +1,4 @@
-<div class="container_view" >
-
+<div class="container_view">
         <div class="box">
             <p class="title">Pertinence</p>
             <div class="content">
@@ -11,25 +10,26 @@
             </div>
         </div>
 
-        <div class="box">
-            <p class="title">Positions</p>
-            <p class="content">1246</p>
-        </div>
-
-
-        <div class="box">
-          <a href="<%= followers_user_path(@user) %>">
-            <p class="title">Followers</p>
-            <p class="content"><%= @user.followers.count %></p>
+          <div class="box<% if action_name === 'show' %> boxfocus<% end %>">
+          <a class="linkpage" href="<%= show_user_path(@user) %>">
+              <p class="title">Publications</p>
+              <p class="content"><%= @user.posts.count %></p>
           </a>
-        </div>
+          </div>
 
-        <div class="box">
-          <a href="<%= following_user_path(@user) %>">
-            <p class="title">Following</p>
-            <p class="content"><%= @user.following.count %></p>
+          <div class="box<% if action_name === 'followers' %> boxfocus<% end %>">
+           <a class="linkpage"  href="<%= followers_user_path(@user) %>">
+              <p class="title">Followers</p>
+              <p class="content"><%= @user.followers.count %></p>
+           </a>
+          </div>
+
+          <div class="box<% if action_name === 'following' %> boxfocus<% end %>">
+          <a class="linkpage"  href="<%= following_user_path(@user) %>">
+              <p class="title">Following</p>
+              <p class="content"><%= @user.following.count %></p>
           </a>
-        </div>
+          </div>
 
         <div class="box">
             <p class="title">Favoris</p>

@@ -1,436 +1,92 @@
-
 <div class="headerfake">
-    <div id="contentfake" class="container">
+      <div id="contentfake" class="container">
+     
       <div class="img_fake">
-          <img src="<%= "@" + @user.avatar %>" />
+        <img src="
+            <% if @user.avatar %>
+            <%= @user.avatar %>
+            <% else %>
+            /assets/louisloode.jpg
+            <% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="auto" />
       </div>
-      <p class="name"><%= "@" + @user.name %></p>
+
+      <p class="name">
+
+
+          <%= "@" + @user.name %></p>
 
 
       <div class="navfake">
           <ul>
-          <li>
-            
-          </li>
-          <li>
-            
-          </li>
-          <li>
-            
-          </li>
-          <li>
-            
-          </li>
-          <li>
-            
-          </li>
+            <li>
+              <p class="title">Pertinence</p>
+              <div class="content">
+                  <p class="star star-full"></p>
+                  <p class="star star-full"></p>
+                  <p class="star star-full"></p>
+                  <p class="star star-full"></p>
+                  <p class="star star-empty"></p>
+               </div>
+            </li>
+            <a class="linkpage" href="<%= show_user_path(@user) %>">
+            <li>
+              <p class="title">Publications</p>
+              <p class="nb"><%= @user.posts.count %></p>
+            </li>
+            </a>
+            <a class="linkpage" href="<%= followers_user_path(@user) %>">
+            <li>
+              <p class="title">Followers</p>
+              <p class="nb"><%= @user.followers.count %></p>
+            </li>
+            </a>
+            <a class="linkpage" href="<%= following_user_path(@user) %>">
+            <li>
+              <p class="title">Following</p>
+              <p class="nb"><%= @user.following.count %></p>
+            </li>
+            </a>
+            <li>
+              <p class="title">Favoris</p>
+              <p class="nb">0</p>
+            </li>
+
           </ul>
+          <div class="btnfake">
+                <%= link_to 'Éditer le profil', edit_user_registration_path, :class => "btnedit" %>
+          </div>
       </div>
     </div>
 
 </div>
-<div id="part" class="container gover">
-    <div id="fixprofil" class="row">
-        <div class="col-xs-12 col-sm-2 col-md-3">
-            <div class="container_profil">
-                <div class="img_profil ">
-                    <img src="
-                    <% if !@user.avatar.blank? %>
-                    <%= @user.avatar %>
-                    <% else %>
-                    /assets/louisloode.jpg
-                    <% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="100%" />
-                </div>
-                <div class="description_profil ">
-                    <p>
-                        <%= @user.biography %>
-                    </p>
-                </div>
-                <ul>
 
-                    <% if !@user.github.blank? %>
-                    <li class="fa" aria-hidden="true">
-                        <img src="/assets/github.svg">
-                        <a href="<%= @user.github %>" title=<%= @user.name + "'s Github" %>><%= @user.github %></a>
-                    </li>
-                    <% end %>
-                    <% if !@user.website.blank? %>
-                    <li class="fa" aria-hidden="true">
-                        <img src="/assets/website.svg">
-                        <a href="<%= @user.website %>" title="<%= @user.name + "'s Website" %>"><%= @user.website %></a>
-                    </li>
-                    <% end %>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-9">
-            <div class="name_profil">
-                <%= "@" + @user.name %>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="container_view" >
+            <div id="part" class="container gover">
+                <div id="fixprofil" class="row">
+                    <div class="col-xs-12 col-sm-2 col-md-3">
+                        <%= render partial: 'shared/profil_card', locals: {user: @user} %>
 
-                            <div class="box">
-                                <p class="title">Pertinence</p>
-                                <div class="content">
-                                    <p class="star star-full"></p>
-                                    <p class="star star-full"></p>
-                                    <p class="star star-full"></p>
-                                    <p class="star star-full"></p>
-                                    <p class="star star-empty"></p>
-                                </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="name_profil">
+                            <%= "@" + @user.name %>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                              <%= render partial: 'shared/stats', locals: {user: @user} %>
                             </div>
-
-                            
-                           <div class="box">
-                            <a class="linkpage" href="<%= show_user_path(@user) %>">
-                                <p class="title">Publications</p>
-                                <p class="content">1246</p>
-                            </a>
+                        </div>
+                        <div class="container_follow">
+                            <div id="listfollow" class="row col-md-12">
+                              <% if @users.size > 0 %>
+                                <% @users.each do |user| %>
+                                  <%= link_to show_user_path(:user_id => user.id) do %>
+                                    <%= render partial: 'users/list_card', locals: {user: user} %>
+                                  <% end %>
+                                <% end %>
+                              <% else %>
+                              <p class="zerorelation text-center">Vous n'avez pour l'instant aucune relation</p>
+                              <% end %>
                             </div>
-                           
-
-
-                           
-                            <div class="box boxfocus">
-                             <a class="linkpage"  href="<%= followers_user_path(@user) %>">
-                                <p class="title">Followers</p>
-                                <p class="content">0</p>
-                             </a>   
-                            </div>
-                           
-
-                            
-                            <div class="box">
-                            <a class="linkpage"  href="<%= following_user_path(@user) %>">
-                                <p class="title">Following</p>
-                                <p class="content">0</p>
-                            </a>
-                            </div>
-
-                            <div class="box">
-                                <p class="title">Favoris</p>
-                                <p class="content">0</p>
-                            </div>
-
-                            <% if current_user == @user %>
-                            <div class="box">
-                                <%= link_to 'Éditer le profil', edit_user_registration_path, :class => "btnedit" %>
-                            </div>
-                             <% end %>
-
+                        </div>
                     </div>
                 </div>
-            </div>
-
-
-
-            <div class="container_follow">
-                <div id="listfollow" class="row col-md-12">
-
-                    <div class="boxcard col-md-4">
-                      <div class="card">
-
-                        <div class="picture_profil">
-                          <img src="/assets/blephy.jpg" />
-                        </div>
-
-                        <div class="desc_profil">
-                          <p class="name">@Blephy</p>
-                          <div class="pertinence">
-                            <p class="text">Pertinence</p>
-                            <div class="star">
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                            </div>
-                          </div>
-                          <p class="partage"><span>319</span> Partages de savoir</p>
-                        </div>
-
-                      </div>
-                    </div>
-
-                    <div class="boxcard col-md-4">
-                      <div class="card">
-                        <div class="picture_profil">
-                          <img src="/assets/mrlukou.jpg" />
-                        </div>
-                      <div class="desc_profil">
-                          <p class="name">@mrlkou</p>
-                          <div class="pertinence">
-                            <p class="text">Pertinence</p>
-                            <div class="star">
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                            </div>
-                          </div>
-                          <p class="partage"><span>319</span> Partages de savoir</p>
-                        </div>
-
-                      </div>
-                    </div>
-                    <div class="boxcard col-md-4">
-                      <div class="card">
-                        <div class="picture_profil">
-                          <img src="/assets/louisloode.jpg" />
-                        </div>
-                      <div class="desc_profil">
-                          <p class="name">@louisloode</p>
-                          <div class="pertinence">
-                            <p class="text">Pertinence</p>
-                            <div class="star">
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                            </div>
-                          </div>
-                          <p class="partage"><span>319</span> Partages de savoir</p>
-                        </div>
-
-                      </div>
-                    </div>
-                </div>
-                <div id="listfollow" class="row col-md-12">
-                    <div class="boxcard col-md-4">
-                      <div class="card">
-                        <div class="picture_profil">
-                          <img src="/assets/louisloode.jpg" />
-                        </div>
-                      <div class="desc_profil">
-                          <p class="name">@louisloode</p>
-                          <div class="pertinence">
-                            <p class="text">Pertinence</p>
-                            <div class="star">
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                            </div>
-                          </div>
-                          <p class="partage"><span>319</span> Partages de savoir</p>
-                        </div>
-
-                      </div>
-                    </div>
-                    <div class="boxcard col-md-4">
-                      <div class="card">
-                        <div class="picture_profil">
-                          <img src="/assets/blephy.jpg" />
-                        </div>
-                      <div class="desc_profil">
-                          <p class="name">@Blephy</p>
-                          <div class="pertinence">
-                            <p class="text">Pertinence</p>
-                            <div class="star">
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                            </div>
-                          </div>
-                          <p class="partage"><span>319</span> Partages de savoir</p>
-                        </div>
-
-                      </div>
-                    </div>
-                    <div class="boxcard col-md-4">
-                      <div class="card">
-                        <div class="picture_profil">
-                          <img src="/assets/negan.png" />
-                        </div>
-                      <div class="desc_profil">
-                          <p class="name">@Negan</p>
-                          <div class="pertinence">
-                            <p class="text">Pertinence</p>
-                            <div class="star">
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                            </div>
-                          </div>
-                          <p class="partage"><span>319</span> Partages de savoir</p>
-                        </div>
-
-                      </div>
-                    </div>
-                </div>
-                <div id="listfollow" class="row col-md-12">
-                    <div class="boxcard col-md-4">
-                      <div class="card">
-                        <div class="picture_profil">
-                          <img src="/assets/negan.png" />
-                        </div>
-                      <div class="desc_profil">
-                          <p class="name">@Negan</p>
-                          <div class="pertinence">
-                            <p class="text">Pertinence</p>
-                            <div class="star">
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                            </div>
-                          </div>
-                          <p class="partage"><span>319</span> Partages de savoir</p>
-                        </div>
-
-                      </div>
-                    </div>
-                    <div class="boxcard col-md-4">
-                      <div class="card">
-                        <div class="picture_profil">
-                          <img src="/assets/mrlukou.jpg" />
-                        </div>
-                      <div class="desc_profil">
-                          <p class="name">@mrlukou</p>
-                          <div class="pertinence">
-                            <p class="text">Pertinence</p>
-                            <div class="star">
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                            </div>
-                          </div>
-                          <p class="partage"><span>319</span> Partages de savoir</p>
-                        </div>
-
-                      </div>
-                    </div>
-                    <div class="boxcard col-md-4">
-                      <div class="card">
-                        <div class="picture_profil">
-                          <img src="/assets/louisloode.jpg" />
-                        </div>
-                      <div class="desc_profil">
-                          <p class="name">@louisloode</p>
-                          <div class="pertinence">
-                            <p class="text">Pertinence</p>
-                            <div class="star">
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                            </div>
-                          </div>
-                          <p class="partage"><span>319</span> Partages de savoir</p>
-                        </div>
-
-                      </div>
-                    </div>
-                </div>
-                <div id="listfollow" class="row col-md-12">
-                    <div class="boxcard col-md-4">
-                      <div class="card">
-                        <div class="picture_profil">
-                          <img src="/assets/mrlukou.jpg" />
-                        </div>
-                      <div class="desc_profil">
-                          <p class="name">@mrlukou</p>
-                          <div class="pertinence">
-                            <p class="text">Pertinence</p>
-                            <div class="star">
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                            </div>
-                          </div>
-                          <p class="partage"><span>319</span> Partages de savoir</p>
-                        </div>`
-
-                      </div>
-                    </div>
-                    <div class="boxcard col-md-4">
-                      <div class="card">
-                        <div class="picture_profil">
-                          <img src="/assets/negan.png" />
-                        </div>
-                      <div class="desc_profil">
-                          <p class="name">@Negan</p>
-                          <div class="pertinence">
-                            <p class="text">Pertinence</p>
-                            <div class="star">
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                            </div>
-                          </div>
-                          <p class="partage"><span>319</span> Partages de savoir</p>
-                        </div>
-
-                      </div>
-                    </div>
-                    <div class="boxcard col-md-4">
-                      <div class="card">
-                        <div class="picture_profil">
-                          <img src="/assets/blephy.jpg" />
-                        </div>
-                      <div class="desc_profil">
-                          <p class="name">@Blephy</p>
-                          <div class="pertinence">
-                            <p class="text">Pertinence</p>
-                            <div class="star">
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                              <li class="star-full"></li>
-                            </div>
-                          </div>
-                          <p class="partage"><span>319</span> Partages de savoir</p>
-                        </div>
-
-                      </div>
-                    </div>
-                </div>
-            </div>
- 
-
-<div class="row col-md-7">
-  <aside class="">
-    <section class="user_info">
-      <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
-  <div>
-    <h3><%= @title %></h3>
-    <% if @users.any? %>
-      <ul class="users follow">
-          <% @users.each do |user| %>
-            <li>
-              <%= link_to user.name, user %>
-            </li>
-          <% end %>
-      </ul>
-
-    <% end %>
-  </div>
-</div>
-
-
-</div>
-</div>         

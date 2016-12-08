@@ -11,11 +11,15 @@ class RatesController < ApplicationController
       @rate = Rate.new(:note => params[:note], :user_id => current_user.id, :post_id => params[:post_id])
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       @rate.save
 
       puts "Envois la moula"
 =======
       @rate.save 
+=======
+      @rate.save if !Rate.where(user_id: current_user.id, post_id: params[:post_id])
+>>>>>>> b50347b2cfe5e498900665770694ea91ac1f952f
       # just for some log in console
       puts "Rate created and succesfull send to db"
 >>>>>>> 67fc850ae00addf10de778a69fe2fc239eb2d4f6
