@@ -10,7 +10,7 @@
 # CREATE USER
 #
 User.create(email: 'louisdebraine@gmail.com', name: 'Loode', password: 'testtest', password_confirmation: 'testtest')
-
+User.create(email: 'dolle.allan@gmail.com', name: 'Blephy', password: 'testtest', password_confirmation: 'testtest')
 #
 # CREATE CATEGORIES
 #

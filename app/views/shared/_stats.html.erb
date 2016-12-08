@@ -27,7 +27,7 @@
           <div class="box<% if action_name === 'following' %> boxfocus<% end %>">
           <a class="linkpage"  href="<%= following_user_path(@user) %>">
               <p class="title">Following</p>
-              <p class="content"><%= @user.following.count %></p>
+              <p id ="followers" class="content"><%= @user.following.count %></p>
           </a>
           </div>
 

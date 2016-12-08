@@ -1,11 +1,3 @@
-$('#user_star').raty({
-  score: <%= post.rates %>,
-  path: '/assets',
-  click: function(score, evt) {
-    $.ajax({
-      url: '/rates/' + <%= post.id %>,
-      type: 'PATCH',
-      data: { score: score }
-    }).done(function (data){});
-  }
-});
+
+
+$("#user_rank").html('<%= @rate.score %>');

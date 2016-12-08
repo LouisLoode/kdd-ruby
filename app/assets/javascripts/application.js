@@ -128,18 +128,29 @@ ready = function() {
 		var j = 1;
 
     $(".notation").mouseenter(function(){
+
+			var clicked = false;
+			var nb = document.getElementById("#user_rank");
+
+			$(".notation").click(function(){
+				var nb = document.getElementById("#user_rank");
+				clicked = true;
+				console.log(clicked);
+				rate($(this),nb);
+			});
+
       var star1 = $( this ).find( ".star1" );
       var star2 = $( this ).find( ".star2" );
       var star3 = $( this ).find( ".star3" );
       var star4 = $( this ).find( ".star4" );
       var star5 = $( this ).find( ".star5" );
-         
          star1.mouseenter(function(){
               $(this).removeClass('star-empty').addClass('star-full');
               star2.removeClass('star-full').addClass('star-empty');
               star3.removeClass('star-full').addClass('star-empty');
               star4.removeClass('star-full').addClass('star-empty');
               star5.removeClass('star-full').addClass('star-empty');
+							console.log('star1');
          });
          star2.mouseenter(function(){
               $(this).removeClass('star-empty').addClass('star-full');
@@ -147,6 +158,7 @@ ready = function() {
               star3.removeClass('star-full').addClass('star-empty');
               star4.removeClass('star-full').addClass('star-empty');
               star5.removeClass('star-full').addClass('star-empty');
+							console.log('star2');
          });
          star3.mouseenter(function(){
               $(this).removeClass('star-empty').addClass('star-full');
@@ -154,6 +166,7 @@ ready = function() {
               star2.removeClass('star-empty').addClass('star-full');
               star4.removeClass('star-full').addClass('star-empty');
               star5.removeClass('star-full').addClass('star-empty');
+							console.log('star3');
          });
          star4.mouseenter(function(){
               $(this).removeClass('star-empty').addClass('star-full');
@@ -162,6 +175,7 @@ ready = function() {
               star2.removeClass('star-empty').addClass('star-full');
               star3.removeClass('star-empty').addClass('star-full');
               star5.removeClass('star-full').addClass('star-empty');
+							console.log('star4');
          });
          star5.mouseenter(function(){
               $(this).removeClass('star-empty').addClass('star-full');
@@ -169,14 +183,22 @@ ready = function() {
               star2.removeClass('star-empty').addClass('star-full');
               star3.removeClass('star-empty').addClass('star-full');
               star4.removeClass('star-empty').addClass('star-full');
+							console.log('star5');
          });
 
     });
 
-    $(".notation").mouseleave(function(){
-            var nb = 3;
-            rate($(this),nb);
-    });
+    // $(".notation").mouseleave(function(){
+		// 	console.log('mouseleave');
+		// 		$(".notation").click(function(){
+		// 			var nb = document.getElementById("#user_rank");
+		// 			rate($(this),nb);
+		// 		});
+		// 		// var nb = document.getElementById("#user_rank");
+		// 		rate($(this),0);
+    // });
+
+
 
 
 
@@ -205,6 +227,7 @@ ready = function() {
 
 
     function rate(post,nb){
+			console.log('rate');
           if(nb == 0){
             $(post).find(".star1").removeClass('star-full').addClass('star-empty');
             $(post).find(".star2").removeClass('star-full').addClass('star-empty');
@@ -225,28 +248,28 @@ ready = function() {
             $(post).find(".star3").removeClass('star-full').addClass('star-empty');
             $(post).find(".star4").removeClass('star-full').addClass('star-empty');
             $(post).find(".star5").removeClass('star-full').addClass('star-empty');
-          }  
+          }
           else if(nb == 3){
             $(post).find(".star1").removeClass('star-empty').addClass('star-full');
             $(post).find(".star2").removeClass('star-empty').addClass('star-full');
             $(post).find(".star3").removeClass('star-empty').addClass('star-full');
             $(post).find(".star4").removeClass('star-full').addClass('star-empty');
             $(post).find(".star5").removeClass('star-full').addClass('star-empty');
-          }  
+          }
           else if(nb == 4){
             $(post).find(".star1").removeClass('star-empty').addClass('star-full');
             $(post).find(".star2").removeClass('star-empty').addClass('star-full');
             $(post).find(".star3").removeClass('star-empty').addClass('star-full');
             $(post).find(".star4").removeClass('star-empty').addClass('star-full');
             $(post).find(".star5").removeClass('star-full').addClass('star-empty');
-          }  
+          }
           else if(nb == 5){
             $(post).find(".star1").removeClass('star-empty').addClass('star-full');
             $(post).find(".star2").removeClass('star-empty').addClass('star-full');
             $(post).find(".star3").removeClass('star-empty').addClass('star-full');
             $(post).find(".star4").removeClass('star-empty').addClass('star-full');
             $(post).find(".star5").removeClass('star-empty').addClass('star-full');
-          }      
+          }
     }
 
 		function startHeader(){
