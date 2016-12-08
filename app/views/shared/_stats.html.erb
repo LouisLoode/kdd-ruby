@@ -36,7 +36,7 @@
             <p class="content">0</p>
         </div>
 
-         <% if @user != current_user %>
+         <% if @user != current_user && current_user %>
            <div id="follow_form">
            <% if current_user.following?(@user) %>
              <%= render 'shared/unfollow' %>
@@ -44,7 +44,7 @@
              <%= render 'shared/follow' %>
            <% end %>
            </div>
-         <% else %>
+         <% elsif current_user %>
            <div class="box">
                <%= link_to 'Éditer le profil', edit_user_registration_path, :class => "btnedit" %>
            </div>

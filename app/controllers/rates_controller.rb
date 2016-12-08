@@ -12,7 +12,6 @@ class RatesController < ApplicationController
 
       @rate.save
       # just for some log in console
-      puts "Rate created and succesfull send to db"
     # end
   end
 
