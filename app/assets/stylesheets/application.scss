@@ -103,7 +103,7 @@ $main-color: #211d8d;
 $color1: #414B98;
 $color2: #748DEF;
 
-/*  
+/*
 *
 * HEADER -------------------------------------------------------------------------------------------------------------------
 *
@@ -148,7 +148,7 @@ $color2: #748DEF;
   .tt-hint{
       margin-left:2.6px;
   }
-  
+
   .tt-suggestion{
     padding:0;
     height:50px;
@@ -712,6 +712,7 @@ header {
 footer {
   background-color: #FFF;
   text-align: center;
+  bottom: 0;
   width: 100%;
   height: 6em;
   line-height: 5em;
