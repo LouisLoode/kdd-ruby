@@ -13,25 +13,6 @@ $main-color: #211d8d;
 $color1: #414B98;
 $color2: #748DEF;
 
-// @font-face {
-//   font-family: 'AvenirRegular';
-//   src: url('../Avenir/Avenir_r.ttf') format('truetype');
-//   font-weight: normal;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: 'AvenirMedium';
-//   src: url('../Avenir/Avenir_m.ttf') format('truetype');
-//   font-weight: normal;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: 'AvenirHeavy';
-//   src: url('../Avenir/Avenir_b.ttf') format('truetype');
-//   font-weight: normal;
-//   font-style: normal;
-// }
-
 .cancel{
 	margin-top:30px !important;
 	margin-bottom:50px !important;
@@ -324,7 +305,7 @@ small{
 	height:500px;
 	background:transparent;
 
-	#listfollow, #list_favorites, #list_posts_profile{
+	#listfollow, #list_favorites, #list_posts_profile, #list_posts_main{
 		margin-left:0;
 		padding:0px;
 		margin-bottom:10px;

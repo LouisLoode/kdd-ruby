@@ -32,7 +32,7 @@ gem 'devise', "~> 4.2.0"
 gem 'font-awesome-sass'
 
 # Search
-gem 'searchkick'
+gem 'searchkick', '~> 1.4.0'
 gem 'bootstrap-typeahead-rails'
 
 # OpenGraph scrapper

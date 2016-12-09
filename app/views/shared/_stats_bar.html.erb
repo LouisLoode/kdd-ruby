@@ -1,5 +1,5 @@
 <div class="headerfake">
-      <div id="contentfake" class="container">
+      <div id="contentfake">
 
       <div class="img_fake">
         <img src="
@@ -11,11 +11,7 @@
       </div>
 
       <p class="name">
-
-
           <%= "@" + @user.name %></p>
-
-
       <div class="navfake">
           <ul>
             <li>
@@ -28,30 +24,30 @@
                   <p class="star star-empty"></p>
                </div>
             </li>
-            <a class="linkpage" href="<%= show_user_path(@user) %>">
-            <li>
-              <p class="title">Publications</p>
-              <p class="nb"><%= @user.posts.count %></p>
-            </li>
-            </a>
-            <a class="linkpage" href="<%= followers_user_path(@user) %>">
-            <li>
-              <p class="title">Followers</p>
-              <p class="nb"><%= @user.followers.count %></p>
-            </li>
-            </a>
-            <a class="linkpage" href="<%= following_user_path(@user) %>">
-            <li>
-              <p class="title">Following</p>
-              <p class="nb"><%= @user.following.count %></p>
-            </li>
-            </a>
-            <a class="linkpage" href="<%= favorites_user_path(@user) %>">
+            <%= link_to show_user_path(@user), class: "linkpage" do %>
+              <li>
+                <p class="title">Publications</p>
+                <p class="nb"><%= @user.posts.count %></p>
+              </li>
+            <% end %>
+            <%= link_to followers_user_path(@user), class: "linkpage" do %>
+              <li>
+                <p class="title">Followers</p>
+                <p class="nb"><%= @user.followers.count %></p>
+              </li>
+            <% end %>
+            <%= link_to following_user_path(@user), class: "linkpage" do %>
+              <li>
+                <p class="title">Following</p>
+                <p class="nb"><%= @user.following.count %></p>
+              </li>
+            <% end %>
+            <%= link_to favorites_user_path(@user), class: "linkpage" do %>
             <li>
               <p class="title">Favoris</p>
               <p class="nb"><%= @user.favorites.count %></p>
             </li>
-            </a>
+            <% end %>
 
           </ul>
           <% if @user == current_user %>
