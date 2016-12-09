@@ -17,12 +17,14 @@ Rails.application.routes.draw do
   get 'users/:user_id', to: 'users#show', as: 'show_user'
   get 'profile', to: 'users#show', as: 'show_profile'
   get 'post/:post_id/rate/:score', to: 'rates#create', as: 'rates_create'
-  
+  get 'post/:post_id/favorite', to: 'favorites#create', as: 'favorites_create'
+  get 'post/:post_id/unfavorite', to: 'favorites#delete', as: 'favorites_delete'
+  get 'user/:user_id/favorites', to: 'favorites#show', as: 'favorites_user'
+
   get 'categories/autocomplete', to: 'categories#autocomplete'
   get 'posts/autocomplete', to: 'posts#autocomplete'
   get 'user/autocomplete', to: 'users#autocomplete'
 
-  resources :rates, only: :update
   resources :posts
 
   # resources :categories, only: :index do

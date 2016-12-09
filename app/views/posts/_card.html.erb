@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="row action">
-        <div class="col-md-6 rank">
+        <div class="col-md-3 rank">
             <ul id="notation" class="notation">
 
               <%= link_to rates_create_path(:post_id => post.id, :score => 1), remote: true do %>
@@ -47,28 +47,45 @@
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 2), remote: true do %>
-                <li id ="star2" class="star2 star star-empty" aria-hidden="true">
+                <li id="star2" class="star2 star star-empty" aria-hidden="true">
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 3), remote: true do %>
-                <li id ="star3" class="star3 star star-empty" aria-hidden="true">
+                <li id="star3" class="star3 star star-empty" aria-hidden="true">
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 4), remote: true do %>
-                <li id ="star4" class="star4 star star-empty" aria-hidden="true">
+                <li id="star4" class="star4 star star-empty" aria-hidden="true">
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 5), remote: true do %>
-                <li id ="star5" class="star5 star star-empty" aria-hidden="true">
+                <li id="star5" class="star5 star star-empty" aria-hidden="true">
                 </li>
               <% end %>
             </ul>
             <p id="user_rank">
-
+              <%= Rate.find_by(:user_id => current_user.id, :post_id => post.id).score if Rate.find_by(:user_id => current_user.id, :post_id => post.id)%>
             </p>
         </div>
-        <div class="col-md-6 favoris">
-            <i class="fa fa-bookmark-o fa-2x" aria-hidden="true"></i>
+        <% if post.user_id == current_user.id && current_user.id %>
+          <div class="col-md-3 edit-post">
+            <%= link_to 'Éditer', edit_post_path(post), :class => "btnedit" %>
+          </div>
+          <div class="col-md-3 delete-post">
+            <%= link_to 'Destroy', post_path(post),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?',
+                    class: "btnedit" } %>
+          </div>
+          <% end %>
+        <div class="col-md-3 favoris">
+          <% if current_user %>
+            <% if !Favorite.find_by(:user_id => current_user.id, :post_id => post.id) %>
+              <%= render partial: 'shared/add_favorite', locals: {post_id: post.id} %>
+            <% else %>
+              <%= render partial: 'shared/remove_favorite', locals: {post_id: post.id} %>
+            <% end %>
+          <% end %>
         </div>
     </div>
 </article>
