@@ -48,7 +48,7 @@ $color2: #748DEF;
 		width:100% !important;
 		margin-left:20px;
 		color:rgba(255,0,0,0.7) !important;
-		border: 1px solid rgba(255,0,0,0.7) !important; 
+		border: 1px solid rgba(255,0,0,0.7) !important;
 		background: #FFF !important;
 	}
 	.btn:hover{
@@ -320,11 +320,11 @@ small{
 	min-height:1000px;
 }
 
-.container_follow{
+.container_follow, .container_favorites, .container{
 	height:500px;
 	background:transparent;
 
-	#listfollow{
+	#listfollow, #list_favorites, #list_posts_profile{
 		margin-left:0;
 		padding:0px;
 		margin-bottom:10px;
@@ -810,11 +810,43 @@ article {
 		margin-bottom: 15px;
 		font-family:Avenir;
 
+		.fix{
+			margin-right: 0;
+			padding-right: 0;
+		}
+
 		.name_post {
 			font-size: 16px;
 			font-weight: 700;
 			margin-top:-3px;
 			color:$color2;
+			float: left;
+		}
+		.edit-post {
+			text-align: right;
+			color:$color2;
+			a {
+				background:$color2;
+				font-size:13px;
+				font-family:Avenir;
+				color:#FFF;
+				padding-left: 5px;
+				padding-right: 5px;
+				border-radius:2px;
+				text-decoration:none;
+				transition:all ease-in-out 0.3s;
+			}
+			a:hover{
+				color:#FFF;
+				background:#5272EF;
+				transform:scale(0.98);
+				text-decoration:none;
+			}
+
+		}
+
+		.clear {
+			clear: left;
 		}
 		.categorie_post {
 			font-size: 12px;
@@ -842,6 +874,8 @@ article {
 			text-align: right;
 			font-weight:500;
 			color:#000;
+			margin-left: 0;
+			padding-left: 0;
 		}
 	}
 
@@ -897,14 +931,37 @@ article {
 
 	.action {
 		padding: 20px;
+		margin: 0;
 
 		.rank {
+			margin:0;
+			padding: 0;
 
 			ul {
 				margin: 0;
 				padding: 0;
 			}
 			li {
+
+			}
+		}
+
+		.rating {
+			margin: 0;
+			padding: 0;
+			padding-top: 2px;
+
+			#ratings {
+				width: 20px;
+				text-align: center;
+				background:$color2;
+				font-size:15px;
+				font-family:Avenir;
+				color:#FFF;
+				border-radius:2px;
+				display:block;
+				text-decoration:none;
+				transition:all ease-in-out 0.3s;
 
 			}
 		}
