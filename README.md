@@ -35,4 +35,8 @@ rails server -e development -b 0.0.0.0 -p 3000
 
 * Services (job queues, cache servers, search engines, etc.)
 
+rake searchkick:reindex:all
+
+curl -XDELETE 'http://localhost:9200/*'
+
 * Deployment instructions

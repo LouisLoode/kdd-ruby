@@ -25,7 +25,7 @@
   width: 100%;
 }
 
- #multiple-datasets .league-name {
+ #multiple-datasets .parent-name {
    margin: 0 20px 5px 20px;
    padding: 3px 0;
    border-bottom: 1px solid #ccc;
@@ -412,17 +412,12 @@ $color2: #748DEF;
 
 header {
   width: 100%;
-  // height: 236px;
   height: 25vh;
   display: block;
   margin-top:70px;
   transition:all ease-in-out 0.3s;
   background:$color1;
   z-index:10;
-  // background-image:url(/assets/header.png);
-  // background-color: #424b98;
-  // background-repeat: no-repeat;
-  // background-size: cover;
 }
 
 .bg-grey {
