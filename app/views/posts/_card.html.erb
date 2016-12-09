@@ -1,5 +1,5 @@
 <%
-if defined?(@user) 
+if defined?(@user)
   user = @user
 end
 %>
@@ -61,25 +61,30 @@ end
     <div class="row action">
         <div class="col-md-4 rank">
             <ul id="notation" class="notation">
-
+              <%
+              if Rate.find_by(:user_id => current_user.id, :post_id => post.id)
+                user_rating = Rate.find_by(:user_id => current_user.id, :post_id => post.id).score
+              else
+                user_rating = 0
+              end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 1), remote: true do %>
-                <li id="star1"class="star1 star star-empty" aria-hidden="true">
+                <li id="star1"class="star1 star<% if user_rating >= 1 %>  star-full<% else  %> star-empty<% end %>" aria-hidden="true">
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 2), remote: true do %>
-                <li id="star2" class="star2 star star-empty" aria-hidden="true">
+                <li id="star2" class="star2 star<% if user_rating >= 2 %> star-full<% else  %> star-empty<% end %>" aria-hidden="true">
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 3), remote: true do %>
-                <li id="star3" class="star3 star star-empty" aria-hidden="true">
+                <li id="star3" class="star3 star<% if user_rating >= 3 %> star-full<% else  %> star-empty<% end %>" aria-hidden="true">
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 4), remote: true do %>
-                <li id="star4" class="star4 star star-empty" aria-hidden="true">
+                <li id="star4" class="star4 star<% if user_rating >= 4 %> star-full<% else  %> star-empty<% end %>" aria-hidden="true">
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 5), remote: true do %>
-                <li id="star5" class="star5 star star-empty" aria-hidden="true">
+                <li id="star5" class="star5 star<% if user_rating >= 4 %> star-full<% else  %> star-empty<% end %>" aria-hidden="true">
                 </li>
               <% end %>
             </ul>
