@@ -36,7 +36,7 @@ gem 'searchkick', '~> 1.4.0'
 gem 'bootstrap-typeahead-rails'
 
 # OpenGraph scrapper
- gem 'opengraph_parser'
+gem 'opengraph_parser'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
