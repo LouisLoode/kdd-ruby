@@ -31,7 +31,7 @@
             <% end %>
           </div>
 
-        <div class="box">
+        <div class="box<% if action_name === 'show_favorites' %> boxfocus<% end %>">
               <%= link_to favorites_user_path(@user), class: "linkpage" do %>
                 <p class="title">Favoris</p>
                 <p id ="favorite_count" class="content"><%= @user.favorites.count %></p>

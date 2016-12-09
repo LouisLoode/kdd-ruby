@@ -1,3 +1,4 @@
+<% if current_user %>
 <%= form_for :post, url: posts_path, html: {class: "add_post"} do |f| %>
   <h2 class="poster-une-ressource">
       Poster une ressource
@@ -26,4 +27,5 @@
 
 <p class="tu-ne-trouves-pas-de">Tu ne trouves pas de sujet correspondant à ta ressource ? <%= link_to 'Créer un nouveau sujet', new_category_path %></p>
 
+<% end %>
 <% end %>

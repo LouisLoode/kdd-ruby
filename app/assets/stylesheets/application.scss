@@ -103,7 +103,7 @@ $main-color: #211d8d;
 $color1: #414B98;
 $color2: #748DEF;
 
-/*
+/*  
 *
 * HEADER -------------------------------------------------------------------------------------------------------------------
 *
@@ -114,6 +114,80 @@ $color2: #748DEF;
   body{
   width:100%;
   overflow-x:hidden;
+  }
+  .coco{
+    margin-top:60px !important;
+  }
+  .alert-success{
+    display:none;
+  }
+
+  #search {
+
+  .tt-menu{
+    width:calc(100% - 10px);
+    margin-left:5px;
+    margin-top:13px;
+    background:#FFF;
+    border:0;
+    border-radius:2px;
+    padding:0;
+    font-family:Avenir;
+    box-shadow:0px 3px 12px rgba(0,0,0,0.08);
+
+    h3{
+      color:$color2;
+      font-size:18px;
+      padding-left:20px;
+      padding-bottom:10px;
+      margin:0;
+      border-bottom: 1px solid #EEE;
+    }
+  }
+
+  .tt-hint{
+      margin-left:2.6px;
+  }
+  
+  .tt-suggestion{
+    padding:0;
+    height:50px;
+    padding-left:20px;
+    line-height:50px;
+    font-size:12px;
+    font-weight:200 !important;
+    cursor:pointer;
+  }
+  .tt-suggestion.tt-cursor, .tt-suggestion:hover{
+    color:$color2;
+    background:rgba(0,0,0,0.08);
+  }
+
+}
+
+  .nomcategorie{
+    width:100%;
+    width:auto;
+    left:50%;
+    transform:translate(-50%);
+    position:absolute;
+    margin-top:-140px;
+
+    p{
+      font-size:32px;
+      font-family:Avenir;
+      font-weight:500;
+      color:#FFF;
+      float:left;
+      margin-left:70px;
+    }
+    img{
+      margin-left:-15px;
+      position:absolute;
+      float:left;
+      margin-top:-20px;
+      height:75px;
+    }
   }
 
 .drop_li{
@@ -356,7 +430,7 @@ $color2: #748DEF;
   }
 
   #fixfoooter{
-    min-height:690px;
+    min-height:660px;
   }
 
   #logo{
@@ -446,9 +520,9 @@ header {
     margin-left:-390px;
     border:0;
     background:transparent;
-    margin-top:-13px;
+    margin-top:-17px;
     width:30px;
-    height:30px;
+    height:30px !important;
     border-radius:10px;
     transition:all ease-in-out 0.3s;
 
@@ -478,6 +552,7 @@ header {
     display:block;
     height:70px;
     line-height:40px;
+    cursor:pointer;
     color:$color2;
     transition:all ease-in-out 0.3s;
   }

@@ -10,8 +10,20 @@
             <% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="auto" />
           <% end %>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 fix">
             <p class="name_post"><%= link_to show_user_path(:user_id => post.user_id) do %><%= "@" + post.user.name %><% end %></p>
+            <% if current_user %>
+            <% if post.user_id == current_user.id %>
+              <div class="edit-post">
+                <%= link_to 'Éditer', edit_post_path(post) %>
+                <%= link_to 'Supprimer', post_path(post),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' }%>
+              </div>
+
+              <% end %>
+              <% end %>
+            <div class="clear"></div>
             <p class="categorie_post">
               <% post.categories.each do |category| %>
                 <span><%= link_to '#' + category.slug, category_path(:id => category.id) %></span>
@@ -41,8 +53,7 @@
         </div>
     </div>
     <div class="row action">
-        <div class="col-md-5 rank">
-          <% if current_user %>
+        <div class="col-md-4 rank">
             <ul id="notation" class="notation">
 
               <%= link_to rates_create_path(:post_id => post.id, :score => 1), remote: true do %>
@@ -66,25 +77,15 @@
                 </li>
               <% end %>
             </ul>
-            <p id="user_rank">
-              <%= Rate.find_by(:user_id => current_user.id, :post_id => post.id).score if Rate.find_by(:user_id => current_user.id, :post_id => post.id)%>
-            </p>
-            <% end %>
         </div>
-        <% if current_user %>
-        <% if post.user_id == current_user.id %>
-          <div class="col-md-3 edit-post">
-            <%= link_to 'Éditer', edit_post_path(post), :class => "btnedit" %>
-          </div>
-          <div class="col-md-5 delete-post">
-            <%= link_to 'Destroy', post_path(post),
-                    method: :delete,
-                    data: { confirm: 'Are you sure?',
-                    class: "btnedit" } %>
-          </div>
+        <div class="col-md-4 rating">
+          <% if current_user %>
+          <p id="ratings">
+          <%= Rate.find_by(:user_id => current_user.id, :post_id => post.id).score if Rate.find_by(:user_id => current_user.id, :post_id => post.id)%>
+          </p>
           <% end %>
-          <% end %>
-        <div class="col-md-2 favoris">
+        </div>
+        <div class="col-md-4 favoris">
           <% if current_user %>
             <% if !Favorite.find_by(:user_id => current_user.id, :post_id => post.id) %>
               <%= render partial: 'shared/add_favorite', locals: {post_id: post.id} %>
