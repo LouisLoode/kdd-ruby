@@ -30,7 +30,6 @@
               <p id ="followers" class="content"><%= @user.following.count %></p>
             <% end %>
           </div>
-
         <div class="box<% if action_name === 'show_favorites' %> boxfocus<% end %>">
               <%= link_to favorites_user_path(@user), class: "linkpage" do %>
                 <p class="title">Favoris</p>

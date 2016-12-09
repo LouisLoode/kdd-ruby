@@ -320,11 +320,11 @@ small{
 	min-height:1000px;
 }
 
-.container_follow, .container_favorites{
+.container_follow, .container_favorites, .container{
 	height:500px;
 	background:transparent;
 
-	#listfollow, #list_favorites{
+	#listfollow, #list_favorites, #list_posts_profile{
 		margin-left:0;
 		padding:0px;
 		margin-bottom:10px;
