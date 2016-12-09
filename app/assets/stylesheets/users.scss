@@ -32,6 +32,43 @@ $color2: #748DEF;
 //   font-style: normal;
 // }
 
+.cancel{
+	margin-top:30px !important;
+	margin-bottom:50px !important;
+
+	h3{
+		font-family:Avenir;
+		font-size:24px;
+		color:#5C748D;
+		width:100%;
+		text-align:center;
+	}
+
+	.btn{
+		width:100% !important;
+		margin-left:20px;
+		color:rgba(255,0,0,0.7) !important;
+		border: 1px solid rgba(255,0,0,0.7) !important; 
+		background: #FFF !important;
+	}
+	.btn:hover{
+		color:#FFF !important;
+		background:rgba(255,0,0,0.7) !important;
+	}
+}
+small{
+	display:block;
+	color:$color2;
+	margin-top:10px;
+}
+.btn{
+	height:60px !important;
+}
+
+.newpass{
+	border-color:pink;
+}
+
 .headerfake{
 	width:100%;
 	height:70px;
@@ -197,6 +234,7 @@ $color2: #748DEF;
         z-index:10;
         width: 17px; height: 17px;
         opacity:0;
+      	cursor:pointer;
       }
 
       input[type="checkbox"]:not(:checked) + label:before,
