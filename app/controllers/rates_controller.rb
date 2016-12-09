@@ -10,11 +10,12 @@ class RatesController < ApplicationController
     else
       @rate = Rate.new(:user_id => current_user.id, :post_id => params[:post_id], :score => params[:score])
     end
-    @rate.save
-    respond_to do |format|
-      format.html { redirect_to @rate }
-      format.js
-    end
+    if @rate.save
+      respond_to do |format|
+        format.html { redirect_to @rate }
+        format.js
+      end
+    end  
   end
 
 end

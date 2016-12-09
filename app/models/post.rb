@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   searchkick autocomplete: [:url, :message]
   belongs_to :user
   has_many :rates
+  has_many :favorites
   has_and_belongs_to_many :categories
   validates :url, presence: true,
                     length: { minimum: 5 }
