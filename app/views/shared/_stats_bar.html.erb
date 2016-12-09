@@ -1,5 +1,5 @@
 <div class="headerfake">
-      <div id="contentfake" class="container">
+      <div id="contentfake">
 
       <div class="img_fake">
         <img src="
@@ -29,10 +29,10 @@
                </div>
             </li>
             <a class="linkpage" href="<%= show_user_path(@user) %>">
-            <li>
-              <p class="title">Publications</p>
-              <p class="nb"><%= @user.posts.count %></p>
-            </li>
+              <li>
+                <p class="title">Publications</p>
+                <p class="nb"><%= @user.posts.count %></p>
+              </li>
             </a>
             <a class="linkpage" href="<%= followers_user_path(@user) %>">
             <li>

@@ -1,9 +1,6 @@
-<% # @user ||= current_user %>
-
 <div class="container_profil">
     <div class="img_profil ">
-        <img src="
-        <%= if !user.avatar.blank?
+        <img src="<%= if !user.avatar.blank?
           user.avatar
         else
           '/assets/louisloode.jpg'

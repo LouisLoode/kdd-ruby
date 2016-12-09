@@ -1,36 +1,36 @@
 <%= render partial: 'shared/stats_bar', locals: {user: @user} %>
 
-            <div id="part" class="container gover">
-                <div id="fixprofil" class="row">
-                    <div class="col-xs-12 col-sm-2 col-md-3">
-                        <%= render partial: 'shared/profil_card', locals: {user: @user} %>
+<div id="part" class="container gover">
+<div id="fixprofil" class="row">
+    <div class="col-xs-12 col-sm-2 col-md-3">
+        <%= render partial: 'shared/profil_card', locals: {user: @user} %>
 
-                    </div>
-                    <div class="col-md-9">
-                        <div class="name_profil">
-                            <%= "@" + @user.name %>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                              <%= render partial: 'shared/stats', locals: {user: @user} %>
-                            </div>
-                        </div>
-                        <div class="container_follow">
-                            <div id="listfollow" class="row col-md-12">
-                              <% if @users.size > 0 %>
-                                <% @users.each do |user| %>
-                                  <%= link_to show_user_path(:user_id => user.id) do %>
-                                    <%= render partial: 'users/list_card', locals: {user: user} %>
-                                  <% end %>
-                                <% end %>
-                              <% else %>
-                                <% if @user == current_user %>
-                                  <p class="zerorelation text-center">Vous n'avez pour l'instant aucune relation</p>
-                                <% else %>
-                                  <p class="zerorelation text-center"><%= @user.name %> ne possède aucune relation</p>
-                                <% end %>
-                              <% end %>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    </div>
+    <div class="col-md-9">
+        <div class="name_profil">
+            <%= "@" + @user.name %>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <%= render partial: 'shared/stats', locals: {user: @user} %>
+            </div>
+        </div>
+        <div class="container_follow">
+            <div id="listfollow" class="row col-md-12">
+              <% if @users.size > 0 %>
+                <% @users.each do |user| %>
+                  <%= link_to show_user_path(:user_id => user.id) do %>
+                    <%= render partial: 'users/list_card', locals: {user: user} %>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <% if @user == current_user %>
+                  <p class="zerorelation text-center">Vous n'avez pour l'instant aucune relation</p>
+                <% else %>
+                  <p class="zerorelation text-center"><%= @user.name %> ne possède aucune relation</p>
+                <% end %>
+              <% end %>
+            </div>
+        </div>
+    </div>
+</div>
