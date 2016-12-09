@@ -1,2 +1,1 @@
 $("#" + <%= @favorite.post_id %> + " .favoris").html("<%= escape_javascript render(partial: 'shared/remove_favorite', locals: {post_id: @favorite.post_id} ) %>");
-// $("#" + <%= @favorite.post_id %> + " .user_favorite").removeClass('fa-bookmark-o').addClass('fa-bookmark');

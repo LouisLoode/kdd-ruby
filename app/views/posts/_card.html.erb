@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="row action">
-        <div class="col-md-6 rank">
+        <div class="col-md-3 rank">
             <ul id="notation" class="notation">
 
               <%= link_to rates_create_path(:post_id => post.id, :score => 1), remote: true do %>
@@ -67,7 +67,18 @@
               <%= Rate.find_by(:user_id => current_user.id, :post_id => post.id).score if Rate.find_by(:user_id => current_user.id, :post_id => post.id)%>
             </p>
         </div>
-        <div class="col-md-6 favoris">
+        <% if post.user_id == current_user.id && current_user.id %>
+          <div class="col-md-3 edit-post">
+            <%= link_to 'Éditer', edit_post_path(post), :class => "btnedit" %>
+          </div>
+          <div class="col-md-3 delete-post">
+            <%= link_to 'Destroy', post_path(post),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?',
+                    class: "btnedit" } %>
+          </div>
+          <% end %>
+        <div class="col-md-3 favoris">
           <% if current_user %>
             <% if !Favorite.find_by(:user_id => current_user.id, :post_id => post.id) %>
               <%= render partial: 'shared/add_favorite', locals: {post_id: post.id} %>
