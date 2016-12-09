@@ -1,36 +1,37 @@
 <%= render partial: 'shared/stats_bar', locals: {user: @user} %>
 
-<div id="part" class="container gover">
-    <div id="fixprofil" class="row">
-        <div class="col-xs-12 col-sm-2 col-md-3">
-            <%= render partial: 'shared/profil_card', locals: {user: @user} %>
+            <div id="part" class="container gover">
+                <div id="fixprofil" class="row">
+                    <div class="col-xs-12 col-sm-2 col-md-3">
+                        <%= render partial: 'shared/profil_card', locals: {user: @user} %>
 
-        </div>
-        <div class="col-md-9">
-            <div class="name_profil">
-                <%= "@" + @user.name %>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                  <%= render partial: 'shared/stats', locals: {user: @user} %>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="name_profil">
+                            <%= "@" + @user.name %>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                              <%= render partial: 'shared/stats', locals: {user: @user} %>
+                            </div>
+                        </div>
+                        <div class="container_favorites">
+                            <div id="list_favorites" class="row col-md-12">
+                              <% if @favorites.size > 0 %>
+                                <% @favorites.each do |favorite| %>
+                                  <%= link_to posts_path(:post_id => favorite.post_id) do %>
+                                    <%= render partial: 'posts/card', locals: {post: Post.find(favorite.post_id), user: @user} %>
+                                  <% end %>
+                                <% end %>
+                              <% else %>
+                                <% if @user == current_user %>
+                                  <p class="zerorelation text-center">Vous n'avez pour l'instant aucun favoris</p>
+                                <% else %>
+                                  <p class="zerorelation text-center"><%= @user.name %> ne possède  aucun favoris</p>
+                                <% end %>
+                              <% end %>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="container_favorites">
-                <div id="list_favorites" class="row col-md-9">
-                  <% if @favorites.size > 0 %>
-                    <% @favorites.each do |favorite| %>
-                      <%= link_to posts_path(:post_id => favorite.post_id) do %>
-                        <%= render partial: 'posts/card', locals: {post: Post.find(favorite.post_id), user: @user} %>
-                      <% end %>
-                    <% end %>
-                  <% else %>
-                    <% if @user == current_user %>
-                      <p class="zerorelation text-center">Vous n'avez pour l'instant aucun favoris</p>
-                    <% else %>
-                      <p class="zerorelation text-center"><%= @user.name %> ne possède  aucun favoris</p>
-                    <% end %>
-                  <% end %>
-                </div>
-            </div>
-        </div>
-    </div>
