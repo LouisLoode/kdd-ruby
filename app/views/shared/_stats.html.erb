@@ -32,15 +32,10 @@
           </div>
 
         <div class="box">
-            <% if @user.id == current_user.id %>
               <%= link_to favorites_user_path(@user), class: "linkpage" do %>
                 <p class="title">Favoris</p>
                 <p id ="favorite_count" class="content"><%= @user.favorites.count %></p>
               <% end %>
-            <% else %>
-              <p class="title">Favoris</p>
-              <p id ="favorite_count" class="content"><%= @user.favorites.count %></p>
-            <% end %>
         </div>
 
          <% if @user != current_user && current_user %>

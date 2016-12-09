@@ -86,7 +86,11 @@
                                   <% end %>
                                 <% end %>
                               <% else %>
-                              <p class="zerorelation text-center">Vous n'avez pour l'instant aucun favoris</p>
+                                <% if @user == current_user %>
+                                  <p class="zerorelation text-center">Vous n'avez pour l'instant aucun favoris</p>
+                                <% else %>
+                                  <p class="zerorelation text-center"><%= @user.name %> ne possède  aucun favoris</p>
+                                <% end %>
                               <% end %>
                             </div>
                         </div>
