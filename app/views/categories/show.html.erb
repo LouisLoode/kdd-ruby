@@ -1,29 +1,30 @@
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+<div class="nomcategorie">
+	<img src="/assets/femme.png">
+	<p><%= @category.name %></p>
+</div>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @category.slug %>
-</p>
+<div id="part" class="mainmargin container gover">
+    <div id="fixprofil" class="row">
 
-<p>
-  <strong>Public:</strong>
-  <%= @category.public %>
-</p>
+        <div class="col-xs-12 col-sm-2 col-md-3">
+					<%= render partial: 'shared/widget_categories', locals: {hierarchy: @hierarchy} %>
+        </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
-
-<h1>Posts</h1>
-
-<% @category.posts.each do |post| %>
-  <li><%= post.url %> -> <%= post.message %></li>
-<% end %>
-
-
-
-<%= link_to 'Back', categories_path %>
+        <div class="col-md-9">
+            <div class="row">
+                <div id="list_posts_main" class="col-md-7">
+					<% if @category.posts.size > 0 %>
+					  <% @category.posts.each do |post| %>
+					    <%= render partial: 'posts/card', locals: {post: post, user: post.user} %>
+					  <% end %>
+					<% else %>
+						<p class="zerorelation text-center">Il n'y pas pour l'instant aucune publication dans cette catégorie</p>
+					<% end %>
+                </div>
+                <div class="col-md-5">
+                  <%= render partial: 'posts/form'%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

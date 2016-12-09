@@ -1,3 +1,9 @@
+<%
+if defined?(@user) 
+  user = @user
+end
+%>
+
 <article id="<%= post.id %>">
     <div class="row metadata">
         <div class="profil_img col-md-2">
@@ -7,7 +13,7 @@
             <%= user.avatar %>
             <% else %>
             /assets/louisloode.jpg
-            <% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="auto" />
+            <% end %>" alt="<%= user.name + " Avatar" %>" width="100%" height="auto" />
           <% end %>
         </div>
         <div class="col-md-8 fix">
