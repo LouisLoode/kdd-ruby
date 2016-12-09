@@ -215,7 +215,7 @@ ready = function() {
                 i_click = 0;
               }
 
-    }
+    });
 
 		// Profil card
 		$(document).on('scroll', function() {
