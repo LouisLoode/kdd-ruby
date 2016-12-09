@@ -1,7 +1,6 @@
 class User < ApplicationRecord
 
-  # searchkick autocomplete: [:name, :email]
-
+  searchkick autocomplete: [:name, :email]
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
