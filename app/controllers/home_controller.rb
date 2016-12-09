@@ -12,6 +12,7 @@ class HomeController < ApplicationController
     if !user_signed_in?
       redirect_to root_path
     else
+      @hierarchy = Category.where(public: true, parent_id: nil)
       @user = @user = User.find(current_user.id)
       @feed_items = current_user.feed.sort_by(&:created_at).reverse!
     end
