@@ -1,3 +1,4 @@
+<div id="fixfoooter">
 <%= form_for :post, url: posts_path, html: {class: "form-signup"} do |f| %>
 
   <h1>New Post</h1>
@@ -38,6 +39,6 @@
     <%= f.submit "New post", :class => "btn btn-lg btn-primary btn-block" %>
   </p>
 
-  <%= link_to 'Back', posts_path %>
 
 <% end %>
+</div>
