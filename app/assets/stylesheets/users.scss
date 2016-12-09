@@ -320,11 +320,17 @@ small{
 	min-height:1000px;
 }
 
-.container_follow, .container_favorites{
+#list_posts {
+	margin-left:0;
+	padding:0px;
+	margin-bottom:10px;
+}
+
+.container_follow, .container_favorites {
 	height:500px;
 	background:transparent;
 
-	#listfollow, #list_favorites{
+	#listfollow, #list_favorites, #list_posts {
 		margin-left:0;
 		padding:0px;
 		margin-bottom:10px;

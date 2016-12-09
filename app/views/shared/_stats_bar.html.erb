@@ -1,61 +1,61 @@
 <div class="headerfake">
-      <div id="contentfake" class="container">
+  <div id="contentfake" class="container">
 
-      <div class="img_fake">
-        <img src="
-            <% if @user.avatar %>
-            <%= @user.avatar %>
-            <% else %>
-            /assets/louisloode.jpg
-            <% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="auto" />
-      </div>
+    <div class="img_fake">
+      <img src="
+      <% if @user.avatar %>
+      <%= @user.avatar %>
+      <% else %>
+      /assets/louisloode.jpg
+      <% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="auto" />
+    </div>
 
-      <p class="name">
-          <%= "@" + @user.name %></p>
+    <p class="name">
+      <%= "@" + @user.name %></p>
       <div class="navfake">
-          <ul>
-            <li>
-              <p class="title">Pertinence</p>
-              <div class="content">
-                  <p class="star star-full"></p>
-                  <p class="star star-full"></p>
-                  <p class="star star-full"></p>
-                  <p class="star star-full"></p>
-                  <p class="star star-empty"></p>
-               </div>
-            </li>
-            <%= link_to show_user_path(@user), class: "linkpage" do %>
-              <li>
-                <p class="title">Publications</p>
-                <p class="nb"><%= @user.posts.count %></p>
-              </li>
-            <% end %>
-            <%= link_to followers_user_path(@user), class: "linkpage" do %>
-              <li>
-                <p class="title">Followers</p>
-                <p class="nb"><%= @user.followers.count %></p>
-              </li>
-            <% end %>
-            <%= link_to following_user_path(@user), class: "linkpage" do %>
-              <li>
-                <p class="title">Following</p>
-                <p class="nb"><%= @user.following.count %></p>
-              </li>
-            <% end %>
-            <%= link_to favorites_user_path(@user), class: "linkpage" do %>
-            <li>
-              <p class="title">Favoris</p>
-              <p class="nb"><%= @user.favorites.count %></p>
-            </li>
-            <% end %>
-
-          </ul>
-          <% if @user == current_user %>
-            <div class="btnfake">
-                <%= link_to 'Éditer le profil', edit_user_registration_path, :class => "btnedit" %>
+        <ul>
+          <li>
+            <p class="title">Pertinence</p>
+            <div class="content">
+              <p class="star star-full"></p>
+              <p class="star star-full"></p>
+              <p class="star star-full"></p>
+              <p class="star star-full"></p>
+              <p class="star star-empty"></p>
             </div>
+          </li>
+          <%= link_to show_user_path(@user), class: "linkpage" do %>
+          <li>
+            <p class="title">Publications</p>
+            <p class="nb"><%= @user.posts.count %></p>
+          </li>
           <% end %>
+          <%= link_to followers_user_path(@user), class: "linkpage" do %>
+          <li>
+            <p class="title">Followers</p>
+            <p class="nb"><%= @user.followers.count %></p>
+          </li>
+          <% end %>
+          <%= link_to following_user_path(@user), class: "linkpage" do %>
+          <li>
+            <p class="title">Following</p>
+            <p class="nb"><%= @user.following.count %></p>
+          </li>
+          <% end %>
+          <%= link_to favorites_user_path(@user), class: "linkpage" do %>
+          <li>
+            <p class="title">Favoris</p>
+            <p class="nb"><%= @user.favorites.count %></p>
+          </li>
+          <% end %>
+
+        </ul>
+        <% if @user == current_user %>
+        <div class="btnfake">
+          <%= link_to 'Éditer le profil', edit_user_registration_path, :class => "btnedit" %>
+        </div>
+        <% end %>
       </div>
     </div>
 
-</div>
+  </div>
