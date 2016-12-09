@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
     	return (diff/(60*60*24*30)).to_s + " M"
     elsif diff >= (60*60*24*365)
     	return (diff/(60*60*24*30*365)).to_s + " Y"
-    end	
-  end  
+    end
+  end
+
 end

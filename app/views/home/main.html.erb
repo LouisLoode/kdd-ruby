@@ -1,55 +1,31 @@
-<h2>MAIN</h2>
 
-<% @posts.each do |post| %>
-<article>
-                        <div class="row metadata">
-                            <div class="col-md-2">
-                                <img src="
-                                <% if !post.user.avatar.blank? %>
-                                <%= post.user.avatar %>
-                                <% else %>
-                                /assets/defaut-avatar.jpg
-                                <% end %>" alt="<%= post.user.name + " Avatar" %>" width="100%" height="100%" />
-                            </div>
-                            <div class="col-md-8">
-                                <p class="name_post"><%= "@" + post.user.name.upcase %></p>
-                                <p class="categorie_post">#SYMPHONIE #JAVASCRIPT</p>
-                            </div>
-                            <div class="col-md-2">
-                                <p class="time_post">
-                                    <%= how_much_time(post.created_at) %>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row content">
-                            <div class="col-md-12">
-                                <div class="content_post"><p><%= post.message%></p>
-                                </div>
-                                <div class="iframe_post">
-                                    <a href="<%= post.url %>" title="<%= post.url %>" class="btn">
-                                        <img src="" width="100%" height="300px" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row action">
-                            <div class="col-md-6 rank">
-                                <ul>
-                                    <li class="fa fa-star-o fa-2x" aria-hidden="true">
-                                    </li>
-                                    <li class="fa fa-star-o fa-2x" aria-hidden="true">
-                                    </li>
-                                    <li class="fa fa-star-o fa-2x" aria-hidden="true">
-                                    </li>
-                                    <li class="fa fa-star-o fa-2x" aria-hidden="true">
-                                    </li>
-                                    <li class="fa fa-star-o fa-2x" aria-hidden="true">
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6 favoris">
-                                <i class="fa fa-bookmark-o fa-2x" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </article>
-<% end %>
+<div class="nomcategorie">
+	<img src="/assets/femme.png">
+	<p>Javascript</p>
+</div>
+
+<div id="part" class="mainmargin container gover">
+    <div id="fixprofil" class="row">
+
+        <div class="col-xs-12 col-sm-2 col-md-3">
+					<%= render partial: 'shared/widget_categories', locals: {hierarchy: @hierarchy} %>
+        </div>
+
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-7">
+					<% if @feed_items.size > 0 %>
+					  <% @feed_items.each do |post| %>
+					    <%= render partial: 'posts/card', locals: {post: post, user: @user} %>
+					  <% end %>
+					<% else %>
+					<p class="text-center">Vous ne suivez personne pour l'instant ou bien vous n'avez encore rien publié</p>
+					<% end %>
+                </div>
+                <div class="col-md-5">
+                  <%= render partial: 'posts/form'%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
