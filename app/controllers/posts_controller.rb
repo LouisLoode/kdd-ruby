@@ -38,7 +38,7 @@ class PostsController < ApplicationController
     og = OpenGraph.new(@post.url)
     @post.og_title = og.title # og.title # => "Open Graph protocol"
     @post.og_type = og.type # og.type # => "website"
-    @post.og_description = og.description[0, 200] # og.description # => "The Open Graph protocol enables any web page to become a rich object in a social graph."
+    @post.og_description = og.description # og.description # => ""
     @post.og_images = og.images[0] # og.images # => ["http://ogp.me/logo.png"]
     @post.user_id = current_user.id #or whatever is you session name
     if @post.save
