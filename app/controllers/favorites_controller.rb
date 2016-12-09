@@ -21,6 +21,12 @@ class FavoritesController < ApplicationController
     end
   end
 
+  def show
+    @favorites = Favorite.where(:user_id => current_user.id)
+    @user = current_user
+    render 'show_favorites'
+  end
+
 
 
 

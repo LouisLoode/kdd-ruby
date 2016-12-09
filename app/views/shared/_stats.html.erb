@@ -25,15 +25,22 @@
           </div>
 
           <div class="box<% if action_name === 'following' %> boxfocus<% end %>">
-          <a class="linkpage"  href="<%= following_user_path(@user) %>">
+            <%= link_to following_user_path(@user), class: "linkpage" do %>
               <p class="title">Following</p>
               <p id ="followers" class="content"><%= @user.following.count %></p>
-          </a>
+            <% end %>
           </div>
 
         <div class="box">
-            <p class="title">Favoris</p>
-            <p class="content">0</p>
+            <% if @user.id == current_user.id %>
+              <%= link_to favorites_user_path(@user), class: "linkpage" do %>
+                <p class="title">Favoris</p>
+                <p id ="favorite_count" class="content"><%= @user.favorites.count %></p>
+              <% end %>
+            <% else %>
+              <p class="title">Favoris</p>
+              <p id ="favorite_count" class="content"><%= @user.favorites.count %></p>
+            <% end %>
         </div>
 
          <% if @user != current_user && current_user %>

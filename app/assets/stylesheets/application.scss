@@ -25,7 +25,7 @@
   width: 100%;
 }
 
- #multiple-datasets .league-name {
+ #multiple-datasets .parent-name {
    margin: 0 20px 5px 20px;
    padding: 3px 0;
    border-bottom: 1px solid #ccc;
@@ -116,6 +116,176 @@ $color2: #748DEF;
   overflow-x:hidden;
   }
 
+.drop_li{
+  border-left:3px solid #000;
+}
+
+  .clicked{
+    background:$color2 !important;
+    color:#FFF !important;
+  }
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color:#FFF;
+    border-color:none;
+}
+
+  nav.sidebar, .main{
+    -webkit-transition: margin 200ms ease-out;
+      -moz-transition: margin 200ms ease-out;
+      -o-transition: margin 200ms ease-out;
+      transition: margin 200ms ease-out;
+  }
+
+  .main{
+    padding: 10px 10px 0 10px;
+  }
+
+ @media (min-width: 765px) {
+
+
+    nav.sidebar:hover + .main{
+      margin-left: 200px;
+    }
+
+    nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+      margin-left: 0px;
+    }
+
+    nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
+      text-align: center;
+      width: 100%;
+      margin-left: 0px;
+    }
+
+    nav.sidebar .dropdown-menu li a {
+      font-size: 14px;
+      width: 100%;
+      line-height: 45px;
+      color: #5C748D;
+      border-top:1px solid rgba(0,0,0,0.08);
+      display: inline-block;
+    }
+     nav.sidebar .dropdown-menu li a:hover {
+      background:#FAFAFA !important;
+      color:$color2 !important;
+    }
+
+    nav.sidebar a{
+      width:100%;
+      min-height:55px;
+      line-height:30px;
+      padding-right: 13px;
+      color:#5C748D;
+      font-size:16px;
+      display:block;
+      background:#FFF;
+      float:left;
+      text-transform:uppercase;
+    }
+    nav.sidebar .imgplus{
+      position:absolute;
+      width:20px;
+      height:20px;
+      border-radius:100%;
+      border:2px solid $color2;
+      margin-top:20px;
+      right:12px;
+      float:right;
+
+      img{
+        width:10px;
+        height:10px;
+        margin-top:-5px;
+        margin-left:2.5px;
+      }
+    }
+    nav.sidebar a:hover{
+      color:$color2;
+      background:#FAFAFA;
+    }
+    nav.sidebar a:active, nav.sidebar a:focus{
+      background:#FFF;
+    }
+
+    nav.sidebar .navbar-nav > li:first-child{
+      border-top: 1px #e5e5e5 solid;
+    }
+
+    nav.sidebar .navbar-nav > li{
+      border-bottom: 1px #e5e5e5 solid;
+    }
+
+    nav.sidebar .navbar-nav .open .dropdown-menu {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
+      padding: 0 0px 0 0px;
+    }
+
+    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+
+    }
+
+    nav.sidebar{
+      width: 100%;
+      font-family:Avenir;
+      letter-spacing:0.5px;
+      height: auto;
+      background:$color2;
+      float: left;
+      margin-bottom: 0px;
+      box-shadow:0px 5px 15px rgba(0,0,0,0.08);
+    }
+
+    nav.sidebar li {
+      width: 100%;
+    }
+
+    .forAnimate{
+      opacity: 0;
+    }
+  }
+
+  @media (min-width: 1330px) {
+
+    .main{
+      width: calc(100% - 200px);
+      margin-left: 200px;
+    }
+
+    nav.sidebar{
+      margin-left: 0px;
+      float: left;
+    }
+
+    nav.sidebar .forAnimate{
+      opacity: 1;
+    }
+  }
+
+  nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
+    color: #CCC;
+    background-color: transparent;
+  }
+
+  nav:hover .forAnimate{
+    opacity: 1;
+  }
+  section{
+    padding-left: 15px;
+  }
+
+
+}
   .mainmargin{
     margin-top:-40px;
   }
@@ -163,7 +333,6 @@ $color2: #748DEF;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
   z-index:10;
   margin-top:-28px;
-  min-height:400px;
   /* background-clip: padding-box; */
 
       input{
@@ -209,7 +378,7 @@ $color2: #748DEF;
     height:70px;
     background:#FFF;
     border:0;
-    box-shadow: 0px 5px 15px rgba(52,42,81,0.4);
+    box-shadow: 0px 3px 12px rgba(52,42,81,0.1);
   }
 
   .navbar-brand-centered {
@@ -229,7 +398,7 @@ $color2: #748DEF;
   .navbar>.container-fluid .navbar-brand-centered {
     margin-left: -80px;
   }
-}
+
 .navbar-nav>.user_menu>a {
   padding: 0 15px 0 0;
 }
@@ -243,17 +412,12 @@ $color2: #748DEF;
 
 header {
   width: 100%;
-  // height: 236px;
   height: 25vh;
   display: block;
   margin-top:70px;
   transition:all ease-in-out 0.3s;
   background:$color1;
   z-index:10;
-  // background-image:url(/assets/header.png);
-  // background-color: #424b98;
-  // background-repeat: no-repeat;
-  // background-size: cover;
 }
 
 .bg-grey {
@@ -356,6 +520,7 @@ header {
       margin:0;
     }
 }
+
 
 #user_menu{
     width:auto;

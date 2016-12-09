@@ -2,8 +2,9 @@ class CategoriesController < ApplicationController
   before_action :authenticate_user!
 
   def autocomplete
-    render json: Category.search(params[:query], autocomplete: false, limit: 10).map do |category|
-      { title: category.name, value: 'category-' + category.id }
+    data = Category.search(params[:query], autocomplete: false, limit: 10)
+    render json: data.map do |category|
+      { title: category.name, value: category.id }
     end
   end
 
