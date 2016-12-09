@@ -37,8 +37,8 @@
                 <p id ="favorite_count" class="content"><%= @user.favorites.count %></p>
               <% end %>
         </div>
-
-         <% if @user != current_user && current_user %>
+        <% if current_user %>
+         <% if @user != current_user %>
            <div id="follow_form">
            <% if current_user.following?(@user) %>
              <%= render 'shared/unfollow' %>
@@ -51,5 +51,6 @@
                <%= link_to 'Éditer le profil', edit_user_registration_path, :class => "btnedit" %>
            </div>
          <% end %>
+        <% end %>
 
 </div>
