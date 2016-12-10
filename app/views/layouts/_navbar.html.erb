@@ -14,7 +14,7 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse" id="navbar-brand-centered">
 		<% if user_signed_in? %>
-		<form class="navbar-form navbar-left search-form" role="search">
+		<form type="GET" action="<%= search_path %>" class="navbar-form navbar-left search-form" role="search">
 			<div id="search" class="input-group">
 				<input type="text" id="query" name="query" class="form-control" placeholder="Rechercher" />
 				<div class="input-group-btn">

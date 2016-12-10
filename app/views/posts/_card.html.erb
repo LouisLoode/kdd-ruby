@@ -7,6 +7,7 @@ end
 <article id="<%= post.id %>">
     <div class="row metadata">
         <div class="profil_img col-md-2">
+          <%= post.user_id %>
           <%= link_to show_user_path(:user_id => post.user_id) do %>
             <img src="
             <% if !user.avatar.present? %>
