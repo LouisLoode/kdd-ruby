@@ -18,6 +18,7 @@
 					  <% @feed_items.each do |post| %>
 					    <%= render partial: 'posts/card', locals: {post: post, user: @user} %>
 					  <% end %>
+						<%= will_paginate @feed_items %>
 					<% else %>
 						<p class="zerorelation text-center">Vous ne suivez personne pour l'instant ou bien vous n'avez encore rien publié</p>
 					<% end %>

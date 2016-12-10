@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.where(user_id: current_user.id).order('created_at DESC')
+    @posts = Post.where(user_id: current_user.id).paginate(:page => params[:page]).order(created_at: :desc)
     # @hierarchy = Category.where(public: true, parent_id: nil)
   end
 
@@ -62,7 +62,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:success] = "Micropost deleted"
+    flash[:success] = "Post deleted"
     redirect_to request.referrer || root_url
   end
 

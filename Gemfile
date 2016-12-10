@@ -38,6 +38,10 @@ gem 'bootstrap-typeahead-rails'
 # OpenGraph scrapper
 gem 'opengraph_parser'
 
+# Infinite scroll
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
 # Tests gem
 gem 'thor', '~> 0.19.1'
 gem 'rspec'
