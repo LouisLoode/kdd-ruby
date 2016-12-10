@@ -14,8 +14,8 @@
                   <%= render partial: 'shared/stats', locals: {user: @user} %>
                 </div>
             </div>
-            <div class="row">
-                <div id="list_posts_profile" class="col-md-7">
+            <div class="container_posts">
+                <div id="list_posts_profile" class="row col-md-7">
                   <% if @posts.size > 0 %>
                     <% @posts.each do |post| %>
                       <%= render partial: 'posts/card', locals: {post: post, user: @user} %>
