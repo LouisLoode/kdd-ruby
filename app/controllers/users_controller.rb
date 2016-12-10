@@ -15,20 +15,11 @@
   def show
      if params[:id]
        @user = User.find(params[:id])
-       @posts = Post.where('user_id' => params[:id]).sort_by(&:created_at).reverse!
+       @posts = Post.where(:user_id => params[:id]).paginate(:page => params[:page]).order(created_at: :desc)
      elsif !params[:id] && current_user
        @user = User.find(current_user.id)
-       @posts = Post.where('user_id' => current_user.id).sort_by(&:created_at).reverse!
+       @posts = Post.where(:user_id => current_user.id).paginate(:page => params[:page]).order(created_at: :desc)
      end
-  end
-
-  def list
-  	@users = User.all
-  end
-
-  def test
-  	current_user.name = params[:name]
-  	current_user.update
   end
 
   def following

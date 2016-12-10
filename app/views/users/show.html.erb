@@ -14,18 +14,19 @@
                   <%= render partial: 'shared/stats', locals: {user: @user} %>
                 </div>
             </div>
-            <div class="row">
-                <div id="list_posts_profile" class="col-md-7">
+            <div class="container_posts">
+                <div id="list_posts_profile" class="row col-md-7">
                   <% if @posts.size > 0 %>
                     <% @posts.each do |post| %>
                       <%= render partial: 'posts/card', locals: {post: post, user: @user} %>
                     <% end %>
+                    <%= will_paginate @posts %>
                   <% else %>
-                    <% if @user == current_user %>
-                      <p class="zerorelation text-center">Vous n'avez pour l'instant rien publié</p>
-                    <% else %>
-                      <p class="zerorelation text-center"><%= @user.name %> n'a pour l'instant rien publié</p>
-                    <% end %>
+                      <% if @user == current_user %>
+                        <p class="zerorelation text-center">Vous n'avez pour l'instant rien publié</p>
+                      <% else %>
+                        <p class="zerorelation text-center"><%= @user.name %> n'a pour l'instant rien publié</p>
+                      <% end %>
                   <% end %>
                 </div>
                 <div class="col-md-5">

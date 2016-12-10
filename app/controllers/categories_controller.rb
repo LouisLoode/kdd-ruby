@@ -17,8 +17,8 @@ class CategoriesController < ApplicationController
       end
   end
 
-
   def show
+    @hierarchy = Category.where(public: true, parent_id: nil)
     @category = Category.find(params[:id])
   end
 

@@ -36,7 +36,17 @@ gem 'searchkick', '~> 1.4.0'
 gem 'bootstrap-typeahead-rails'
 
 # OpenGraph scrapper
- gem 'opengraph_parser'
+gem 'opengraph_parser'
+
+# Infinite scroll
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
+# Tests gem
+gem 'thor', '~> 0.19.1'
+gem 'rspec'
+gem 'rspec-rails'
+gem 'database_cleaner'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

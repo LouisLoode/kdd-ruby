@@ -4,8 +4,7 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :timeoutable
+  devise :database_authenticatable, :registerable, :rememberable, :trackable, :validatable, :timeoutable
   default_scope { where(rank: 0) }
 
   validates :name, uniqueness: true, presence: true, length: { minimum: 3, maximum: 17 }

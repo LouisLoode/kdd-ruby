@@ -27,7 +27,6 @@ Rails.application.routes.draw do
 
   resources :posts
 
-  # resources :categories, only: :index do
   resources :categories
 
 end
