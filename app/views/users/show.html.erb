@@ -20,12 +20,13 @@
                     <% @posts.each do |post| %>
                       <%= render partial: 'posts/card', locals: {post: post, user: @user} %>
                     <% end %>
+                    <%= will_paginate @posts %>
                   <% else %>
-                    <% if @user == current_user %>
-                      <p class="zerorelation text-center">Vous n'avez pour l'instant rien publié</p>
-                    <% else %>
-                      <p class="zerorelation text-center"><%= @user.name %> n'a pour l'instant rien publié</p>
-                    <% end %>
+                      <% if @user == current_user %>
+                        <p class="zerorelation text-center">Vous n'avez pour l'instant rien publié</p>
+                      <% else %>
+                        <p class="zerorelation text-center"><%= @user.name %> n'a pour l'instant rien publié</p>
+                      <% end %>
                   <% end %>
                 </div>
                 <div class="col-md-5">

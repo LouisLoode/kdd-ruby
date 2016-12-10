@@ -14,7 +14,7 @@ class HomeController < ApplicationController
     else
       @hierarchy = Category.where(public: true, parent_id: nil)
       @user = @user = User.find(current_user.id)
-      @feed_items = current_user.feed.sort_by(&:created_at).reverse!
+      @feed_items = current_user.feed.paginate(:page => params[:page]).order(created_at: :desc)
     end
   end
 
