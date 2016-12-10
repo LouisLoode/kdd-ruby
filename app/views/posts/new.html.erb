@@ -1,32 +1,12 @@
 <div id="fixfoooter">
-<%= form_for :post, url: posts_path, html: {class: "form-signup"} do |f| %>
-
-  <h1>New Post</h1>
-
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@post.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-    <%= f.label :url, :class => "sr-only" %><br />
-    <%= f.url_field :url, :class => "form-control", placeholder: "URL de la ressource" %>
-
-    <%= f.label :message, :class => "sr-only" %><br />
-    <%= f.text_area :message, :class => "form-control", placeholder: "Message" %>
+<%= form_for :post, url: posts_path, html: {class: "fixnewpost form-signin add_post"} do |f| %>
+  <h2 class="poster-une-ressource">
+      Poster une ressource
+  </h2>
 
     <%= f.label :category_id, :class => "sr-only" %><br>
-    <select name="post[category_ids][]" id="post_category_id" class="selectpicker form-control" multiple data-max-options="3" data-live-search="true" title="Choose one of the following..." data-selected-text-format="count > 2" data-actions-box="true" data-multiple-separator=", " data-selected-text-format="values">
-    
-      <% @hierarchy.each do |parent| %>
+    <select name="post[category_ids][]" id="post_category_id" class="selectpicker form-control" multiple data-max-options="3" data-live-search="true" title="Sujet" data-selected-text-format="count > 2" data-multiple-separator=", " data-selected-text-format="values">
+      <% Category.where(public: true, parent_id: nil).each do |parent| %>
       <option value="<%= parent.id %>" data-tokens="<%= parent.id %>" class="select-bold"><%= parent.name %></option>
         <% parent.subcategories.each do |category| %>
           <option value="<%= category.id %>" data-tokens="<%= category.id %>">  <%= category.name %></option>
@@ -35,10 +15,17 @@
       <% end %>
     </select>
 
+    <%= f.label :url, :class => "sr-only" %><br />
+    <%= f.url_field :url, :class => "form-control", placeholder: "Ressource" %>
+
+    <%= f.label :message, :class => "sr-only" %><br />
+    <%= f.text_area :message, :class => "form-control", placeholder: "Message" %>
+
   <p>
     <%= f.submit "New post", :class => "btn btn-lg btn-primary btn-block" %>
   </p>
 
+<p class="tu-ne-trouves-pas-de">Tu ne trouves pas de sujet correspondant à ta ressource ? <%= link_to 'Créer un nouveau sujet', new_category_path %></p>
 
 <% end %>
 </div>

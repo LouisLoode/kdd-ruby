@@ -14,11 +14,13 @@
                   <%= render partial: 'shared/stats', locals: {user: @user} %>
                 </div>
             </div>
-            <div class="container_posts">
-                <div id="list_posts_profile" class="row col-md-7">
+            <div class="container_posts col-md-12">
+                <div id="list_posts_profile" class="fixpost row col-md-7">
                   <% if @posts.size > 0 %>
                     <% @posts.each do |post| %>
+                     
                       <%= render partial: 'posts/card', locals: {post: post, user: @user} %>
+                     
                     <% end %>
                     <%= will_paginate @posts %>
                   <% else %>
@@ -29,7 +31,7 @@
                       <% end %>
                   <% end %>
                 </div>
-                <div class="col-md-5">
+                <div class="fixform col-md-5">
                   <%= render partial: 'posts/form'%>
                 </div>
             </div>
