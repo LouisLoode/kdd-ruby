@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Post, :type => :model do
-  it "needs to be linked to a user" do
-    user = User.create(name: "J. G. Quintel", email: "quintel@rshow.com")
-    post = Post.new(user: user, title: "Awesome Message")
+  it "A post can be create" do
+    user = User.create(name: "Mordecai", email: "m@rshow.com", password: "testtest", password_confirmation: "testtest")
+    categorie = Category.create(name: "Mycategorie")
+    post = Post.create(user_id: user.id, message: "Awesome Message", url: "http://www.google.com", category_ids: 1)
     expect(post.user).to eq(user)
     expect(post.user_id).to eq(user.id)
 
