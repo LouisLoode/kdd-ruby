@@ -60,11 +60,10 @@ end
             <ul id="notation" class="notation">
               <% if current_user && post.user_id != current_user.id %>
               <% rate = Rate.find_by(:user_id => current_user.id, :post_id => post.id)
-              puts rate.score
-                if defined?(score)
-                  score = 0
-                else
+                if rate
                   score = rate.score
+                else
+                  score = 0
                 end
               %>
                 <%= link_to rates_create_path(:post_id => post.id, :score => 1), remote: true do %>
