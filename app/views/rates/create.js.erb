@@ -1,1 +1,10 @@
-$("#user_rank").html('<%= @rate.score %>');
+$("#" + <%= @rate.post_id %> + " #ratings").html('<%= @rate.score %>');
+var score = <%= @rate.score %>
+
+for (i = 5; i > 0; i--) {
+  $("#" + <%= @rate.post_id %> + " #star" + i).removeClass('star-full').addClass('star-empty');
+}
+
+for (i = score; i > 0; i--) {
+  $("#" + <%= @rate.post_id %> + " #star" + i).removeClass('star-empty').addClass('star-full');
+}

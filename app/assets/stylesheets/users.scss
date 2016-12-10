@@ -13,25 +13,6 @@ $main-color: #211d8d;
 $color1: #414B98;
 $color2: #748DEF;
 
-// @font-face {
-//   font-family: 'AvenirRegular';
-//   src: url('../Avenir/Avenir_r.ttf') format('truetype');
-//   font-weight: normal;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: 'AvenirMedium';
-//   src: url('../Avenir/Avenir_m.ttf') format('truetype');
-//   font-weight: normal;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: 'AvenirHeavy';
-//   src: url('../Avenir/Avenir_b.ttf') format('truetype');
-//   font-weight: normal;
-//   font-style: normal;
-// }
-
 .cancel{
 	margin-top:30px !important;
 	margin-bottom:50px !important;
@@ -48,7 +29,7 @@ $color2: #748DEF;
 		width:100% !important;
 		margin-left:20px;
 		color:rgba(255,0,0,0.7) !important;
-		border: 1px solid rgba(255,0,0,0.7) !important; 
+		border: 1px solid rgba(255,0,0,0.7) !important;
 		background: #FFF !important;
 	}
 	.btn:hover{
@@ -81,6 +62,7 @@ small{
 
 #contentfake{
 	position:relative;
+	max-width:1180px;
 	left:50%;
 	margin:0;
 	padding:0;
@@ -100,7 +82,7 @@ small{
 	}
 
 
-	.navfake{	
+	.navfake{
 		height:100%;
 		float:left;
 		margin-left:20px;
@@ -317,14 +299,26 @@ small{
 // CSS PROFIL
 
 #part{
+
 	min-height:1000px;
 }
 
-.container_follow{
-	height:500px;
+.fixpost{
+	margin:0 !important;
+	padding-left:0 !important;
+}
+.fixform{
+	margin:0!important;
+	padding-right:0 !important;
+}
+.container_posts{
+	padding:0 !important;
+}
+.container_follow, .container_favorites,  .container {
+	min-height:500px;
 	background:transparent;
 
-	#listfollow{
+	#listfollow, #list_favorites, #list_posts_main{
 		margin-left:0;
 		padding:0px;
 		margin-bottom:10px;
@@ -516,6 +510,15 @@ small{
 	font-weight: bold;
 	margin-bottom: 25px;
 	color: white;
+
+	a{
+		color:#FFF;
+		text-decoration:none;
+	}
+	a:hover{
+		color:#FFF;
+		text-decoration:underline;
+	}
 }
 
 .btnedit{
@@ -528,6 +531,8 @@ small{
 	padding-right:30px;
 	color:#FFF;
 	border-radius:2px;
+	border:none !important;
+	min-width:160px;
 	display:block;
 	margin-top:17px;
 	text-decoration:none;
@@ -631,7 +636,7 @@ small{
 		width: 80%;
 		height: 38px;
 		font-family: 'Avenir';
-		font-size: 13px;
+		font-size: 12px;
 		font-weight: 500;
 		font-style: normal;
 		font-stretch: normal;
@@ -751,7 +756,7 @@ small{
 
 	.link{
 		text-align: center;
-		font-family: 'AvenirMedium',sans-serif;
+		font-family:Avenir,sans-serif;
 		font-size: 15px;
 		font-weight: normal;
 		font-style: normal;
@@ -764,6 +769,7 @@ article {
 	width: 100%;
 	margin-bottom: 25px;
 	padding-top:5px;
+	cursor:pointer;
 	background-color: #ffffff;
 	box-shadow: 0px 2px 15px rgba(0,0,0,0.1);
 
@@ -810,11 +816,43 @@ article {
 		margin-bottom: 15px;
 		font-family:Avenir;
 
+		.fix{
+			margin-right: 0;
+			padding-right: 0;
+		}
+
 		.name_post {
 			font-size: 16px;
 			font-weight: 700;
 			margin-top:-3px;
 			color:$color2;
+			float: left;
+		}
+		.edit-post {
+			text-align: right;
+			color:$color2;
+			a {
+				background:$color2;
+				font-size:13px;
+				font-family:Avenir;
+				color:#FFF;
+				padding-left: 5px;
+				padding-right: 5px;
+				border-radius:2px;
+				text-decoration:none;
+				transition:all ease-in-out 0.3s;
+			}
+			a:hover{
+				color:#FFF;
+				background:#5272EF;
+				transform:scale(0.98);
+				text-decoration:none;
+			}
+
+		}
+
+		.clear {
+			clear: left;
 		}
 		.categorie_post {
 			font-size: 12px;
@@ -842,12 +880,18 @@ article {
 			text-align: right;
 			font-weight:500;
 			color:#000;
+			margin-left: 0;
+			padding-left: 0;
 		}
 	}
 
 	.content {
 		padding: 0 10% 0 10%;
 		margin-bottom: 20px;
+
+		a:hover{
+				text-decoration:none;
+			}
 
 		.content_post {
 			margin-bottom: 10px;
@@ -865,6 +909,7 @@ article {
 			min-height: 200px;
 			margin-top:10px;
 			padding:20px;
+			transition:all ease-in-out 0.3s;
 			box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.08);
 
 			img{
@@ -892,19 +937,47 @@ article {
 				font-weight:700;
 				color:#C5C5C5;
 			}
+			
+		}
+		.iframe_post:hover{
+				transform:scale(1.05);
+
 		}
 	}
 
 	.action {
 		padding: 20px;
+		margin: 0;
 
 		.rank {
+			margin:0;
+			padding: 0;
 
 			ul {
 				margin: 0;
 				padding: 0;
 			}
 			li {
+
+			}
+		}
+
+		.rating {
+			margin: 0;
+			padding: 0;
+			padding-top: 2px;
+
+			#ratings {
+				width: 20px;
+				text-align: center;
+				background:$color2;
+				font-size:15px;
+				font-family:Avenir;
+				color:#FFF;
+				border-radius:2px;
+				display:block;
+				text-decoration:none;
+				transition:all ease-in-out 0.3s;
 
 			}
 		}

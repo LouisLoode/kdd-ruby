@@ -1,15 +1,34 @@
-<article id="<%= post.id %>">
+
+<%
+if defined?(@user)
+  user = @user
+end
+%>
+
+
+<article id="<%= post.id %>" onclick="<% link_to post_path(post)%>">
     <div class="row metadata">
         <div class="profil_img col-md-2">
+          <%= link_to show_user_path(:user_id => post.user_id) do %>
             <img src="
-            <% if !@user.avatar.present? %>
-            <%= @user.avatar %>
+            <% if !user.avatar.present? %>
+            <%= user.avatar %>
             <% else %>
             /assets/louisloode.jpg
-            <% end %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="auto" />
+            <% end %>" alt="<%= user.name + " Avatar" %>" width="100%" height="auto" />
+          <% end %>
         </div>
-        <div class="col-md-8">
-            <p class="name_post"><%= "@" + post.user.name %></p>
+        <div class="col-md-8 fix">
+            <p class="name_post"><%= link_to show_user_path(:user_id => post.user_id) do %><%= "@" + post.user.name %><% end %></p>
+            <% if current_user && post.user_id == current_user.id %>
+              <div class="edit-post">
+                <%= link_to 'Éditer', edit_post_path(post) %>
+                <%= link_to 'Supprimer', post_path(post),
+                        method: :delete,
+                        data: { confirm: 'Êtes vous sûr?' }%>
+              </div>
+              <% end %>
+            <div class="clear"></div>
             <p class="categorie_post">
               <% post.categories.each do |category| %>
                 <span><%= link_to '#' + category.slug, category_path(:id => category.id) %></span>
@@ -28,47 +47,65 @@
               <p><%= post.message%></p>
 
             </div>
+            <a href="<%= post.url %>" title="<%= post.url %>">
             <div class="iframe_post">
-                <a href="<%= post.url %>" title="<%= post.url %>">
-                    <img src="<%= post.og_images %>" width="100%" height="300px" />
-                </a>
+                
+                <img src="<%= post.og_images %>" width="100%" height="300px" />
+                
                 <h3><%= post.og_title%></h3>
                 <p><%= post.og_description%></p>
                 <small><%= post.url%></small>
             </div>
+            </a>
         </div>
     </div>
     <div class="row action">
-        <div class="col-md-6 rank">
+        <div class="col-md-4 rank">
             <ul id="notation" class="notation">
-
-              <%= link_to rates_create_path(:post_id => post.id, :score => 1), remote: true do %>
-                <li id="star1"class="star1 star star-empty" aria-hidden="true">
-                </li>
-              <% end %>
-              <%= link_to rates_create_path(:post_id => post.id, :score => 2), remote: true do %>
-                <li id ="star2" class="star2 star star-empty" aria-hidden="true">
-                </li>
-              <% end %>
-              <%= link_to rates_create_path(:post_id => post.id, :score => 3), remote: true do %>
-                <li id ="star3" class="star3 star star-empty" aria-hidden="true">
-                </li>
-              <% end %>
-              <%= link_to rates_create_path(:post_id => post.id, :score => 4), remote: true do %>
-                <li id ="star4" class="star4 star star-empty" aria-hidden="true">
-                </li>
-              <% end %>
-              <%= link_to rates_create_path(:post_id => post.id, :score => 5), remote: true do %>
-                <li id ="star5" class="star5 star star-empty" aria-hidden="true">
-                </li>
+              <% if current_user && post.user_id != current_user.id %>
+              <% rate = Rate.find_by(:user_id => current_user.id, :post_id => post.id)
+                 score = rate ? rate.score : 0; %>
+                <%= link_to rates_create_path(:post_id => post.id, :score => 1), remote: true do %>
+                  <li id="star1" class="star1 star <% if score >= 1 %>star-full<% else %>star-empty<% end %>" aria-hidden="true">
+                  </li>
+                <% end %>
+                <%= link_to rates_create_path(:post_id => post.id, :score => 2), remote: true do %>
+                  <li id="star2" class="star2 star <% if score >= 2 %>star-full<% else %>star-empty<% end %>" aria-hidden="true">
+                  </li>
+                <% end %>
+                <%= link_to rates_create_path(:post_id => post.id, :score => 3), remote: true do %>
+                  <li id="star3" class="star3 star <% if score >= 3 %>star-full<% else %>star-empty<% end %>" aria-hidden="true">
+                  </li>
+                <% end %>
+                <%= link_to rates_create_path(:post_id => post.id, :score => 4), remote: true do %>
+                  <li id="star4" class="star4 star <% if score >= 4 %>star-full<% else %>star-empty<% end %>" aria-hidden="true">
+                  </li>
+                <% end %>
+                <%= link_to rates_create_path(:post_id => post.id, :score => 5), remote: true do %>
+                  <li id="star5" class="star5 star <% if score == 5 %>star-full<% else %>star-empty<% end %>" aria-hidden="true">
+                  </li>
+                <% end %>
               <% end %>
             </ul>
-            <p id="user_rank">
-
-            </p>
         </div>
-        <div class="col-md-6 favoris">
-            <p class="coeur coeur1"> </p>
+
+        <div class="col-md-4 rating">
+          <% if current_user && post.user_id != current_user.id %>
+          <p id="ratings">
+          <%= score if Rate.find_by(:user_id => current_user.id, :post_id => post.id)%>
+          </p>
+          <% end %>
+        </div>
+        <div class="col-md-4 favoris">
+          <% if current_user && post.user_id != current_user.id %>
+            <% if !Favorite.find_by(:user_id => current_user.id, :post_id => post.id) %>
+              <%= render partial: 'shared/add_favorite', locals: {post_id: post.id} %>
+            <% else %>
+              <%= render partial: 'shared/remove_favorite', locals: {post_id: post.id} %>
+            <% end %>
+          <% end %>
+
         </div>
     </div>
 </article>
+

@@ -1,0 +1,24 @@
+<nav class="sidebar" role="navigation">
+  <div class="container-fluid">
+  <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">All</a></li>
+      <% hierarchy.each do |parent| %>
+        <% if parent.subcategories.size > 0 %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= parent.name %></a>
+             <p class="imgplus"><img src="/assets/plus.svg"></p>
+          <ul class="dropdown-menu forAnimate" role="menu">
+            <% parent.subcategories.each do |category| %>
+              <li class="drop_li"><a href="#"><%= category.name %></a></li>
+            <% end %>
+          </ul>
+        </li>
+        <% else %>
+        <li><a href="#"><%= parent.name %></a></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+</nav>

@@ -2,11 +2,9 @@ class User < ApplicationRecord
 
   searchkick autocomplete: [:name, :email]
 
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :timeoutable
+  devise :database_authenticatable, :registerable, :rememberable, :trackable, :validatable, :timeoutable
   default_scope { where(rank: 0) }
 
   validates :name, uniqueness: true, presence: true, length: { minimum: 3, maximum: 17 }
@@ -19,6 +17,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
 
   has_many :rates, dependent: :destroy
+
+  has_many :favorites, dependent: :destroy
 
   has_many :active_relationships,  class_name:  "Relationship",
                                    foreign_key: "follower_id",
@@ -66,4 +66,5 @@ class User < ApplicationRecord
     Post.where("user_id IN (#{following_ids})
                      OR user_id = :user_id", user_id: id)
   end
+
 end

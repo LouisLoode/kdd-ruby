@@ -103,7 +103,7 @@ $main-color: #211d8d;
 $color1: #414B98;
 $color2: #748DEF;
 
-/*  
+/*
 *
 * HEADER -------------------------------------------------------------------------------------------------------------------
 *
@@ -114,6 +114,36 @@ $color2: #748DEF;
   body{
   width:100%;
   overflow-x:hidden;
+  }
+
+  #postshow{
+    margin-top:30px;
+  }
+
+  .fixnewpost{
+    float:none !important;
+
+    h2{
+      text-align:center !important;
+      font-size:24px !important;
+      font-weight:500;
+      font-family:Avenir !important;
+      color:#5C748D;
+    }
+    .tu-ne-trouves-pas-de{
+      font-size:14px !important;
+    }
+  }
+
+  .fixleft{
+    margin:0 !important;
+  }
+  .fixcenter{
+    margin:0 !important;
+    padding-right:15px !important;
+  }
+    .fixright{
+    margin:0 !important;
   }
 
 
@@ -181,7 +211,7 @@ $color2: #748DEF;
   .tt-hint{
       margin-left:2.6px;
   }
-  
+
   .tt-suggestion{
     padding:0;
     height:50px;
@@ -734,6 +764,87 @@ header {
 }
 
 
+
+
+//
+// Pagination (multiple pages)
+// --------------------------------------------------
+// .pagination {
+//   display: inline-block;
+//   padding-left: 0;
+//   margin: $line-height-computed 0;
+//   border-radius: $border-radius-base;
+//
+//   > li {
+//     display: inline; // Remove list-style and block-level defaults
+//     > a,
+//     > span {
+//       position: relative;
+//       float: left; // Collapse white-space
+//       padding: $padding-base-vertical $padding-base-horizontal;
+//       line-height: $line-height-base;
+//       text-decoration: none;
+//       color: $pagination-color;
+//       background-color: $pagination-bg;
+//       border: 1px solid $pagination-border;
+//       margin-left: -1px;
+//     }
+//     &:first-child {
+//       > a,
+//       > span {
+//         margin-left: 0;
+//         @include border-left-radius($border-radius-base);
+//       }
+//     }
+//     &:last-child {
+//       > a,
+//       > span {
+//         @include border-right-radius($border-radius-base);
+//       }
+//     }
+//   }
+//
+//   > li > a,
+//   > li > span {
+//     &:hover,
+//     &:focus {
+//       z-index: 2;
+//       color: $pagination-hover-color;
+//       background-color: $pagination-hover-bg;
+//       border-color: $pagination-hover-border;
+//     }
+//   }
+//
+//   > .active > a,
+//   > .active > span {
+//     &,
+//     &:hover,
+//     &:focus {
+//       z-index: 3;
+//       color: $pagination-active-color;
+//       background-color: $pagination-active-bg;
+//       border-color: $pagination-active-border;
+//       cursor: default;
+//     }
+//   }
+//
+//   > .disabled {
+//     > span,
+//     > span:hover,
+//     > span:focus,
+//     > a,
+//     > a:hover,
+//     > a:focus {
+//       color: $pagination-disabled-color;
+//       background-color: $pagination-disabled-bg;
+//       border-color: $pagination-disabled-border;
+//       cursor: $cursor-disabled;
+//     }
+//   }
+// }
+
+
+
 /*
 *
 * FOOTER -------------------------------------------------------------------------------------------------------------------
@@ -745,6 +856,7 @@ header {
 footer {
   background-color: #FFF;
   text-align: center;
+  bottom: 0;
   width: 100%;
   height: 6em;
   line-height: 5em;

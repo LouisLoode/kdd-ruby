@@ -32,14 +32,26 @@ gem 'devise', "~> 4.2.0"
 gem 'font-awesome-sass'
 
 # Search
-gem 'searchkick'
+gem 'searchkick', '~> 1.4.0'
 gem 'bootstrap-typeahead-rails'
 
 # OpenGraph scrapper
- gem 'opengraph_parser'
+gem 'opengraph_parser'
+
+# Infinite scroll
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
+# Tests gem
+gem 'thor', '~> 0.19.1'
+gem 'rspec'
+gem 'rspec-rails'
+gem 'database_cleaner'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
