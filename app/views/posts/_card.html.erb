@@ -18,16 +18,13 @@ end
         </div>
         <div class="col-md-8 fix">
             <p class="name_post"><%= link_to show_user_path(:user_id => post.user_id) do %><%= "@" + post.user.name %><% end %></p>
-            <% if current_user %>
-            <% if post.user_id == current_user.id %>
+            <% if current_user && post.user_id == current_user.id %>
               <div class="edit-post">
                 <%= link_to 'Éditer', edit_post_path(post) %>
                 <%= link_to 'Supprimer', post_path(post),
                         method: :delete,
                         data: { confirm: 'Are you sure?' }%>
               </div>
-
-              <% end %>
               <% end %>
             <div class="clear"></div>
             <p class="categorie_post">
@@ -61,43 +58,40 @@ end
     <div class="row action">
         <div class="col-md-4 rank">
             <ul id="notation" class="notation">
-              <%
-              if Rate.find_by(:user_id => current_user.id, :post_id => post.id)
-                user_rating = Rate.find_by(:user_id => current_user.id, :post_id => post.id).score
-              else
-                user_rating = 0
-              end %>
+              <% if current_user && post.user_id != current_user.id %>
+              <% score = Rate.find_by(:user_id => current_user.id, :post_id => post.id).score %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 1), remote: true do %>
-                <li id="star1"class="star1 star<% if user_rating >= 1 %>  star-full<% else  %> star-empty<% end %>" aria-hidden="true">
+                <li id="star1" class="star1 star <% if score >= 1 %>star-full<% else %>star-empty<% end %>" aria-hidden="true">
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 2), remote: true do %>
-                <li id="star2" class="star2 star<% if user_rating >= 2 %> star-full<% else  %> star-empty<% end %>" aria-hidden="true">
+                <li id="star2" class="star2 star <% if score >= 2 %>star-full<% else %>star-empty<% end %>" aria-hidden="true">
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 3), remote: true do %>
-                <li id="star3" class="star3 star<% if user_rating >= 3 %> star-full<% else  %> star-empty<% end %>" aria-hidden="true">
+                <li id="star3" class="star3 star <% if score >= 3 %>star-full<% else %>star-empty<% end %>" aria-hidden="true">
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 4), remote: true do %>
-                <li id="star4" class="star4 star<% if user_rating >= 4 %> star-full<% else  %> star-empty<% end %>" aria-hidden="true">
+                <li id="star4" class="star4 star <% if score >= 4 %>star-full<% else %>star-empty<% end %>" aria-hidden="true">
                 </li>
               <% end %>
               <%= link_to rates_create_path(:post_id => post.id, :score => 5), remote: true do %>
-                <li id="star5" class="star5 star<% if user_rating >= 4 %> star-full<% else  %> star-empty<% end %>" aria-hidden="true">
+                <li id="star5" class="star5 star <% if score == 5 %>star-full<% else %>star-empty<% end %>" aria-hidden="true">
                 </li>
+              <% end %>
               <% end %>
             </ul>
         </div>
         <div class="col-md-4 rating">
-          <% if current_user %>
+          <% if current_user && post.user_id != current_user.id %>
           <p id="ratings">
-          <%= Rate.find_by(:user_id => current_user.id, :post_id => post.id).score if Rate.find_by(:user_id => current_user.id, :post_id => post.id)%>
+          <%= score if Rate.find_by(:user_id => current_user.id, :post_id => post.id)%>
           </p>
           <% end %>
         </div>
         <div class="col-md-4 favoris">
-          <% if current_user %>
+          <% if current_user && post.user_id != current_user.id %>
             <% if !Favorite.find_by(:user_id => current_user.id, :post_id => post.id) %>
               <%= render partial: 'shared/add_favorite', locals: {post_id: post.id} %>
             <% else %>
