@@ -64,8 +64,8 @@ end
         <div class="col-md-4 rank">
             <ul id="notation" class="notation">
               <% if current_user && post.user_id != current_user.id %>
-              <% rate = Rate.find_by(:user_id => current_user.id, :post_id => post.id)
-                 score = rate ? rate.score : 0; %>
+              <% rate = Rate.find_by(:user_id => current_user.id, :post_id => post.id) %>
+                <% score = rate ? rate.score : 0; %>
                 <%= link_to rates_create_path(:post_id => post.id, :score => 1), remote: true do %>
                   <li id="star1" class="star1 star <% if score >= 1 %>star-full<% else %>star-empty<% end %>" aria-hidden="true">
                   </li>
