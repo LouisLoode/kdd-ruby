@@ -34,7 +34,7 @@ ready = function() {
 
 		$('#query').on('typeahead:select',function(event, item){
 
-				// Not cool but don't find other tricks.. T_T
+				// Not cool but didn't find other tricks.. T_T
 				if ("name" in item && "slug" in item &&  "public" in item &&  "parent_id" in item){
 					// console.log('CATEGORY');
 					var base_url = 'categories'

@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get 'post/:post_id/unfavorite', to: 'favorites#delete', as: 'favorites_delete'
   get 'users/:user_id/favorites', to: 'favorites#show_favorites', as: 'favorites_user'
 
+  get 'search', to: 'search#index', as: 'search'
+
   get 'categories/autocomplete', to: 'categories#autocomplete'
   get 'posts/autocomplete', to: 'posts#autocomplete'
   get 'user/autocomplete', to: 'users#autocomplete'

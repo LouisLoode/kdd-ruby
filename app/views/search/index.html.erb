@@ -1,0 +1,61 @@
+<div class="search_result container-fluid ">
+
+<% if @user === true %>
+  <div class="row">
+    <div class="col-md-12 col-sx-12">
+      <h2>Utilisateurs</h2>
+    </div>
+
+    <div class="row">
+      <% @results.each do |result| %>
+        <% if result.class == User %>
+          <%= link_to show_user_path(:user_id => result.id) do %>
+            <%= render partial: 'users/list_card', locals: {user: result} %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<% if @post === true %>
+  <div class="row">
+    <div class="col-md-12 col-sx-12">
+      <h2>Publications</h2>
+    </div>
+
+    <div class="col-md-12 col-sx-12">
+      <div class="row">
+        <% @results.each do |result| %>
+          <% if result.class == Post %>
+            <div class="col-md-4 col-sx-4">
+              <%= link_to post_path(:id => result.id) do %>
+                <%= result.og_title %>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if @category === true %>
+  <div class="row">
+    <div class="col-md-12 col-sx-12">
+      <h2>Catégories</h2>
+    </div>
+
+    <div class="col-md-12 col-sx-12">
+      <ul>
+        <% @results.each do |result| %>
+          <% if result.class == Category %>
+          <li><%= link_to result.name, category_path(result.id) %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+</div>
