@@ -115,6 +115,39 @@ $color2: #748DEF;
   width:100%;
   overflow-x:hidden;
   }
+
+
+  .coeur{
+    position:absolute;
+    right:0;
+    margin-top:-20px;
+    width:60px;
+    cursor:pointer;
+    height:60px;
+    transition:all ease-in-out 0.3s;
+  }
+  .coeur:hover{
+    transform:scale(1.1);
+  }
+
+
+  .coeur1{
+    background:url('/assets/coeur2.png');
+    background-size:cover;
+  }
+  .coeur2{
+    background:url('/assets/coeur3.png');
+    background-size:cover;
+  }
+  .coeur3{
+    background:url('/assets/coeur.gif');
+    background-size:cover;
+  }
+  .coeur4{
+    background:url('/assets/coeur.png');
+    background-size:cover;
+  }
+
   .coco{
     margin-top:60px !important;
   }

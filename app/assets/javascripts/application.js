@@ -192,6 +192,26 @@ ready = function() {
     // });
 
 
+
+    $('.coeur').mouseover(function(){
+      var coeur = $(this);
+       coeur.removeClass('coeur1').addClass('coeur2');
+
+       coeur.click(function(){
+          coeur.removeClass('coeur2').addClass('coeur3');
+          setTimeout(function(){
+               coeur.removeClass('coeur3').addClass('coeur4');
+          },1200);
+       });
+    });
+    
+    $('.coeur').mouseleave(function(){
+        if($(this).hasClass('coeur2')){
+           $(this).removeClass('coeur2').addClass('coeur1');
+        }
+    });
+
+
 		// Sidebar
     var drop_li = $('.sidebar').find('.dropdown > a');
     var i_click = 0;
