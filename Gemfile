@@ -38,6 +38,12 @@ gem 'bootstrap-typeahead-rails'
 # OpenGraph scrapper
 gem 'opengraph_parser'
 
+# Tests gem
+gem 'thor', '~> 0.19.1'
+gem 'rspec'
+gem 'rspec-rails'
+gem 'database_cleaner'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.where(user_id: current_user.id).paginate(page: params[:page], per_page: 2).order('created_at DESC')
+    @posts = Post.where(user_id: current_user.id).order('created_at DESC')
     # @hierarchy = Category.where(public: true, parent_id: nil)
   end
 
