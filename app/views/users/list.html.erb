@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container-fluid">
   <div class="container_follow">
       <div id="listfollow" class="row col-md-12">
         <% if @users.size > 0 %>
           <% @users.each do |user| %>
-            <%= render partial: 'users/list_card', locals: {user: @user} %>
+            <%= render partial: 'users/list_card', locals: {user: user} %>
           <% end %>
         <% else %>
         <p class="text-center">Vous n'avez pour l'instant aucune relation</p>

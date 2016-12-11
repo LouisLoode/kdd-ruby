@@ -13,10 +13,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def index
-    @posts = Post.where(user_id: current_user.id).paginate(:page => params[:page]).order(created_at: :desc)
-    # @hierarchy = Category.where(public: true, parent_id: nil)
-  end
+  # def index
+  #   @posts = Post.where(user_id: current_user.id).paginate(:page => params[:page]).order(created_at: :desc)
+  # end
 
   def show
     @post = Post.find(params[:id])
@@ -45,13 +44,18 @@ class PostsController < ApplicationController
       redirect_to show_profile_path
     else
       @hierarchy = Category.where(public: true, parent_id: nil)
-      render :new
+      flash[:success] = 'La publication a bien été publiée'
+      redirect_to request.referrer || root_url
     end
   end
 
   def update
     @post = Post.find(params[:id])
-
+    og = OpenGraph.new(@post.url)
+    @post.og_title = og.title # og.title # => "Open Graph protocol"
+    @post.og_type = og.type # og.type # => "website"
+    @post.og_description = og.description # og.description # => ""
+    @post.og_images = og.images[0] # og.images # => ["http://ogp.me/logo.png"]
     if @post.update(post_params)
       redirect_to @post
     else

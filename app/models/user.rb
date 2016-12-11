@@ -34,8 +34,6 @@ class User < ApplicationRecord
   #   self.ranks.find(:all, :conditions => ['post_id = ?', post.id]).size > 0
   # end
 
-#   has_many :posts, through: :ranks
-
   before_create :slugify_name
   before_update :slugify_name
 

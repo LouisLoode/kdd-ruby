@@ -314,11 +314,11 @@ small{
 .container_posts{
 	padding:0 !important;
 }
-.container_follow, .container_favorites,  .container {
+.container_follow, .container_favorites, .container {
 	min-height:500px;
 	background:transparent;
 
-	#listfollow, #list_favorites, #list_posts_main{
+	#listfollow, #list_favorites, #list_posts_main, #list_posts_profile{
 		margin-left:0;
 		padding:0px;
 		margin-bottom:10px;
@@ -937,7 +937,7 @@ article {
 				font-weight:700;
 				color:#C5C5C5;
 			}
-			
+
 		}
 		.iframe_post:hover{
 				transform:scale(1.05);

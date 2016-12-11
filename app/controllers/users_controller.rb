@@ -8,12 +8,11 @@
     end
   end
 
-  def list
-  	@users = User.all
-  end
-
   def show
-     if params[:id]
+     if params[:id] === 'list'
+       @users = User.all
+       render 'list'
+     elsif params[:id]
        @user = User.find(params[:id])
        @posts = Post.where(:user_id => params[:id]).paginate(:page => params[:page]).order(created_at: :desc)
      elsif !params[:id] && current_user

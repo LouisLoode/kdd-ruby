@@ -25,7 +25,6 @@
 	<body>
 			<%= render 'layouts/navbar' %>
 			<header id="header">
-
 				<div class="container-fluid">
 					<% if notice %>
 					<p class="alert alert-success"><%= notice %></p>
@@ -34,9 +33,7 @@
 					<p class="alert alert-danger"><%= alert %></p>
 					<% end %>
 				</div>
-
 			</header>
-
 			<div class="container-fluid bg-grey">
 				<%= yield %>
 			</div>

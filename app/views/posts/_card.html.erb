@@ -1,11 +1,8 @@
-
 <%
 if defined?(@user)
   user = @user
 end
 %>
-
-
 <article id="<%= post.id %>" onclick="<% link_to post_path(post)%>">
     <div class="row metadata">
         <div class="profil_img col-md-2">
@@ -46,13 +43,10 @@ end
         <div class="col-md-12">
             <div class="content_post">
               <p><%= post.message%></p>
-
             </div>
             <a href="<%= post.url %>" title="<%= post.url %>">
             <div class="iframe_post">
-                
                 <img src="<%= post.og_images %>" width="100%" height="300px" />
-                
                 <h3><%= post.og_title%></h3>
                 <p><%= post.og_description%></p>
                 <small><%= post.url%></small>
@@ -105,8 +99,6 @@ end
               <%= render partial: 'shared/remove_favorite', locals: {post_id: post.id} %>
             <% end %>
           <% end %>
-
         </div>
     </div>
 </article>
-

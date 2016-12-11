@@ -16,4 +16,5 @@ class RatesController < ApplicationController
       end
     end
   end
+  
 end
