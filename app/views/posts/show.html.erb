@@ -3,12 +3,12 @@
         <div class="col-xs-12 col-sm-2 col-md-3">
             <%= render partial: 'shared/profil_card', locals: {user: @post.user} %>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-7">
             <div class="name_profil">
                 <%= link_to "@" + @post.user.name, user_path(@post.user.id) %>
             </div>
             <div class="row">
-                <div class="col-md-9">
+                <div id="postshow" class="col-md-9">
                     <%= render partial: 'posts/card', locals: {post: @post, user: @post.user} %>
                 </div>
             </div>

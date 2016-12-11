@@ -1,6 +1,7 @@
-<%= form_for :category, url: categories_path, html: {class: "form-signup"} do |f| %>
+<div id="fixfoooter">
+<%= form_for :category, url: categories_path, html: {class: "fixnewpost form-signup"} do |f| %>
 
-  <h1>New Category</h1>
+  <h2>Créer une catégorie</h2>
 
   <% if @category.errors.any? %>
     <div id="error_explanation">
@@ -17,7 +18,7 @@
   <% end %>
 
     <%= f.label :name, :class => "sr-only" %><br />
-    <%= f.text_field :name, :class => "form-control", placeholder: "Name" %>
+    <%= f.text_field :name, :class => "form-control", placeholder: "Nom" %>
 
     <%= f.label :description, :class => "sr-only" %><br />
     <%= f.text_area :description, :class => "form-control", placeholder: "Message" %>
@@ -30,8 +31,8 @@
     <%= f.collection_select :parent_id, Category.where(public: true, parent_id: nil), :id, :name, {:include_blank => "Nothing selected"}, {:class=>'form-control'} %>
 
   <p>
-    <%= f.submit "New category", :class => "btn btn-lg btn-primary btn-block" %>
+    <%= f.submit "Ajouter cette catégorie", :class => "btn btn-lg btn-primary btn-block" %>
   </p>
 
-  <%= link_to 'Back', categories_path %>
 <% end %>
+</div>

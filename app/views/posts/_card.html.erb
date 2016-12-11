@@ -1,12 +1,15 @@
+
 <%
 if defined?(@user)
   user = @user
 end
 %>
 
-<article id="<%= post.id %>">
+
+<article id="<%= post.id %>" onclick="<% link_to post_path(post)%>">
     <div class="row metadata">
         <div class="profil_img col-md-2">
+          <%= post.user_id %>
           <%= link_to show_user_path(:user_id => post.user_id) do %>
             <img src="
             <% if !user.avatar.present? %>
@@ -23,7 +26,7 @@ end
                 <%= link_to 'Éditer', edit_post_path(post) %>
                 <%= link_to 'Supprimer', post_path(post),
                         method: :delete,
-                        data: { confirm: 'Are you sure?' }%>
+                        data: { confirm: 'Êtes vous sûr?' }%>
               </div>
               <% end %>
             <div class="clear"></div>
@@ -45,22 +48,24 @@ end
               <p><%= post.message%></p>
 
             </div>
+            <a href="<%= post.url %>" title="<%= post.url %>">
             <div class="iframe_post">
-                <a href="<%= post.url %>" title="<%= post.url %>">
-                    <img src="<%= post.og_images %>" width="100%" height="300px" />
-                </a>
+                
+                <img src="<%= post.og_images %>" width="100%" height="300px" />
+                
                 <h3><%= post.og_title%></h3>
                 <p><%= post.og_description%></p>
                 <small><%= post.url%></small>
             </div>
+            </a>
         </div>
     </div>
     <div class="row action">
         <div class="col-md-4 rank">
             <ul id="notation" class="notation">
               <% if current_user && post.user_id != current_user.id %>
-              <% rate = Rate.find_by(:user_id => current_user.id, :post_id => post.id)
-                 score = rate ? rate.score : 0; %>
+              <% rate = Rate.find_by(:user_id => current_user.id, :post_id => post.id) %>
+                <% score = rate ? rate.score : 0; %>
                 <%= link_to rates_create_path(:post_id => post.id, :score => 1), remote: true do %>
                   <li id="star1" class="star1 star <% if score >= 1 %>star-full<% else %>star-empty<% end %>" aria-hidden="true">
                   </li>
@@ -84,6 +89,7 @@ end
               <% end %>
             </ul>
         </div>
+
         <div class="col-md-4 rating">
           <% if current_user && post.user_id != current_user.id %>
           <p id="ratings">
@@ -99,6 +105,8 @@ end
               <%= render partial: 'shared/remove_favorite', locals: {post_id: post.id} %>
             <% end %>
           <% end %>
+
         </div>
     </div>
 </article>
+
