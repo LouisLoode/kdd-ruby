@@ -9,6 +9,7 @@
 #
 # CREATE USER
 #
+User.create(email: 'staff@kamasutradudev.fr', name: 'Staff', password: 'kamasutradudev', password_confirmation: 'kamasutradudev')
 User.create(email: 'louisdebraine@gmail.com', name: 'Loode', password: 'testtest', password_confirmation: 'testtest')
 User.create(email: 'dolle.allan@gmail.com', name: 'Blephy', password: 'testtest', password_confirmation: 'testtest')
 User.create(email: 'maxime.lepaicheux@gmail.com', name: 'Yulo', password: 'motdepasse', password_confirmation: 'motdepasse')
