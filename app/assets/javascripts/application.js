@@ -121,41 +121,42 @@ ready = function() {
 		var j = 1;
 
 
-    $(".notation").mouseenter(function(){
+    $(".rank").mouseenter(function(){
+      console.log('in');
       var star1 = $( this ).find( ".star1" );
       var star2 = $( this ).find( ".star2" );
       var star3 = $( this ).find( ".star3" );
       var star4 = $( this ).find( ".star4" );
       var star5 = $( this ).find( ".star5" );
-         star1.mouseenter(function(){
+         star1.mouseover(function(){
               $(this).removeClass('star-empty').addClass('star-full');
               star2.removeClass('star-full').addClass('star-empty');
               star3.removeClass('star-full').addClass('star-empty');
               star4.removeClass('star-full').addClass('star-empty');
               star5.removeClass('star-full').addClass('star-empty');
          });
-         star2.mouseenter(function(){
+         star2.mouseover(function(){
               $(this).removeClass('star-empty').addClass('star-full');
               star1.removeClass('star-empty').addClass('star-full');
               star3.removeClass('star-full').addClass('star-empty');
               star4.removeClass('star-full').addClass('star-empty');
               star5.removeClass('star-full').addClass('star-empty');
          });
-         star3.mouseenter(function(){
+         star3.mouseover(function(){
               $(this).removeClass('star-empty').addClass('star-full');
               star1.removeClass('star-empty').addClass('star-full');
               star2.removeClass('star-empty').addClass('star-full');
               star4.removeClass('star-full').addClass('star-empty');
               star5.removeClass('star-full').addClass('star-empty');
          });
-         star4.mouseenter(function(){
+         star4.mouseover(function(){
               $(this).removeClass('star-empty').addClass('star-full');
               star1.removeClass('star-empty').addClass('star-full');
               star2.removeClass('star-empty').addClass('star-full');
               star3.removeClass('star-empty').addClass('star-full');
               star5.removeClass('star-full').addClass('star-empty');
          });
-         star5.mouseenter(function(){
+         star5.mouseover(function(){
               $(this).removeClass('star-empty').addClass('star-full');
               star1.removeClass('star-empty').addClass('star-full');
               star2.removeClass('star-empty').addClass('star-full');
@@ -164,27 +165,56 @@ ready = function() {
          });
 
     });
-
-
-
-
-    $('.coeur').mouseover(function(){
-      var coeur = $(this);
-       coeur.removeClass('coeur1').addClass('coeur2');
-
-       coeur.click(function(){
-          coeur.removeClass('coeur2').addClass('coeur3');
-          setTimeout(function(){
-               coeur.removeClass('coeur3').addClass('coeur4');
-          },1200);
-       });
+    $(".rank").mouseleave(function(){
+        var rate = $('#ratings').html();
+        var rate = parseInt(rate);
+        $('.star').removeClass('star-full').addClass('star-empty');
+        var i = 0;
+        $(".notation > a > li").each(function(n) {
+            if(i<rate){
+                $(this).removeClass('star-empty').addClass('star-full');
+            }
+            else{
+              return false;
+            }
+            i++;
+        });
     });
 
-    $('.coeur').mouseleave(function(){
-        if($(this).hasClass('coeur2')){
-           $(this).removeClass('coeur2').addClass('coeur1');
-        }
+
+
+    $('article').mouseover(function(){
+       $(this).find('.edit-post').css({opacity:"1"});
     });
+    $('article').mouseout(function(){
+       $(this).find('.edit-post').css({opacity:"0"});
+    });
+
+    $('.coeur_add').mouseover(function(){
+         $(this).attr("src","/assets/coeur3.png");
+    });
+    $('.coeur_add').mouseout(function(){
+         $(this).attr("src","/assets/coeur2.png");
+    });
+
+
+    // $('.coeur').mouseover(function(){
+    //   var coeur = $(this);
+    //    coeur.removeClass('coeur1').addClass('coeur2');
+
+    //    coeur.click(function(){
+    //       coeur.removeClass('coeur2').addClass('coeur3');
+    //       setTimeout(function(){
+    //            coeur.removeClass('coeur3').addClass('coeur4');
+    //       },1200);
+    //    });
+    // });
+
+    // $('.coeur').mouseleave(function(){
+    //     if($(this).hasClass('coeur2')){
+    //        $(this).removeClass('coeur2').addClass('coeur1');
+    //     }
+    // });
 
 
 		// Sidebar
