@@ -1,4 +1,5 @@
 <div id="fixfoooter">
+<%= link_to "Retour",  url_for(:back), :class => "backback" %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"})  do |f| %>
 
         <h2 class="form-signin-heading">Se connecter au KDD !</h2>

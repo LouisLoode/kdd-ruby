@@ -115,6 +115,26 @@ $color2: #748DEF;
   overflow-x:hidden;
   }
 
+  .backback{
+    display:block;
+    position:absolute;
+    font-size:18px;
+    font-family:Avenir;
+    font-weight:500;
+    color:#FFF;
+    right:20vw;
+    padding:7px;
+    padding-left:30px;
+    padding-right:30px;
+    border:2px solid #FFF;
+    transition:all ease-in-out 0.3s;
+  }
+  .backback:hover{
+    color:$color2;
+    background:#FFF;
+    text-decoration:none;
+  }
+
   #postshow{
     margin-top:30px;
   }
@@ -148,7 +168,7 @@ $color2: #748DEF;
 
   .coeur{
     position:absolute;
-    right:0;
+    right:-10px;
     margin-top:-20px;
     width:60px;
     cursor:pointer;
@@ -233,7 +253,7 @@ $color2: #748DEF;
     left:50%;
     transform:translate(-50%);
     position:absolute;
-    margin-top:-8em;
+    margin-top:-9em;
 
     p{
       font-size:32px;
@@ -540,10 +560,17 @@ $color2: #748DEF;
 }
 
 .alert {
-  max-width: 50%;
+  max-width: 30%;
   margin: auto;
   text-align: center;
-  margin-top: 5%;
+  margin-top: 4vh;
+  font-size:20px;
+  background:#FFF;
+  border-radius:3px;
+  border:0;
+  border-color:none;
+  color:rgba(255,0,0,0.7);
+  box-shadow: 0px 5px 12px rgba(0,0,0,0.2);
 }
 
 header {
