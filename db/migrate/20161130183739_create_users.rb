@@ -7,7 +7,6 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :github
       t.string :website
       t.string :avatar
-      t.float :rank
       t.timestamps
     end
     add_index :users, :slug, unique: true

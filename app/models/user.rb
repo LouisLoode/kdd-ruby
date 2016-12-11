@@ -5,12 +5,11 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :rememberable, :trackable, :validatable, :timeoutable
-  default_scope { where(rank: 0) }
 
   validates :name, uniqueness: true, presence: true, length: { minimum: 3, maximum: 17 }
   validates :email, uniqueness: true, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
   validates :github, uniqueness: true, format: { with: /\Ahttps:\/\/github.com\// }, allow_blank: true
-  validates :website, format: { with: /\A(http|https):\/\// }, allow_blank: true
+  validates :website, format: { with: /(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix }, allow_blank: true
   validates :biography, length: { maximum: 250 }, allow_blank: true
   validates :avatar, format: { with: %r{\Ahttps?://.+\.(?:jpe?g|png)\z}i }, allow_blank: true
 
@@ -28,11 +27,6 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
-
-  # def already_ranks?(post)
-  #   puts self.ranks.find(:all, :conditions => ['post_id = ?', post.id]).size > 0
-  #   self.ranks.find(:all, :conditions => ['post_id = ?', post.id]).size > 0
-  # end
 
   before_create :slugify_name
   before_update :slugify_name
@@ -72,7 +66,7 @@ class User < ApplicationRecord
       posts.each do |post|
         result += post.average_ratings
       end
-      return result.to_f / posts.size
+      return (result.to_f / posts.size).round(1)
     else
       return 0
     end
