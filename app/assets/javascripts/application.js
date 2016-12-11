@@ -112,7 +112,7 @@ ready = function() {
       displayKey: 'name',
       source: users,
       templates: {
-        header: '<h3 class="parent-name">Users</h3>'
+        header: '<h3 class="parent-name">Utilisateurs</h3>'
       }
     });
 
@@ -179,7 +179,7 @@ ready = function() {
           },1200);
        });
     });
-    
+
     $('.coeur').mouseleave(function(){
         if($(this).hasClass('coeur2')){
            $(this).removeClass('coeur2').addClass('coeur1');
