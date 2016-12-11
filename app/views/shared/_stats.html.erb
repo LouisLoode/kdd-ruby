@@ -7,9 +7,11 @@
       <p class="star star-full"></p>
       <p class="star star-full"></p>
       <p class="star star-empty"></p>
+      <!--  A METTRE EN FORME , pertinence retourne la moyenne de tous les ratings de tous les posts de l'utilisateur -->
+      <%= @user.pertinence %>
     </div>
   </div>
-  
+
   <div class="box<% if action_name === 'show' %> boxfocus<% end %>">
     <%= link_to show_user_path(@user), class: "linkpage" do %>
     <p class="title">Publications</p>

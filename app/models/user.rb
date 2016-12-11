@@ -65,4 +65,17 @@ class User < ApplicationRecord
                      OR user_id = :user_id", user_id: id)
   end
 
+  def pertinence
+    posts = Post.where(user_id: self.id)
+    result = 0
+    if posts.size > 0
+      posts.each do |post|
+        result += post.average_ratings
+      end
+      return result.to_f / posts.size
+    else
+      return 0
+    end
+  end
+
 end

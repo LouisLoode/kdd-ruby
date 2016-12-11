@@ -86,9 +86,13 @@ end
         <div class="col-md-4 rating">
           <% if current_user && post.user_id != current_user.id %>
           <p id="ratings">
-          <%= score if Rate.find_by(:user_id => current_user.id, :post_id => post.id)%>
+            <%= score if Rate.find_by(:user_id => current_user.id, :post_id => post.id)%>
           </p>
           <% end %>
+          <p>
+            <!--  A METTRE EN FORME , average_ratings retourne la moyenne de tous les ratings du post, et total_ratings le nombre de vote différent -->
+            <%= post.average_ratings %> sur <%= post.total_ratings %> votes
+          </p>
         </div>
         <div class="col-md-4 favoris">
           <% if current_user && post.user_id != current_user.id %>

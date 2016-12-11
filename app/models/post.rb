@@ -12,8 +12,15 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   validates :category_ids, presence: true
 
-  #self.per_page = 1
-  # def average_rates
-  #   rates.sum(:score) / rates.size
-  # end
+  def average_ratings
+    if self.total_ratings > 0
+      Rate.where(post_id: self.id).sum(:score).to_f / self.total_ratings
+    else
+      return 0
+    end
+  end
+
+  def total_ratings
+    Rate.where(post_id: self.id).count
+  end
 end
