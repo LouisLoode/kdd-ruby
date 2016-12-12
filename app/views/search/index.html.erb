@@ -1,4 +1,10 @@
-<div class="search_result container-fluid ">
+<div id="fixfoooter">
+
+<p class="nb_result">
+<span>3</span> résultats pour votre recherche <span>"javascript"</span>
+</p>
+
+<div class="mainmargin container gover searchresult">
 
 <% if @user === true %>
   <div class="row">
@@ -30,7 +36,7 @@
           <% if result.class == Post %>
             <div class="col-md-4 col-sx-4">
               <%= link_to post_path(:id => result.id) do %>
-                <%= result.og_title %>
+                <p class="result_post"><%= result.og_title %></p>
               <% end %>
             </div>
           <% end %>
@@ -50,12 +56,19 @@
       <ul>
         <% @results.each do |result| %>
           <% if result.class == Category %>
-          <li><%= link_to result.name, category_path(result.id) %></li>
+
+          <a href="<%= category_path(result.id) %>">
+          <li class="result_cate">
+            <img src="/assets/femme.png"/>
+            <p><%= result.name %></p>
+          </li>
+          </a>
+
           <% end %>
         <% end %>
       </ul>
     </div>
   </div>
 <% end %>
-
+</div>
 </div>
