@@ -1,7 +1,11 @@
 <div class="boxcard col-md-4">
   <div class="card">
     <div class="picture_profil">
-      <img src="/assets/louisloode.jpg" />
+      <img src="<% if user.avatar.present? %>
+      <%= user.avatar %>
+      <% else %>
+      /assets/Avatar_default.png
+      <% end %>" />
     </div>
   <div class="desc_profil">
       <p class="name"><%= "@" + user.name %></p>

@@ -1,5 +1,6 @@
 
 <div id="fixfoooter">
+<%= link_to "Retour",  url_for(:back), :class => "backback" %>
 <%= form_for :post, url: post_path(@post), method: :patch, html: {class: "fixnewpost add_post form-signup"} do |f| %>
 
   <h2>Modifier cette publication</h2>

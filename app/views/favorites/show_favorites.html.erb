@@ -14,7 +14,8 @@
                 </div>
             </div>
             <div class="container_favorites">
-                <div id="list_favorites" class="row col-md-9">
+                <div class="col-md-2"></div>
+                <div id="list_favorites" class="col-md-8">
                   <% if @favorites.size > 0 %>
                     <% @favorites.each do |favorite| %>
                       <%= link_to posts_path(:post_id => favorite.post_id) do %>
@@ -29,6 +30,7 @@
                     <% end %>
                   <% end %>
                 </div>
+                <div class="col-md-2"></div>
             </div>
         </div>
     </div>

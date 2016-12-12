@@ -1,3 +1,8 @@
 <%= link_to favorites_delete_path(post_id), remote: true do %>
-  <i class="fa fa-bookmark fa-2x" aria-hidden="true"></i>
+  <img class="coeur_remove coeur" aria-hidden="true" src="/assets/coeur.gif"/>
+  <script type="text/javascript">
+  	setTimeout(function(){
+  			$('.coeur_remove').attr("src","/assets/coeur.png");
+  	},1500);
+  </script>
 <% end %>

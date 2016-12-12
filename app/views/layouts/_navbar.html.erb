@@ -27,12 +27,7 @@
 			<% if user_signed_in? %>
 					<li id="user_menu" class="dropdown user_menu">
 							<div class="cont_img">
-							<img src="
-								<% if !current_user.avatar.blank? %>
-								<%= current_user.avatar %>
-								<% else %>
-								/assets/louisloode.jpg
-								<% end %>" alt="<%= current_user.name + " Avatar" %>" height="50px" width="50px" />
+								<%= link_to image_tag(current_user.avatar.present? ? current_user.avatar : '/assets/Avatar_default.png'), show_profile_path %>
 							</div>
 
 							<a id="linkname" href="#" class="namelink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@<%= current_user.name %>
