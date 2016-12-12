@@ -218,29 +218,39 @@ ready = function() {
 
 
 		// Sidebar
-    var drop_li = $('.sidebar').find('.dropdown > a');
     var i_click = 0;
 
-    drop_li.click(function(){
+    $('.sidebar').find('.dropdown > a').click(function(){
 
-              if(i_click == 0){
-                $(this).addClass('clicked');
-                var img = $(".imgplus > img");
-                var round =  $(".imgplus");
+
+                var element = $(this);
+
+                $('.sidebar').find('.dropdown > a').removeClass('clicked'); 
+
+                var allimg = $('.sidebar').find('.dropdown > a > .imgplus > img');
+                var allround =  $('.sidebar').find('.dropdown > a > .imgplus');
+                allround.css({borderColor:"#748DEF"});
+                allimg.attr("src","/assets/plus.svg");  
+
+      
+                element.addClass('clicked');
+                var img = element.find(".imgplus > img");
+                var round =  element.find(".imgplus");
                 round.css({borderColor:"#FFF"});
                 img.attr("src","/assets/moins.svg");
-                i_click = 1;
-              }
-              else{
-                $(this).removeClass('clicked');
-                var img = $(".imgplus > img");
-                var round =  $(".imgplus");
-                round.css({borderColor:"#748DEF"});
-                img.attr("src","/assets/plus.svg");
-                i_click = 0;
-              }
 
+                if(!element.parent().hasClass('open')){
+                  element.removeClass('clicked'); 
+                  var img = element.find(".imgplus > img");
+                  var round =  element.find(".imgplus");
+                  round.css({borderColor:"#748DEF"});
+                  img.attr("src","/assets/plus.svg"); 
+                }   
+
+                e.stopPropagation();           
     });
+
+
 
 		// Profil card
 		$(document).on('scroll', function() {
