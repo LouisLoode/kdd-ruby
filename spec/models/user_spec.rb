@@ -51,6 +51,32 @@ RSpec.describe User, :type => :model do
     expect(user.valid?).to eq(true)
   end
 
+  it "can have valid github or website url" do
+    user = User.new(name: "Mordecai",email: "m@rshow.com", password: "testtest", password_confirmation: "testtest")
+    expect(user.valid?).to eq(true)
+
+    user.github = "github.com/mordecai"
+    expect(user.valid?).to eq(false)
+
+    user.github = "http://www.google.fr/mordecai"
+    expect(user.valid?).to eq(false)
+
+    user.github = "http://github.com/mordecai"
+    expect(user.valid?).to eq(false)
+
+    user.github = "https://github.com/mordecai"
+    expect(user.valid?).to eq(true)
+
+    user.website = "ftp://hacking.ru/im-a-stupid-russian-hacker"
+    expect(user.valid?).to eq(false)
+
+    user.website = "htt://www.google.fr"
+    expect(user.valid?).to eq(false)
+
+    user.website = "http://www.google.fr"
+    expect(user.valid?).to eq(true)
+  end
+
   it "is impossible to add the same email twice" do
     user = User.create(name: "Mordecai", email: "m@rshow.com", password: "testtest", password_confirmation: "testtest")
     expect(user.valid?).to eq(true)
