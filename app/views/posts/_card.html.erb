@@ -80,10 +80,6 @@
           </p>
           <p class="ta-note">Ta note</p>
           <% end %>
-          <p>
-            <!--  A METTRE EN FORME , average_ratings retourne la moyenne de tous les ratings du post, et total_ratings le nombre de vote différent -->
-            <%= post.average_ratings %> sur <%= post.rates.count %> votes
-          </p>
         </div>
         <div class="col-md-4 favoris">
           <% if current_user && post.user_id != current_user.id %>
@@ -94,5 +90,8 @@
             <% end %>
           <% end %>
         </div>
+    </div>
+    <div class="row post_stats">
+      <p>Note de <span><%= post.average_ratings %></span> sur <span><%= post.rates.count %></span> votes</p>
     </div>
 </article>

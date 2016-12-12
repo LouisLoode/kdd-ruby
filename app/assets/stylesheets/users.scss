@@ -12,6 +12,7 @@ $main-color: #211d8d;
 
 $color1: #414B98;
 $color2: #748DEF;
+$color3: #ffb62e;
 
 .cancel{
 	margin-top:30px !important;
@@ -775,6 +776,22 @@ article {
 	background-color: #ffffff;
 	box-shadow: 0px 2px 15px rgba(0,0,0,0.1);
 
+	.post_stats {
+		margin: 0;
+		padding: 0;
+		padding-left: 33px;
+
+		p {
+			margin-bottom: 15px;
+			padding: 0;
+			font-style: italic;
+
+			span {
+				color:$color3;
+			}
+		}
+	}
+
 	.notation{
 		width:auto;
 		list-style:none;
@@ -973,8 +990,9 @@ article {
 		}
 	}
 
-	.action {
+	.action, {
 		padding: 20px;
+		padding-bottom: 0;
 		margin: 0;
 
 		.rank {
