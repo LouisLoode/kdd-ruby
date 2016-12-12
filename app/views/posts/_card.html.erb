@@ -76,7 +76,7 @@
         <div class="col-md-3 rating">
           <% if current_user && post.user_id != current_user.id %>
           <p id="ratings">
-            <%= score if Rate.find_by(:user_id => current_user.id, :post_id => post.id)%>
+            <%= score if Rate.find_by(:user_id => current_user.id, :post_id => post.id) %>
           </p>
           <p class="ta-note">Ta note</p>
           <% end %>
