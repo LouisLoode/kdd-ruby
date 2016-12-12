@@ -1,6 +1,8 @@
 <div class="container_profil">
     <div class="img_profil ">
+      <%= link_to show_user_path(:user_id => user.id) do %>
         <img src="<%= user.avatar.present? ? user.avatar : '/assets/Avatar_default.png' %>" alt="<%= user.name + " Avatar" %>" width="100%" height="100%" />
+      <% end %>
     </div>
     <div class="description_profil ">
         <p>

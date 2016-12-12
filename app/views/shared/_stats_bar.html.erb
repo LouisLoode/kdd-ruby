@@ -1,7 +1,9 @@
 <div class="headerfake">
   <div id="contentfake">
     <div class="img_fake">
+      <%= link_to show_user_path(:user_id => @user.id) do %>
       <img src="<%= @user.avatar.present? ? @user.avatar : '/assets/Avatar_default.png' %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="auto" />
+      <% end %>
     </div>
 
     <p class="name">
