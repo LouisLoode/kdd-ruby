@@ -1,5 +1,4 @@
 class Post < ApplicationRecord
-  require 'uri'
 
   searchkick autocomplete: [:url, :message]
   belongs_to :user

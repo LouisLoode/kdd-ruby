@@ -1,7 +1,7 @@
 <div class="headerfake">
   <div id="contentfake">
     <div class="img_fake">
-      <img src="<%= current_user.avatar.present? ? current_user.avatar : '/assets/Avatar_default.png' %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="auto" />
+      <img src="<%= @user.avatar.present? ? @user.avatar : '/assets/Avatar_default.png' %>" alt="<%= @user.name + " Avatar" %>" width="100%" height="auto" />
     </div>
 
     <p class="name">
@@ -11,11 +11,7 @@
           <li>
             <p class="title">Pertinence</p>
             <div class="content">
-              <p class="star star-full"></p>
-              <p class="star star-full"></p>
-              <p class="star star-full"></p>
-              <p class="star star-full"></p>
-              <p class="star star-empty"></p>
+              <%= render partial: 'shared/pertinence', locals: {user: @user} %>
             </div>
           </li>
           <%= link_to show_user_path(@user), class: "linkpage" do %>

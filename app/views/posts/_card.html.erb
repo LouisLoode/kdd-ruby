@@ -7,7 +7,7 @@ end
     <div class="row metadata">
         <div class="profil_img col-md-2">
           <%= link_to show_user_path(:user_id => post.user_id) do %>
-            <img src="<%= current_user.avatar.present? ? current_user.avatar : '/assets/Avatar_default.png' %>" alt="<%= user.name + " Avatar" %>" width="100%" height="auto" />
+            <img src="<%= post.user.avatar.present? ? post.user.avatar : '/assets/Avatar_default.png' %>" alt="<%= post.user.name + " Avatar" %>" width="100%" height="auto" />
           <% end %>
         </div>
         <div class="col-md-8 fix">

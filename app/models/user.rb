@@ -66,7 +66,7 @@ class User < ApplicationRecord
       posts.each do |post|
         result += post.average_ratings
       end
-      return (result.to_f / posts.size).round(1)
+      return self.pertinence = (result.to_f / posts.size).round(1)
     else
       return 0
     end
