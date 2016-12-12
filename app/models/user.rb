@@ -65,14 +65,11 @@ class User < ApplicationRecord
     if self.posts.size > 0
       self.posts.each do |post|
         if post.rates.count
-          puts post.rates.count
           result += post.average_ratings
           total_ratings += post.rates.count
         end
       end
-      self.update(pertinence: (result.round / total_ratings))
-    else
-      self.update(pertinence: 0)
+    self.update(pertinence: (result.round / total_ratings))
     end
   end
 
