@@ -1,7 +1,6 @@
 <% pertinence = @user.pertinence %>
-<% score = pertinence ? pertinence : 0; %>
-<p class="star <% if score >= 1 %>star-full<% else %>star-empty<% end %>"></p>
-<p class="star <% if score >= 2 %>star-full<% else %>star-empty<% end %>"></p>
-<p class="star <% if score >= 3 %>star-full<% else %>star-empty<% end %>"></p>
-<p class="star <% if score >= 4 %>star-full<% else %>star-empty<% end %>"></p>
-<p class="star <% if score == 5 %>star-full<% else %>star-empty<% end %>"></p>
+<p class="star <% if pertinence >= 1 %>star-full<% else %>star-empty<% end %>"></p>
+<p class="star <% if pertinence >= 2 %>star-full<% else %>star-empty<% end %>"></p>
+<p class="star <% if pertinence >= 3 %>star-full<% else %>star-empty<% end %>"></p>
+<p class="star <% if pertinence >= 4 %>star-full<% else %>star-empty<% end %>"></p>
+<p class="star <% if pertinence == 5 %>star-full<% else %>star-empty<% end %>"></p>

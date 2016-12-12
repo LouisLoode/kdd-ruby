@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20161208233833) do
     t.string   "github"
     t.string   "website"
     t.string   "avatar"
-    t.string   "pertinence"
+    t.integer  "pertinence",             default: 0
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false

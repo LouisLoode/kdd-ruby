@@ -15,14 +15,10 @@ class Post < ApplicationRecord
   validates :category_ids, presence: true
 
   def average_ratings
-    if self.total_ratings > 0
-      (Rate.where(post_id: self.id).sum(:score).to_f / self.total_ratings).round(1)
+    if self.rates.count > 0
+      (self.rates.sum(:score).to_f / self.rates.count).round(1)
     else
       return 0
     end
-  end
-
-  def total_ratings
-    Rate.where(post_id: self.id).count
   end
 end

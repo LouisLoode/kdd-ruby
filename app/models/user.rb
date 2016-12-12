@@ -59,16 +59,20 @@ class User < ApplicationRecord
                      OR user_id = :user_id", user_id: id)
   end
 
-  def pertinence
-    posts = Post.where(user_id: self.id)
+  def update_pertinence
     result = 0
-    if posts.size > 0
-      posts.each do |post|
-        result += post.average_ratings
+    total_ratings = 0
+    if self.posts.size > 0
+      self.posts.each do |post|
+        if post.rates.count
+          puts post.rates.count
+          result += post.average_ratings
+          total_ratings += post.rates.count
+        end
       end
-      return self.pertinence = (result.to_f / posts.size).round(1)
+      self.update(pertinence: (result.round / total_ratings))
     else
-      return 0
+      self.update(pertinence: 0)
     end
   end
 

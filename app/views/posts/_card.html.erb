@@ -1,8 +1,3 @@
-<%
-if defined?(@user)
-  user = @user
-end
-%>
 <article id="<%= post.id %>" class="onepost" onclick="<% link_to post_path(post)%>">
     <div class="row metadata">
         <div class="profil_img col-md-2">
@@ -87,7 +82,7 @@ end
           <% end %>
           <p>
             <!--  A METTRE EN FORME , average_ratings retourne la moyenne de tous les ratings du post, et total_ratings le nombre de vote différent -->
-            <%= post.average_ratings %> sur <%= post.total_ratings %> votes
+            <%= post.average_ratings %> sur <%= post.rates.count %> votes
           </p>
         </div>
         <div class="col-md-4 favoris">

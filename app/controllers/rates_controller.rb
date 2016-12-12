@@ -10,6 +10,8 @@ class RatesController < ApplicationController
       @rate = Rate.new(:user_id => current_user.id, :post_id => params[:post_id], :score => params[:score])
     end
     if @rate.save
+      user_owned = User.find(Post.find(params[:post_id]).user_id)
+      user_owned.update_pertinence
       respond_to do |format|
         format.html { redirect_to @rate }
         format.js
