@@ -122,7 +122,6 @@ ready = function() {
 
 
     $(".rank").mouseenter(function(){
-      console.log('in');
       var star1 = $( this ).find( ".star1" );
       var star2 = $( this ).find( ".star2" );
       var star3 = $( this ).find( ".star3" );
@@ -165,17 +164,15 @@ ready = function() {
          });
 
     });
+
     $(".rank").mouseleave(function(){
-        var rate = $('#ratings').html();
+        var rate = $(this.closest(".action")).find('#ratings').html();
         var rate = parseInt(rate);
-        $('.star').removeClass('star-full').addClass('star-empty');
+        $(this).find('.star').removeClass('star-full').addClass('star-empty');
         var i = 0;
-        $(".notation > a > li").each(function(n) {
+        $(this).find(".notation > a > li").each(function() {
             if(i<rate){
                 $(this).removeClass('star-empty').addClass('star-full');
-            }
-            else{
-              return false;
             }
             i++;
         });
@@ -225,14 +222,14 @@ ready = function() {
 
                 var element = $(this);
 
-                $('.sidebar').find('.dropdown > a').removeClass('clicked'); 
+                $('.sidebar').find('.dropdown > a').removeClass('clicked');
 
                 var allimg = $('.sidebar').find('.dropdown > a > .imgplus > img');
                 var allround =  $('.sidebar').find('.dropdown > a > .imgplus');
                 allround.css({borderColor:"#748DEF"});
-                allimg.attr("src","/assets/plus.svg");  
+                allimg.attr("src","/assets/plus.svg");
 
-      
+
                 element.addClass('clicked');
                 var img = element.find(".imgplus > img");
                 var round =  element.find(".imgplus");
@@ -240,14 +237,14 @@ ready = function() {
                 img.attr("src","/assets/moins.svg");
 
                 if(!element.parent().hasClass('open')){
-                  element.removeClass('clicked'); 
+                  element.removeClass('clicked');
                   var img = element.find(".imgplus > img");
                   var round =  element.find(".imgplus");
                   round.css({borderColor:"#748DEF"});
-                  img.attr("src","/assets/plus.svg"); 
-                }   
+                  img.attr("src","/assets/plus.svg");
+                }
 
-                e.stopPropagation();           
+                e.stopPropagation();
     });
 
 

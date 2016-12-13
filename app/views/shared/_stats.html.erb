@@ -2,14 +2,10 @@
   <div class="box">
     <p class="title">Pertinence</p>
     <div class="content">
-      <p class="star star-full"></p>
-      <p class="star star-full"></p>
-      <p class="star star-full"></p>
-      <p class="star star-full"></p>
-      <p class="star star-empty"></p>
+      <%= render partial: 'shared/pertinence', locals: {user: @user} %>
     </div>
   </div>
-  
+
   <div class="box<% if action_name === 'show' %> boxfocus<% end %>">
     <%= link_to show_user_path(@user), class: "linkpage" do %>
     <p class="title">Publications</p>
@@ -37,8 +33,7 @@
     <p id ="favorite_count" class="content"><%= @user.favorites.count %></p>
     <% end %>
   </div>
-  <% if current_user %>
-  <% if @user != current_user %>
+  <% if current_user && @user != current_user %>
   <div id="follow_form" class="box">
     <% if current_user.following?(@user) %>
     <%= render 'shared/unfollow' %>
@@ -50,7 +45,6 @@
   <div class="box">
     <%= link_to 'Éditer le profil', edit_user_registration_path, :class => "btnedit" %>
   </div>
-  <% end %>
   <% end %>
 
 </div>

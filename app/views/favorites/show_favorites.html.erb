@@ -19,7 +19,7 @@
                   <% if @favorites.size > 0 %>
                     <% @favorites.each do |favorite| %>
                       <%= link_to posts_path(:post_id => favorite.post_id) do %>
-                        <%= render partial: 'posts/card', locals: {post: Post.find(favorite.post_id), user: @user} %>
+                        <%= render partial: 'posts/card', locals: {post: Post.find(favorite.post_id)} %>
                       <% end %>
                     <% end %>
                   <% else %>
