@@ -16,7 +16,7 @@ class Post < ApplicationRecord
 
   def average_ratings
     if self.rates.count > 0
-      (self.rates.sum(:score) / self.rates.count).round(1)
+      (self.rates.sum(:score).to_f / self.rates.count).round(1)
     else
       return 0
     end
