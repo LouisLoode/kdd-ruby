@@ -23,7 +23,7 @@ class RatesController < ApplicationController
 
   def require_permission
     if current_user.id == Post.find(params[:post_id]).user_id
-      redirect_to request.referrer || root_url
+      redirect_to main_url
     end
   end
 
