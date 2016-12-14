@@ -1,5 +1,5 @@
 class RatesController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def create
     @rate = Rate.find_by(:user_id => current_user.id, :post_id => params[:post_id])
