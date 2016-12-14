@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   skip_before_action :verify_authenticity_token, :only => :create
   before_action :correct_user,   only: :destroy
   prepend_before_action :verify_authenticity_token, only: [:destroy]
+  before_action :require_permission, only: [:destroy, :update, :edit]
 
   def autocomplete
     render json: Post.search(params[:query], autocomplete: false, limit: 10).map do |post|
@@ -79,5 +80,11 @@ class PostsController < ApplicationController
     def correct_user
       @post = current_user.posts.find_by(id: params[:id])
       redirect_to root_url if @post.nil?
+    end
+
+    def require_permission
+      if current_user.id != Post.find(params[:id]).user_id
+        redirect_to main_path
+      end
     end
 end

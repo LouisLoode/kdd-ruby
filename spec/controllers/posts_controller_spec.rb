@@ -54,6 +54,21 @@ RSpec.describe PostsController, :type => :controller do
 
       expect(response.body).to_not include("Modifier cette publication")
     end
+
+    it "can't edit a post if post is not owned by current_user" do
+      eileen = User.create(name: "Eileen #{rand(1000)}", email: "Eileen@rs.com", password: "testtest", password_confirmation: "testtest")
+      categorie = Category.create(name: "Mycategorie")
+      a_post = Post.create(user: eileen, message: "Hello", url: "http://nodejs.com", category_ids: categorie.id)
+      user = User.create(name: "NewUser #{rand(1000)}", email: "Eildsdsdsseen@rs.com", password: "testtest", password_confirmation: "testtest")
+      sign_in user
+
+      get :edit, params: {id: a_post.id}
+
+      expect(response).to redirect_to(main_path)
+      expect(response.body).to_not include("Modifier cette publication")
+      expect(response.body).to_not include("#{a_post.url}")
+      expect(response.body).to_not include("#{a_post.message}")
+    end
   end
 
   describe "PUT update" do
