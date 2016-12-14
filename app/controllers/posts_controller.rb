@@ -41,10 +41,11 @@ class PostsController < ApplicationController
     @post.og_images = og.images[0] # og.images # => ["http://ogp.me/logo.png"]
     @post.user_id = current_user.id #or whatever is you session name
     if @post.save
+      flash[:success] = 'La publication a bien été publiée'
       redirect_to show_profile_path
     else
       @hierarchy = Category.where(public: true, parent_id: nil)
-      flash[:success] = 'La publication a bien été publiée'
+      flash[:error] = 'Une erreur est survenue'
       redirect_to request.referrer || root_url
     end
   end
