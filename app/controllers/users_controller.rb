@@ -15,7 +15,7 @@
      elsif params[:id]
        @user = User.find(params[:id])
        @posts = Post.where(:user_id => params[:id]).paginate(:page => params[:page]).order(created_at: :desc)
-     elsif !params[:id] && current_user
+     elsif !params[:id] && authenticate_user!
        @user = User.find(current_user.id)
        @posts = Post.where(:user_id => current_user.id).paginate(:page => params[:page]).order(created_at: :desc)
      end
