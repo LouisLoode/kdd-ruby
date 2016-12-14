@@ -28,4 +28,7 @@ Rails.application.routes.draw do
   resources :posts
 
   resources :categories, only: [:index, :show, :new]
+
+  # IF NO ROUTE MATCH REDIRECT TO 404
+  get '*unmatched_route', to: 'application#render_404'
 end

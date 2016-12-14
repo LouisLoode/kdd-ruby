@@ -1,7 +1,6 @@
 require 'opengraph_parser'
 
 class PostsController < ApplicationController
-  # before_filter :authenticate_user!
   before_action :authenticate_user!, except: [ :show, :autocomplete ]
   skip_before_action :verify_authenticity_token, :only => :create
   before_action :correct_user,   only: :destroy
