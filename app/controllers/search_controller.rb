@@ -1,6 +1,7 @@
 class SearchController < ApplicationController
   def index
     @results = Searchkick.search params[:query], index_name: [Post, Category, User]
+    @query = params[:query]
     @category = false
     @post = false
     @user = false
