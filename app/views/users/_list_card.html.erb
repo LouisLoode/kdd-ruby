@@ -12,11 +12,12 @@
       <div class="pertinence">
         <p class="text">Pertinence</p>
         <div class="star">
-          <li class="star-full"></li>
-          <li class="star-full"></li>
-          <li class="star-full"></li>
-          <li class="star-full"></li>
-          <li class="star-full"></li>
+          <% pertinence = user.pertinence %>
+          <li class="<% if pertinence >= 1 %>star-full<% else %>star-empty<% end %>"></li>
+          <li class="<% if pertinence >= 2 %>star-full<% else %>star-empty<% end %>"></li>
+          <li class="<% if pertinence >= 3 %>star-full<% else %>star-empty<% end %>"></li>
+          <li class="<% if pertinence >= 4 %>star-full<% else %>star-empty<% end %>"></li>
+          <li class="<% if pertinence == 5 %>star-full<% else %>star-empty<% end %>"></li>
         </div>
       </div>
       <p class="partage"><span><%= user.posts.count %></span> Partages de savoir</p>

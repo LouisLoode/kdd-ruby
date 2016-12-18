@@ -1,11 +1,11 @@
 require 'opengraph_parser'
 
 class PostsController < ApplicationController
-  # before_filter :authenticate_user!
   before_action :authenticate_user!, except: [ :show, :autocomplete ]
   skip_before_action :verify_authenticity_token, :only => :create
   before_action :correct_user,   only: :destroy
   prepend_before_action :verify_authenticity_token, only: [:destroy]
+  before_action :require_permission, only: [:destroy, :update, :edit]
 
   def autocomplete
     render json: Post.search(params[:query], autocomplete: false, limit: 10).map do |post|
@@ -41,10 +41,11 @@ class PostsController < ApplicationController
     @post.og_images = og.images[0] # og.images # => ["http://ogp.me/logo.png"]
     @post.user_id = current_user.id #or whatever is you session name
     if @post.save
+      flash[:success] = 'La publication a bien été publiée'
       redirect_to show_profile_path
     else
       @hierarchy = Category.where(public: true, parent_id: nil)
-      flash[:success] = 'La publication a bien été publiée'
+      flash[:error] = 'Une erreur est survenue'
       redirect_to request.referrer || root_url
     end
   end
@@ -78,5 +79,11 @@ class PostsController < ApplicationController
     def correct_user
       @post = current_user.posts.find_by(id: params[:id])
       redirect_to root_url if @post.nil?
+    end
+
+    def require_permission
+      if current_user.id != Post.find(params[:id]).user_id
+        redirect_to main_path
+      end
     end
 end
