@@ -34,15 +34,15 @@ application up and running.
 
 ### How to run the test suit
 
-'How to make sure all gem are installed'
+##### How to make sure all gem are installed
 
     bundle install
 
-'How to prepare the db test for test suite'
+##### How to prepare the db test for test suite
 
     rake db:test:prepare
 
-'How to lunch all test in /spec/ folder'
+##### How to lunch all test in /spec/ folder
 
     bundle exec rspec
 
