@@ -32,7 +32,7 @@ rake db:setup
 bundle install // too make sure all gem installed
 rake db:test:prepare // too prepare the db test for test suite
 bundle exec rspec // too lunch all test
-bundle exec rspec spec/models // exemple to how lunch just some test (here all in models folder)
+bundle exec rspec spec/models // exemple to how lunch just some test (here all in models folder) 
 
 * How to launch webapp in development mode
 
