@@ -10,7 +10,7 @@ application up and running.
 
 ### Things you need to do:
 #### System dependencies
-- Install ElasticSearch**
+- Install ElasticSearch
     brew install elasticsearch
 - Lunch elasticsearch and mysql
 - Install your gems
