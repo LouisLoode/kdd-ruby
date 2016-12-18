@@ -9,7 +9,7 @@ application up and running.
 #### Ruby and rails version
     Ruby 2.3.1
     Rails 5.0.0.1
-    
+
 #### Server deployment to test it
 [https://kamadudev.herokuapp.com/](https://kamadudev.herokuapp.com/)
 
@@ -27,19 +27,18 @@ application up and running.
     bundle install
 
 ### Config your BDD dans dependencies
-
 ##### Deploy your bdd
 
     rake db:drop
 
 ##### Database initialization
+>>>>>>> fef0ecfdc871c1a4c49c1f85dde12d6ef38d7cfc
 
     rake db:setup
     rake db:create
     rake db:migrate
 
 ### How to run the test suit
-
 ##### How to make sure all gem are installed
 
     bundle install
@@ -61,11 +60,10 @@ application up and running.
     rails server -e development -b 0.0.0.0 -p 3000
 
 ### Services (job queues, cache servers, search engines, etc.)
-
 ##### Reindex all file for the search function
 
     rake searchkick:reindex:all
-    
+
 ##### Lunch your webserver
 
     curl -XDELETE "http://localhost:9200/\*"
