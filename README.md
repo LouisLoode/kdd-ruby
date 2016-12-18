@@ -39,5 +39,6 @@ to lunch all file in spec/exemple
 Reindex all file for the search function
 * 'rake searchkick:reindex:all'
 
-curl -XDELETE "http://localhost:9200/*"
+curl -XDELETE "http://localhost:9200/\*"
+
 ### Deployment instructions
