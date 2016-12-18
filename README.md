@@ -3,6 +3,8 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+
+--------------------
 ### Things you may want to cover
 #### Ruby and rails version
     Ruby 2.3.1
@@ -11,6 +13,8 @@ application up and running.
 #### Server deployment to test it
 [https://kamadudev.herokuapp.com/](https://kamadudev.herokuapp.com/)
 
+
+--------------------
 ### Things you need to do
 #### System dependencies
 ##### Install elasticsearch
