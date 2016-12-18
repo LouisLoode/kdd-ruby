@@ -7,10 +7,12 @@ application up and running.
 #### Ruby and rails version
     Ruby 2.3.1
     Rails 5.0.0.1
+    
+#### Server deployment to test it
+    https://kamadudev.herokuapp.com/
 
 ### Things you need to do
 #### System dependencies
-
 ##### Install elasticsearch
 
     brew install elasticsearch
