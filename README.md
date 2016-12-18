@@ -5,31 +5,31 @@ application up and running.
 
 ### Things you may want to cover:
 #### Ruby version
-- 2.3.1
+    2.3.1
 
 #### System dependencies
-Install ElasticSearch:
-* 'brew install elasticsearch'
-Lunch elasticsearch and mysql
+1. Install ElasticSearch:
+    'brew install elasticsearch'
+2. Lunch elasticsearch and mysql
 
 ### Config your BDD dans dependencies
-#### Install your gems
+1. #### Install your gems
     'bundle install'
 
-#### Deploy your bdd
+2. Deploy your bdd
     'rake db:drop'
 
-#### Database initialization
+3. Database initialization
     'rake db:setup'
 
 ### How to run the test suit
-to make sure all gem installed
+1. How to make sure all gem are installed
     'bundle install'
-to prepare the db test for test suite
+2. How to prepare the db test for test suite
     'rake db:test:prepare'
-to lunch all test in /spec/ folder
+3. How to lunch all test in /spec/ folder
     'bundle exec rspec'
-to lunch all file in spec/exemple
+4. How to lunch all file in spec/exemple
     'bundle exec rspec spec/exemple'
 
 ### How to launch webapp in development mode
