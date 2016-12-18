@@ -11,36 +11,36 @@ application up and running.
 ### Things you need to do:
 #### System dependencies
 1. ##### Install ElasticSearch**
-    'brew install elasticsearch'
+    brew install elasticsearch
 2. ##### Lunch elasticsearch and mysql
 3. ##### Install your gems
-    'bundle install'
+    bundle install
 
 ### Config your BDD dans dependencies
 1. ##### Deploy your bdd
-    'rake db:drop'
+    rake db:drop
 
 2. ##### Database initialization
-    'rake db:setup'
+    rake db:setup
     ----------------- or ----------------
-    'rake db:create'
-    'rake db:migrate'
+    rake db:create
+    rake db:migrate
 ### How to run the test suit
 1. ##### How to make sure all gem are installed
-    'bundle install'
+    bundle install
 2. ##### How to prepare the db test for test suite
-    'rake db:test:prepare'
+    rake db:test:prepare
 3. ##### How to lunch all test in /spec/ folder
-    'bundle exec rspec'
+    bundle exec rspec
 4. ##### How to lunch all file in spec/exemple
-    'bundle exec rspec spec/exemple'
+    bundle exec rspec spec/exemple
 
 ### How to launch webapp in development mode
-    'rails server -e development -b 0.0.0.0 -p 3000'
+    rails server -e development -b 0.0.0.0 -p 3000
 
 ### Services (job queues, cache servers, search engines, etc.)
 Reindex all file for the search function
-    'rake searchkick:reindex:all'
+    rake searchkick:reindex:all
 
 curl -XDELETE "http://localhost:9200/\*"
 
