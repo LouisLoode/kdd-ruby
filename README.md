@@ -3,12 +3,12 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-### Things you may want to cover:
+### Things you may want to cover
 #### Ruby and rails version
     Ruby 2.3.1
     Rails 5.0.0.1
 
-### Things you need to do:
+### Things you need to do
 #### System dependencies
 - Install ElasticSearch
     brew install elasticsearch
@@ -22,7 +22,6 @@ application up and running.
 
 - Database initialization
     rake db:setup
-    ----------------- or ----------------
     rake db:create
     rake db:migrate
 ### How to run the test suit
