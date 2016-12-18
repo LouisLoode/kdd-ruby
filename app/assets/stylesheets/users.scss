@@ -311,6 +311,7 @@ small{
 .fixform{
 	margin:0!important;
 	padding-right:0 !important;
+	padding-left:25px !important;
 }
 .container_posts{
 	padding:0 !important;
@@ -784,7 +785,8 @@ article {
 		p {
 			margin-bottom: 15px;
 			padding: 0;
-			font-style: italic;
+			font-size:11px;
+			color:grey;
 
 			span {
 				color:$color3;

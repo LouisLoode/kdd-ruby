@@ -213,6 +213,15 @@ ready = function() {
     //     }
     // });
 
+    $(window).click(function() {
+      $('.sidebar').find('.dropdown > a').removeClass('clicked');
+      var allimg = $('.sidebar').find('.dropdown > a > .imgplus > img');
+                var allround =  $('.sidebar').find('.dropdown > a > .imgplus');
+                allround.css({borderColor:"#748DEF"});
+                allimg.attr("src","/assets/plus.svg");
+    });
+
+
 
 		// Sidebar
     var i_click = 0;
