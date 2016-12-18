@@ -5,5 +5,4 @@ class Favorite < ApplicationRecord
   validates :user_id, numericality: true, presence: true
   validates :post_id, numericality: true, presence: true
 
-
 end

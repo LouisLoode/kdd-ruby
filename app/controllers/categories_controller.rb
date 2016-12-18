@@ -8,15 +8,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def index
-    @hierarchy = Category.where(public: true, parent_id: nil)
-    @categories = if params[:query].present?
-        Category.search(params[:query])
-      else
-        Category.where(public: true)
-      end
-  end
-
   def show
     @hierarchy = Category.where(public: true, parent_id: nil)
     @category = Category.find(params[:id])
@@ -24,10 +15,6 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
-  end
-
-  def edit
-    @category = Category.find(params[:id])
   end
 
   def create
@@ -39,30 +26,12 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def update
-    @category = Category.find(params[:id])
-
-    if @category.update(category_params)
-      redirect_to @category
-    else
-      render 'edit'
-    end
-  end
-
-  def destroy
-    @category = Category.find(params[:id])
-    @category.destroy
-
-    redirect_to categories_path
-  end
-
   def get_all_oses
     @hierarchy = Category.where(public: true)
   end
 
   private
     def category_params
-      params.require(:category).permit(:name, :description, :public, :parent_id)
+      params.require(:category).permit(:name, :description, :parent_id)
     end
-
 end

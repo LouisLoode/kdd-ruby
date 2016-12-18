@@ -1,0 +1,6 @@
+<% pertinence = @user.pertinence %>
+<p class="star <% if pertinence >= 1 %>star-full<% else %>star-empty<% end %>"></p>
+<p class="star <% if pertinence >= 2 %>star-full<% else %>star-empty<% end %>"></p>
+<p class="star <% if pertinence >= 3 %>star-full<% else %>star-empty<% end %>"></p>
+<p class="star <% if pertinence >= 4 %>star-full<% else %>star-empty<% end %>"></p>
+<p class="star <% if pertinence == 5 %>star-full<% else %>star-empty<% end %>"></p>

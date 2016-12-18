@@ -1,5 +1,5 @@
-
 <div id="fixfoooter">
+<%= link_to "Retour",  url_for(:back), :class => "backback" %>
 <%= form_for :post, url: post_path(@post), method: :patch, html: {class: "fixnewpost add_post form-signup"} do |f| %>
 
   <h2>Modifier cette publication</h2>
@@ -25,8 +25,7 @@
     <%= f.text_area :message, :class => "form-control", placeholder: "Message" %>
 
     <%= f.label :category_id, :class => "sr-only" %><br>
-
-    <select name="post[category_ids][]" id="post_category_id" class="selectpicker form-control" multiple data-max-options="3" data-live-search="true" title="Sujet" data-selected-text-format="count > 2" data-actions-box="true" data-multiple-separator=", " data-selected-text-format="values">
+    <select name="post[category_ids][]" id="post_category_id" class="selectpicker form-control" multiple data-max-options="3" data-live-search="true" title="Sujet" data-selected-text-format="count > 2" data-multiple-separator=", " data-selected-text-format="values">
       <% @hierarchy.each do |parent| %>
       <!-- <%= @post.category_ids %> -->
       <option <% if @post.category_ids.include? parent.id %>selected<% end %> value="<%= parent.id %>" data-tokens="<%= parent.id %>"><b><%= parent.name %></b></option>
@@ -36,16 +35,7 @@
         <option data-divider="true"></option>
       <% end %>
     </select>
-
-
-
-
-  <p>
-    <%= f.submit "Modifier", :class => "btn btn-lg btn-primary btn-block" %>
-  </p>
-
-
+  <p><%= f.submit "Modifier", :class => "btn btn-lg btn-primary btn-block" %></p>
 <% end %>
 
 </div>
-

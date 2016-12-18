@@ -112,7 +112,7 @@ ready = function() {
       displayKey: 'name',
       source: users,
       templates: {
-        header: '<h3 class="parent-name">Users</h3>'
+        header: '<h3 class="parent-name">Utilisateurs</h3>'
       }
     });
 
@@ -121,41 +121,41 @@ ready = function() {
 		var j = 1;
 
 
-    $(".notation").mouseenter(function(){
+    $(".rank").mouseenter(function(){
       var star1 = $( this ).find( ".star1" );
       var star2 = $( this ).find( ".star2" );
       var star3 = $( this ).find( ".star3" );
       var star4 = $( this ).find( ".star4" );
       var star5 = $( this ).find( ".star5" );
-         star1.mouseenter(function(){
+         star1.mouseover(function(){
               $(this).removeClass('star-empty').addClass('star-full');
               star2.removeClass('star-full').addClass('star-empty');
               star3.removeClass('star-full').addClass('star-empty');
               star4.removeClass('star-full').addClass('star-empty');
               star5.removeClass('star-full').addClass('star-empty');
          });
-         star2.mouseenter(function(){
+         star2.mouseover(function(){
               $(this).removeClass('star-empty').addClass('star-full');
               star1.removeClass('star-empty').addClass('star-full');
               star3.removeClass('star-full').addClass('star-empty');
               star4.removeClass('star-full').addClass('star-empty');
               star5.removeClass('star-full').addClass('star-empty');
          });
-         star3.mouseenter(function(){
+         star3.mouseover(function(){
               $(this).removeClass('star-empty').addClass('star-full');
               star1.removeClass('star-empty').addClass('star-full');
               star2.removeClass('star-empty').addClass('star-full');
               star4.removeClass('star-full').addClass('star-empty');
               star5.removeClass('star-full').addClass('star-empty');
          });
-         star4.mouseenter(function(){
+         star4.mouseover(function(){
               $(this).removeClass('star-empty').addClass('star-full');
               star1.removeClass('star-empty').addClass('star-full');
               star2.removeClass('star-empty').addClass('star-full');
               star3.removeClass('star-empty').addClass('star-full');
               star5.removeClass('star-full').addClass('star-empty');
          });
-         star5.mouseenter(function(){
+         star5.mouseover(function(){
               $(this).removeClass('star-empty').addClass('star-full');
               star1.removeClass('star-empty').addClass('star-full');
               star2.removeClass('star-empty').addClass('star-full');
@@ -165,52 +165,98 @@ ready = function() {
 
     });
 
-
-
-
-    $('.coeur').mouseover(function(){
-      var coeur = $(this);
-       coeur.removeClass('coeur1').addClass('coeur2');
-
-       coeur.click(function(){
-          coeur.removeClass('coeur2').addClass('coeur3');
-          setTimeout(function(){
-               coeur.removeClass('coeur3').addClass('coeur4');
-          },1200);
-       });
+    $(".rank").mouseleave(function(){
+        var rate = $(this.closest(".action")).find('#ratings').html();
+        var rate = parseInt(rate);
+        $(this).find('.star').removeClass('star-full').addClass('star-empty');
+        var i = 0;
+        $(this).find(".notation > a > li").each(function() {
+            if(i<rate){
+                $(this).removeClass('star-empty').addClass('star-full');
+            }
+            i++;
+        });
     });
-    
-    $('.coeur').mouseleave(function(){
-        if($(this).hasClass('coeur2')){
-           $(this).removeClass('coeur2').addClass('coeur1');
-        }
+
+
+
+    $('article').mouseover(function(){
+       $(this).find('.edit-post').css({opacity:"1"});
     });
+    $('article').mouseout(function(){
+       $(this).find('.edit-post').css({opacity:"0"});
+    });
+
+    $('.coeur_add').mouseover(function(){
+         $(this).attr("src","/assets/coeur3.png");
+    });
+    $('.coeur_add').mouseout(function(){
+         $(this).attr("src","/assets/coeur2.png");
+    });
+
+
+    // $('.coeur').mouseover(function(){
+    //   var coeur = $(this);
+    //    coeur.removeClass('coeur1').addClass('coeur2');
+
+    //    coeur.click(function(){
+    //       coeur.removeClass('coeur2').addClass('coeur3');
+    //       setTimeout(function(){
+    //            coeur.removeClass('coeur3').addClass('coeur4');
+    //       },1200);
+    //    });
+    // });
+
+    // $('.coeur').mouseleave(function(){
+    //     if($(this).hasClass('coeur2')){
+    //        $(this).removeClass('coeur2').addClass('coeur1');
+    //     }
+    // });
+
+    $(window).click(function() {
+      $('.sidebar').find('.dropdown > a').removeClass('clicked');
+      var allimg = $('.sidebar').find('.dropdown > a > .imgplus > img');
+                var allround =  $('.sidebar').find('.dropdown > a > .imgplus');
+                allround.css({borderColor:"#748DEF"});
+                allimg.attr("src","/assets/plus.svg");
+    });
+
 
 
 		// Sidebar
-    var drop_li = $('.sidebar').find('.dropdown > a');
     var i_click = 0;
 
-    drop_li.click(function(){
+    $('.sidebar').find('.dropdown > a').click(function(){
 
-              if(i_click == 0){
-                $(this).addClass('clicked');
-                var img = $(".imgplus > img");
-                var round =  $(".imgplus");
+
+                var element = $(this);
+
+                $('.sidebar').find('.dropdown > a').removeClass('clicked');
+
+                var allimg = $('.sidebar').find('.dropdown > a > .imgplus > img');
+                var allround =  $('.sidebar').find('.dropdown > a > .imgplus');
+                allround.css({borderColor:"#748DEF"});
+                allimg.attr("src","/assets/plus.svg");
+
+
+                element.addClass('clicked');
+                var img = element.find(".imgplus > img");
+                var round =  element.find(".imgplus");
                 round.css({borderColor:"#FFF"});
                 img.attr("src","/assets/moins.svg");
-                i_click = 1;
-              }
-              else{
-                $(this).removeClass('clicked');
-                var img = $(".imgplus > img");
-                var round =  $(".imgplus");
-                round.css({borderColor:"#748DEF"});
-                img.attr("src","/assets/plus.svg");
-                i_click = 0;
-              }
 
+                if(!element.parent().hasClass('open')){
+                  element.removeClass('clicked');
+                  var img = element.find(".imgplus > img");
+                  var round =  element.find(".imgplus");
+                  round.css({borderColor:"#748DEF"});
+                  img.attr("src","/assets/plus.svg");
+                }
+
+                e.stopPropagation();
     });
+
+
 
 		// Profil card
 		$(document).on('scroll', function() {

@@ -25,35 +25,27 @@
 		<% end %>
 		<ul class="nav navbar-nav navbar-right">
 			<% if user_signed_in? %>
-					<li id="user_menu" class="dropdown user_menu">
-							<div class="cont_img">
-							<img src="
-								<% if !current_user.avatar.blank? %>
-								<%= current_user.avatar %>
-								<% else %>
-								/assets/louisloode.jpg
-								<% end %>" alt="<%= current_user.name + " Avatar" %>" height="50px" width="50px" />
-							</div>
+			<li id="user_menu" class="dropdown user_menu">
+				<div class="cont_img">
+					<%= link_to image_tag(current_user.avatar.present? ? current_user.avatar : '/assets/Avatar_default.png'), show_profile_path %>
+				</div>
 
-							<a id="linkname" href="#" class="namelink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@<%= current_user.name %>
-							<span class="caret"></span>
-							</a>
+				<a id="linkname" href="#" class="namelink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@<%= current_user.name %>
+					<span class="caret"></span>
+				</a>
 
-							<ul id="dropdown-menu" class="dropdown-menu">
-								<li class="linkdrop"><%= link_to 'Voir mon profil', show_profile_path %></li>
-								<li class="linkdrop"><%= link_to 'Modifier mon profil', edit_user_registration_path %></li>
-								<li class="divider"></li>
-								<li class="linkdrop"><%= link_to 'Poster une ressource', new_post_path %></li>
-								<li class="linkdrop"><%= link_to 'Catégories', categories_path %></li>
-								<li class="divider"></li>
-								<li class="signout"><%= link_to "Déconnexion", destroy_user_session_path, :method => :get %></li>
-							</ul>
+				<ul id="dropdown-menu" class="dropdown-menu">
+					<li class="linkdrop"><%= link_to 'Voir mon profil', show_profile_path %></li>
+					<li class="linkdrop"><%= link_to 'Modifier mon profil', edit_user_registration_path %></li>
+					<li class="divider"></li>
+					<li class="signout"><%= link_to "Déconnexion", destroy_user_session_path, :method => :get %></li>
+				</ul>
 
-					</li>
+			</li>
 
-				<% else %>
-					<li id="login"><%= link_to "Connexion", new_user_session_path %></li>
-				<% end %>
-			</ul>
-		</div><!-- /.navbar-collapse -->
-	</nav>
+			<% else %>
+			<li id="login"><%= link_to "Connexion", new_user_session_path %></li>
+			<% end %>
+		</ul>
+	</div><!-- /.navbar-collapse -->
+</nav>

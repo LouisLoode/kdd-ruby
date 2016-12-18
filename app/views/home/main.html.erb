@@ -1,31 +1,29 @@
-
 <div class="nomcategorie">
 	<img src="/assets/femme.png">
-	<p>Javascript</p>
+	<p>Votre fil d'actualité</p>
 </div>
 
 <div id="part" class="mainmargin container gover">
-    <div id="fixprofil" class="row">
+	<div id="fixprofil" class="row">
 
-        <div class="fixleft col-xs-12 col-sm-2 col-md-3">
-					<%= render partial: 'shared/widget_categories', locals: {hierarchy: @hierarchy} %>
-        </div>
+		<div class="fixleft col-xs-12 col-sm-2 col-md-3">
+			<%= render partial: 'shared/widget_categories', locals: {hierarchy: @hierarchy} %>
+		</div>
 
-        <div class="col-md-9">
-                <div id="list_posts_main" class="fixcenter row col-md-7">
-					<% if @feed_items.size > 0 %>
-					  <% @feed_items.each do |post| %>
-					    <%= render partial: 'posts/card', locals: {post: post, user: @user} %>
-					  <% end %>
-						<%= will_paginate @feed_items %>
-					<% else %>
-						<p class="zerorelation text-center">Vous ne suivez personne pour l'instant ou bien vous n'avez encore rien publié</p>
-					<% end %>
-                </div>
-                <div class="fixright col-md-5">
-                  <%= render partial: 'posts/form'%>
-                </div>
-        
-        </div>
-    </div>
+		<div class="col-md-9">
+			<div id="list_posts_main" class="fixcenter row col-md-7">
+				<% if @feed_items.size > 0 %>
+				<% @feed_items.each do |post| %>
+				<%= render partial: 'posts/card', locals: {post: post, user: @user} %>
+				<% end %>
+				<%= will_paginate @feed_items %>
+				<% else %>
+				<p class="zerorelation text-center">Vous ne suivez personne pour l'instant ou bien vous n'avez encore rien publié</p>
+				<% end %>
+			</div>
+			<div class="fixright col-md-5">
+				<%= render partial: 'posts/form'%>
+			</div>
+		</div>
+	</div>
 </div>

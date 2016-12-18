@@ -1,32 +1,18 @@
-
-<%
-if defined?(@user)
-  user = @user
-end
-%>
-
-
-<article id="<%= post.id %>" onclick="<% link_to post_path(post)%>">
+<article id="<%= post.id %>" class="onepost" onclick="<% link_to post_path(post)%>">
     <div class="row metadata">
         <div class="profil_img col-md-2">
-          <%= post.user_id %>
           <%= link_to show_user_path(:user_id => post.user_id) do %>
-            <img src="
-            <% if !user.avatar.present? %>
-            <%= user.avatar %>
-            <% else %>
-            /assets/louisloode.jpg
-            <% end %>" alt="<%= user.name + " Avatar" %>" width="100%" height="auto" />
+            <img src="<%= post.user.avatar.present? ? post.user.avatar : '/assets/Avatar_default.png' %>" alt="<%= post.user.name + " Avatar" %>" width="100%" height="auto" />
           <% end %>
         </div>
         <div class="col-md-8 fix">
             <p class="name_post"><%= link_to show_user_path(:user_id => post.user_id) do %><%= "@" + post.user.name %><% end %></p>
             <% if current_user && post.user_id == current_user.id %>
               <div class="edit-post">
-                <%= link_to 'Éditer', edit_post_path(post) %>
-                <%= link_to 'Supprimer', post_path(post),
+                <%= link_to '', edit_post_path(post), :class => "aedit" %>
+                <%= link_to '', post_path(post),
                         method: :delete,
-                        data: { confirm: 'Êtes vous sûr?' }%>
+                        data: { confirm: 'Êtes vous sûr de vouloir supprimer cette publication ?' }, :class => "adelete"%>
               </div>
               <% end %>
             <div class="clear"></div>
@@ -46,13 +32,10 @@ end
         <div class="col-md-12">
             <div class="content_post">
               <p><%= post.message%></p>
-
             </div>
             <a href="<%= post.url %>" title="<%= post.url %>">
             <div class="iframe_post">
-                
                 <img src="<%= post.og_images %>" width="100%" height="300px" />
-                
                 <h3><%= post.og_title%></h3>
                 <p><%= post.og_description%></p>
                 <small><%= post.url%></small>
@@ -61,7 +44,7 @@ end
         </div>
     </div>
     <div class="row action">
-        <div class="col-md-4 rank">
+        <div class="col-md-5 rank">
             <ul id="notation" class="notation">
               <% if current_user && post.user_id != current_user.id %>
               <% rate = Rate.find_by(:user_id => current_user.id, :post_id => post.id) %>
@@ -90,11 +73,12 @@ end
             </ul>
         </div>
 
-        <div class="col-md-4 rating">
+        <div class="col-md-3 rating">
           <% if current_user && post.user_id != current_user.id %>
           <p id="ratings">
-          <%= score if Rate.find_by(:user_id => current_user.id, :post_id => post.id)%>
+            <%= score if Rate.find_by(:user_id => current_user.id, :post_id => post.id) %>
           </p>
+          <p class="ta-note">Ta note</p>
           <% end %>
         </div>
         <div class="col-md-4 favoris">
@@ -105,8 +89,9 @@ end
               <%= render partial: 'shared/remove_favorite', locals: {post_id: post.id} %>
             <% end %>
           <% end %>
-
         </div>
     </div>
+    <div class="row post_stats">
+      <p>Note de <span><%= post.average_ratings %></span> sur <span><%= post.rates.count %></span> votes</p>
+    </div>
 </article>
-

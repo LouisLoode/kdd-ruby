@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
+  rescue_from ActionController::RoutingError, with: :render_404
   helper_method :how_much_time
 
   def how_much_time(params)
@@ -18,6 +20,10 @@ class ApplicationController < ActionController::Base
     elsif diff >= (60*60*24*365)
     	return (diff/(60*60*24*30*365)).to_s + " Y"
     end
+  end
+
+  def render_404
+    render :file => '/public/404.html', status => 404, :layout => false
   end
 
 end
