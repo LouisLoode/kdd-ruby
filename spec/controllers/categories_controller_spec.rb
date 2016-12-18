@@ -32,8 +32,8 @@ RSpec.describe CategoriesController, :type => :controller do
         expect(categorie.name).to eq("MyNewCategorie")
         expect(categorie.description).to eq("Something")
         expect(categorie.parent_id).to eq(nil)
-        expect(categorie.public).to include(0)
-        
+        expect(categorie.public).to eq(false)
+
       end
     end
 end
