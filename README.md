@@ -9,7 +9,7 @@ application up and running.
     Rails 5.0.0.1
     
 #### Server deployment to test it
-    (https://kamadudev.herokuapp.com/)
+    [https://kamadudev.herokuapp.com/](https://kamadudev.herokuapp.com/)
 
 ### Things you need to do
 #### System dependencies
