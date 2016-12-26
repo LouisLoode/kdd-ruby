@@ -32,7 +32,6 @@ application up and running.
     rake db:drop
 
 ##### Database initialization
->>>>>>> fef0ecfdc871c1a4c49c1f85dde12d6ef38d7cfc
 
     rake db:setup
     rake db:create
